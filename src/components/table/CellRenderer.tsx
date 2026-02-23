@@ -67,6 +67,8 @@ export function CellRenderer({ rowIndex, colIndex }: CellRendererProps) {
         <PopperTableCell
           value={value as string}
           triggerText={column.triggerText}
+          isEditing={isEditing}
+          onExitEdit={onExitEdit}
         />
       )
     default:

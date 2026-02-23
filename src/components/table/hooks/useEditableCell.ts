@@ -26,9 +26,7 @@ export function useEditableCell<T>({
 
   function handleKeyDown(e: React.KeyboardEvent) {
     if (
-      ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "Tab"].includes(
-        e.key
-      )
+      ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "Tab"].includes(e.key)
     ) {
       e.stopPropagation()
     }
