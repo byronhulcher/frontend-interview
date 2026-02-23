@@ -1,4 +1,10 @@
-import { useEffect, useLayoutEffect, useReducer, useRef } from "react"
+import {
+  useEffect,
+  useLayoutEffect,
+  useReducer,
+  useRef,
+  useCallback,
+} from "react"
 import {
   Table,
   TableBody,
@@ -46,115 +52,165 @@ export function DataTable({ columns, data, onDataChange }: DataTableProps) {
   // - scrollIntoView is called separately so we control scroll alignment.
   // - Skipped when editingCell is set — the mounted editor widget auto-focuses itself.
   const prevFocusedRef = useRef<CellCoordinate | null>(null)
+  const prevEditingRef = useRef<CellCoordinate | null>(null)
 
+  const applyFocus = useCallback(
+    (coord: CellCoordinate) => {
+      const el = cellRefs.current[coord.row]?.[coord.col]
+      if (el) {
+        el.focus({ preventScroll: true })
+        el.scrollIntoView({ block: "nearest", inline: "nearest" })
+      }
+    },
+    [cellRefs]
+  )
+
+  // Restore focus when navigating to a different cell
   useLayoutEffect(() => {
-    const prev = prevFocusedRef.current
-    const curr = focusedCell
-    prevFocusedRef.current = curr
+    const wasFocused = prevFocusedRef.current
+    const nowFocused = focusedCell
+    prevFocusedRef.current = nowFocused
 
-    const coordChanged = curr?.row !== prev?.row || curr?.col !== prev?.col
-    if (curr && coordChanged && !editingCell) {
-      const el = cellRefs.current[curr.row]?.[curr.col]
-      el?.focus({ preventScroll: true })
-      el?.scrollIntoView({ block: "nearest", inline: "nearest" })
+    const coordChanged =
+      nowFocused?.row !== wasFocused?.row || nowFocused?.col !== wasFocused?.col
+    if (nowFocused && coordChanged && !editingCell) {
+      applyFocus(nowFocused)
     }
-  }, [focusedCell, editingCell])
+  }, [focusedCell, editingCell, applyFocus])
 
-  function handleKeyDown(e: React.KeyboardEvent<HTMLDivElement>) {
-    const navKeys = [
-      "ArrowUp",
-      "ArrowDown",
-      "ArrowLeft",
-      "ArrowRight",
-      "Tab",
-      "Enter",
-      "Escape",
-    ]
-    if (!navKeys.includes(e.key)) return
+  // Restore focus when exiting edit mode (but staying on same cell)
+  useLayoutEffect(() => {
+    const wasEditing = prevEditingRef.current
+    const nowEditing = editingCell
+    prevEditingRef.current = nowEditing
 
-    if (!focusedCell) {
-      // No cell focused — any nav key focuses the first cell
-      e.preventDefault()
+    const exitedEditMode = wasEditing && !nowEditing
+    if (exitedEditMode && focusedCell) {
+      applyFocus(focusedCell)
+    }
+  }, [editingCell, focusedCell, applyFocus])
+
+  const handleKeyDown = useCallback(
+    (e: React.KeyboardEvent<HTMLDivElement>) => {
+      const navKeys = [
+        "ArrowUp",
+        "ArrowDown",
+        "ArrowLeft",
+        "ArrowRight",
+        "Tab",
+        "Enter",
+        "Escape",
+      ]
+      if (!navKeys.includes(e.key)) return
+
+      if (!focusedCell) {
+        // No cell focused — any nav key focuses the first cell
+        e.preventDefault()
+        e.stopPropagation()
+        dispatch({ type: "FOCUS_CELL", coord: { row: 0, col: 0 } })
+        return
+      }
+
+      // Cell is focused — consume the event so parent tables are unaffected
       e.stopPropagation()
-      dispatch({ type: "FOCUS_CELL", coord: { row: 0, col: 0 } })
-      return
-    }
 
-    // Cell is focused — consume the event so parent tables are unaffected
-    e.stopPropagation()
+      const numRows = internalData.length
+      const numCols = columns.length
+      const { row, col } = focusedCell
 
-    const numRows = internalData.length
-    const numCols = columns.length
-    const { row, col } = focusedCell
-
-    switch (e.key) {
-      case "ArrowUp":
-        e.preventDefault()
-        dispatch({
-          type: "FOCUS_CELL",
-          coord: { row: Math.max(0, row - 1), col },
-        })
-        break
-      case "ArrowDown":
-        e.preventDefault()
-        dispatch({
-          type: "FOCUS_CELL",
-          coord: { row: Math.min(numRows - 1, row + 1), col },
-        })
-        break
-      case "ArrowLeft":
-        e.preventDefault()
-        dispatch({
-          type: "FOCUS_CELL",
-          coord: { row, col: Math.max(0, col - 1) },
-        })
-        break
-      case "ArrowRight":
-        e.preventDefault()
-        dispatch({
-          type: "FOCUS_CELL",
-          coord: { row, col: Math.min(numCols - 1, col + 1) },
-        })
-        break
-      case "Tab":
-        e.preventDefault()
-        if (e.shiftKey) {
+      switch (e.key) {
+        case "ArrowUp":
+          e.preventDefault()
+          dispatch({
+            type: "FOCUS_CELL",
+            coord: { row: Math.max(0, row - 1), col },
+          })
+          break
+        case "ArrowDown":
+          e.preventDefault()
+          dispatch({
+            type: "FOCUS_CELL",
+            coord: { row: Math.min(numRows - 1, row + 1), col },
+          })
+          break
+        case "ArrowLeft":
+          e.preventDefault()
           dispatch({
             type: "FOCUS_CELL",
             coord: { row, col: Math.max(0, col - 1) },
           })
-        } else {
+          break
+        case "ArrowRight":
+          e.preventDefault()
           dispatch({
             type: "FOCUS_CELL",
             coord: { row, col: Math.min(numCols - 1, col + 1) },
           })
-        }
-        break
-      case "Enter":
-        e.preventDefault()
-        dispatch({ type: "EDIT_CELL", coord: focusedCell })
-        break
-      case "Escape":
-        e.preventDefault()
-        if (editingCell) {
-          dispatch({ type: "CLEAR_EDIT" })
-        } else {
-          dispatch({ type: "CLEAR_FOCUS" })
-        }
-        break
-    }
-  }
+          break
+        case "Tab":
+          e.preventDefault()
+          if (e.shiftKey) {
+            dispatch({
+              type: "FOCUS_CELL",
+              coord: { row, col: Math.max(0, col - 1) },
+            })
+          } else {
+            dispatch({
+              type: "FOCUS_CELL",
+              coord: { row, col: Math.min(numCols - 1, col + 1) },
+            })
+          }
+          break
+        case "Enter":
+          e.preventDefault()
+          dispatch({ type: "EDIT_CELL", coord: focusedCell })
+          break
+        case "Escape":
+          e.preventDefault()
+          if (editingCell) {
+            dispatch({ type: "CLEAR_EDIT" })
+          } else {
+            dispatch({ type: "CLEAR_FOCUS" })
+          }
+          break
+      }
+    },
+    [focusedCell, editingCell, internalData.length, columns.length]
+  )
 
   // Renders only the inner content — <TableCell> wrapper is handled below so
   // DataTable owns all td-level interaction (tabIndex, onClick, ref, outline).
-  function renderCellContent(column: ColumnDefinition, row: TableData) {
+  function renderCellContent(
+    column: ColumnDefinition,
+    row: TableData,
+    rowIndex: number,
+    colIndex: number
+  ) {
     const value = column.accessor ? column.accessor(row) : row[column.key]
+    const isEditing =
+      editingCell?.row === rowIndex && editingCell?.col === colIndex
 
     switch (column.type) {
       case "boolean":
         return <BoolTableCell value={value as boolean} />
       case "text":
-        return <TextTableCell value={value as string} />
+        return (
+          <TextTableCell
+            value={value as string}
+            isEditing={isEditing}
+            onCellChange={(newValue) => {
+              dispatch({
+                type: "UPDATE_CELL",
+                row: rowIndex,
+                columnKey: column.key,
+                value: newValue,
+              })
+            }}
+            onExitEdit={() => {
+              dispatch({ type: "CLEAR_EDIT" })
+            }}
+          />
+        )
       case "number":
         return (
           <NumberTableCell value={value as number} format={column.format} />
@@ -171,11 +227,11 @@ export function DataTable({ columns, data, onDataChange }: DataTableProps) {
     }
   }
 
-  function handleFocus() {
+  const handleFocus = useCallback(() => {
     if (!focusedCell) {
       dispatch({ type: "FOCUS_CELL", coord: { row: 0, col: 0 } })
     }
-  }
+  }, [focusedCell])
 
   return (
     <TableContext.Provider value={{ state, dispatch, cellRefs, columns }}>
@@ -243,7 +299,7 @@ export function DataTable({ columns, data, onDataChange }: DataTableProps) {
                         }
                       }}
                     >
-                      {renderCellContent(column, row)}
+                      {renderCellContent(column, row, rowIndex, colIndex)}
                     </TableCell>
                   )
                 })}
