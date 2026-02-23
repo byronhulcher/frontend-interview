@@ -1,5 +1,4 @@
 import { useState } from "react"
-import { TableCell } from "@/components/ui/table"
 import {
   Popover,
   PopoverContent,
@@ -19,23 +18,20 @@ export function PopperTableCell({
   const [open, setOpen] = useState(false)
 
   return (
-    <TableCell>
-      <Popover open={open} onOpenChange={setOpen}>
-        <PopoverTrigger asChild>
-          <Button variant="outline" size="sm">
-            {triggerText}
-          </Button>
-        </PopoverTrigger>
-        <PopoverContent className="w-80">
-          <div className="space-y-2">
-            <h4 className="font-medium leading-none">Details</h4>
-            <p className="text-sm text-muted-foreground break-words">
-              {value}
-            </p>
-          </div>
-        </PopoverContent>
-      </Popover>
-    </TableCell>
+    <Popover open={open} onOpenChange={setOpen}>
+      <PopoverTrigger asChild>
+        {/* tabIndex={-1}: the <td> is the tab stop (roving tabIndex).
+            The button is only focused programmatically via Enter in stage 5. */}
+        <Button variant="outline" size="sm" tabIndex={-1}>
+          {triggerText}
+        </Button>
+      </PopoverTrigger>
+      <PopoverContent className="w-80">
+        <div className="space-y-2">
+          <h4 className="font-medium leading-none">Details</h4>
+          <p className="text-sm text-muted-foreground break-words">{value}</p>
+        </div>
+      </PopoverContent>
+    </Popover>
   )
 }
-

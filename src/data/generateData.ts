@@ -116,4 +116,3 @@ export const columns: ColumnDefinition[] = [
     triggerText: "View Details",
   },
 ]
-

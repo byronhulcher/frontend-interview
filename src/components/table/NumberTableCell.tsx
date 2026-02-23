@@ -1,5 +1,3 @@
-import { TableCell } from "@/components/ui/table"
-
 interface NumberTableCellProps {
   value: number
   format?: "currency" | "percentage" | "decimal"
@@ -23,10 +21,5 @@ export function NumberTableCell({ value, format }: NumberTableCellProps) {
     }
   }
 
-  return (
-    <TableCell>
-      <div className="text-right font-mono">{formatValue()}</div>
-    </TableCell>
-  )
+  return <div className="text-right font-mono">{formatValue()}</div>
 }
-
