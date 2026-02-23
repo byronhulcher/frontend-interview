@@ -4,6 +4,7 @@ export interface ColumnDefinition<T = unknown> {
   key: string
   header: string
   type: ColumnType
+  editable?: boolean
   format?: "currency" | "percentage" | "decimal"
   triggerText?: string
   accessor?: (row: T) => unknown

@@ -1,4 +1,7 @@
-import type { TableAction, TableState } from "./TableContext"
+import { useReducer } from "react"
+
+import type { TableData } from "../types"
+import type { TableState, TableAction } from "../TableContext"
 
 export function tableReducer(
   state: TableState,
@@ -39,3 +42,10 @@ export function tableReducer(
       return state
   }
 }
+
+export const useTableReducer = (data: TableData[]) =>
+  useReducer(tableReducer, {
+    focusedCell: null,
+    editingCell: null,
+    internalData: data,
+  })

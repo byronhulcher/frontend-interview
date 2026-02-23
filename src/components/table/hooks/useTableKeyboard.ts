@@ -1,0 +1,119 @@
+import { useCallback } from "react"
+import type { TableAction } from "../TableContext"
+import type { CellCoordinate, ColumnDefinition, TableData } from "../types"
+
+interface UseTableKeyboardOptions {
+  focusedCell: CellCoordinate | null
+  editingCell: CellCoordinate | null
+  internalData: TableData[]
+  columns: ColumnDefinition[]
+  dispatch: React.Dispatch<TableAction>
+}
+
+export function useTableKeyboard({
+  focusedCell,
+  editingCell,
+  internalData,
+  columns,
+  dispatch,
+}: UseTableKeyboardOptions) {
+  const handleKeyDown = useCallback(
+    (e: React.KeyboardEvent<HTMLDivElement>) => {
+      const navKeys = [
+        "ArrowUp",
+        "ArrowDown",
+        "ArrowLeft",
+        "ArrowRight",
+        "Tab",
+        "Enter",
+        "Escape",
+      ]
+      if (!navKeys.includes(e.key)) return
+
+      if (!focusedCell) {
+        // No cell focused — any nav key focuses the first cell
+        e.preventDefault()
+        e.stopPropagation()
+        dispatch({ type: "FOCUS_CELL", coord: { row: 0, col: 0 } })
+        return
+      }
+
+      // Cell is focused — consume the event so parent tables are unaffected
+      e.stopPropagation()
+
+      const numRows = internalData.length
+      const numCols = columns.length
+      const { row, col } = focusedCell
+
+      switch (e.key) {
+        case "ArrowUp":
+          e.preventDefault()
+          dispatch({
+            type: "FOCUS_CELL",
+            coord: { row: Math.max(0, row - 1), col },
+          })
+          break
+        case "ArrowDown":
+          e.preventDefault()
+          dispatch({
+            type: "FOCUS_CELL",
+            coord: { row: Math.min(numRows - 1, row + 1), col },
+          })
+          break
+        case "ArrowLeft":
+          e.preventDefault()
+          dispatch({
+            type: "FOCUS_CELL",
+            coord: { row, col: Math.max(0, col - 1) },
+          })
+          break
+        case "ArrowRight":
+          e.preventDefault()
+          dispatch({
+            type: "FOCUS_CELL",
+            coord: { row, col: Math.min(numCols - 1, col + 1) },
+          })
+          break
+        case "Tab":
+          e.preventDefault()
+          if (e.shiftKey) {
+            dispatch({
+              type: "FOCUS_CELL",
+              coord: { row, col: Math.max(0, col - 1) },
+            })
+          } else {
+            dispatch({
+              type: "FOCUS_CELL",
+              coord: { row, col: Math.min(numCols - 1, col + 1) },
+            })
+          }
+          break
+        case "Enter": {
+          e.preventDefault()
+          const colDef = columns[focusedCell.col]
+          if (colDef.editable !== false) {
+            dispatch({ type: "EDIT_CELL", coord: focusedCell })
+          }
+          break
+        }
+        case "Escape":
+          e.preventDefault()
+          if (editingCell) {
+            dispatch({ type: "CLEAR_EDIT" })
+          } else {
+            dispatch({ type: "CLEAR_FOCUS" })
+          }
+          break
+      }
+    },
+    [focusedCell, editingCell, internalData.length, columns, dispatch]
+  )
+
+  const handleFocus = useCallback(() => {
+    if (!focusedCell) {
+      dispatch({ type: "FOCUS_CELL", coord: { row: 0, col: 0 } })
+    }
+  }, [focusedCell, dispatch])
+
+  return { handleKeyDown, handleFocus }
+}

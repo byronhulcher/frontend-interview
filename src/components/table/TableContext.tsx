@@ -1,4 +1,4 @@
-import { createContext, useContext, type Dispatch, type RefObject } from "react"
+import { createContext, useContext, type Dispatch } from "react"
 import type { CellCoordinate, ColumnDefinition, TableData } from "./types"
 
 export interface TableState {
@@ -17,7 +17,6 @@ export type TableAction =
 export interface TableContextValue {
   state: TableState
   dispatch: Dispatch<TableAction>
-  cellRefs: RefObject<(HTMLElement | null)[][]>
   columns: ColumnDefinition[]
 }
 

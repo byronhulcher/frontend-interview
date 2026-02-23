@@ -76,6 +76,7 @@ export const columns: ColumnDefinition[] = [
     key: "id",
     header: "ID",
     type: "number",
+    editable: false,
   },
   {
     key: "name",
