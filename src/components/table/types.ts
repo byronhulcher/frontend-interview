@@ -13,3 +13,7 @@ export interface TableData {
   [key: string]: any
 }
 
+export interface CellCoordinate {
+  row: number
+  col: number
+}

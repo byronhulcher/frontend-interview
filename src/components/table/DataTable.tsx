@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useReducer, useRef } from "react"
 import {
   Table,
   TableBody,
@@ -12,13 +12,31 @@ import { TextTableCell } from "./TextTableCell"
 import { NumberTableCell } from "./NumberTableCell"
 import { PopperTableCell } from "./PopperTableCell"
 import type { ColumnDefinition, TableData } from "./types"
+import { TableContext, tableReducer } from "./TableContext"
 
 interface DataTableProps {
   columns: ColumnDefinition[]
   data: TableData[]
+  onDataChange?: (data: TableData[]) => void
 }
 
-export function DataTable({ columns, data }: DataTableProps) {
+export function DataTable({ columns, data, onDataChange }: DataTableProps) {
+  const [state, dispatch] = useReducer(tableReducer, {
+    focusedCell: null,
+    editingCell: null,
+    internalData: data,
+  })
+
+  const {internalData} = state
+
+  const cellRefs = useRef<(HTMLElement | null)[][]>([])
+
+  const prevDataRef = useRef(data)
+  if (prevDataRef.current !== internalData) {
+    prevDataRef.current = internalData
+    onDataChange?.(internalData)
+  }
+
   const renderCell = (column: ColumnDefinition, row: TableData) => {
     const value = column.accessor
       ? column.accessor(row)
@@ -49,26 +67,30 @@ export function DataTable({ columns, data }: DataTableProps) {
   }
 
   return (
-    <Table>
-      <TableHeader>
-        <TableRow>
-          {columns.map((column) => (
-            <TableHead key={column.key}>{column.header}</TableHead>
-          ))}
-        </TableRow>
-      </TableHeader>
-      <TableBody>
-        {data.map((row, rowIndex) => (
-          <TableRow key={rowIndex}>
+    <TableContext.Provider value={{ state, dispatch, cellRefs, columns }}>
+      <Table>
+        <TableHeader>
+          <TableRow>
             {columns.map((column) => (
-              <React.Fragment key={column.key}>
-                {renderCell(column, row)}
-              </React.Fragment>
+              <TableHead key={column.key} className={column.type === 'number' ? 'text-right' : column.type === 'boolean' ? 'text-center' : ''}>
+                {column.header}
+              </TableHead>
             ))}
           </TableRow>
-        ))}
-      </TableBody>
-    </Table>
+        </TableHeader>
+        <TableBody>
+          {internalData.map((row, rowIndex) => (
+            <TableRow key={rowIndex}>
+              {columns.map((column) => (
+                <React.Fragment key={column.key}>
+                  {renderCell(column, row)}
+                </React.Fragment>
+              ))}
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContext.Provider>
   )
 }
 
