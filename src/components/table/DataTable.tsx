@@ -12,10 +12,16 @@ import { sortData } from "./utils/sortData"
 interface DataTableProps {
   columns: ColumnDefinition[]
   data: TableData[]
+  dataMap: Map<unknown, TableData>
   onDataChange: (data: TableData[]) => void
 }
 
-export function DataTable({ columns, data, onDataChange }: DataTableProps) {
+export function DataTable({
+  columns,
+  data,
+  dataMap,
+  onDataChange,
+}: DataTableProps) {
   const [state, dispatch] = useTableReducer(data)
 
   const { internalData, sortColumn, sortDirection } = state
@@ -57,6 +63,7 @@ export function DataTable({ columns, data, onDataChange }: DataTableProps) {
       internalIndexMap,
       registerCellRef,
       cellRefs,
+      dataMap,
     }),
     [
       state,
@@ -66,6 +73,7 @@ export function DataTable({ columns, data, onDataChange }: DataTableProps) {
       internalIndexMap,
       registerCellRef,
       cellRefs,
+      dataMap,
     ],
   )
 

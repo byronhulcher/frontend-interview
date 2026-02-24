@@ -27,6 +27,7 @@ export interface TableContextValue {
   internalIndexMap: Map<TableData, number>
   registerCellRef: (row: number, col: number, el: HTMLElement | null) => void
   cellRefs: RefObject<(HTMLElement | null)[][]>
+  dataMap: Map<unknown, TableData>
 }
 
 const TableContext = createContext<TableContextValue | null>(null)

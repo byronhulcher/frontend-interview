@@ -14,7 +14,8 @@ export function TableCellWrapper({
   rowIndex,
   colIndex,
 }: TableCellWrapperProps) {
-  const { state, dispatch, columns, registerCellRef } = useTableContext()
+  const { state, dispatch, columns, registerCellRef, displayData, dataMap } =
+    useTableContext()
   const { focusedCell, editingCell } = state
   const { isShaking, triggerShake, onAnimationEnd } = useShake()
   const column = columns[colIndex]
@@ -23,6 +24,20 @@ export function TableCellWrapper({
   const isEditing =
     editingCell?.row === rowIndex && editingCell?.col === colIndex
   const isEditable = column.editable !== false
+
+  // Compute isDirty by comparing current value to original value (O(1) Map lookup)
+  const row = displayData[rowIndex]
+  const originalRow = dataMap.get(row.id)
+  let isDirty = false
+  if (originalRow) {
+    const currentValue = column.accessor
+      ? column.accessor(row)
+      : row[column.key]
+    const originalValue = column.accessor
+      ? column.accessor(originalRow)
+      : originalRow[column.key]
+    isDirty = currentValue !== originalValue
+  }
 
   const handleKeyDown = useCallback(
     (e: React.KeyboardEvent) => {
@@ -58,6 +73,7 @@ export function TableCellWrapper({
       className={cn(
         "cursor-default select-none focus-visible:outline-none",
         isShaking && "animate-shake",
+        isDirty && !isEditing && "bg-yellow-50 dark:bg-yellow-950/20",
         isFocused && !isEditing && "ring-2 ring-inset ring-blue-400",
         isEditing && "ring-2 ring-inset ring-orange-400",
       )}
