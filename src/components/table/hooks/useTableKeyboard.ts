@@ -1,11 +1,11 @@
 import { useCallback } from "react"
 import type { TableAction } from "../TableContext"
-import type { CellCoordinate, ColumnDefinition, TableData } from "../types"
+import type { CellCoordinate, ColumnDefinition } from "../types"
 
 interface UseTableKeyboardOptions {
   focusedCell: CellCoordinate | null
   editingCell: CellCoordinate | null
-  internalData: TableData[]
+  numRows: number
   columns: ColumnDefinition[]
   dispatch: React.Dispatch<TableAction>
 }
@@ -13,7 +13,7 @@ interface UseTableKeyboardOptions {
 export function useTableKeyboard({
   focusedCell,
   editingCell,
-  internalData,
+  numRows,
   columns,
   dispatch,
 }: UseTableKeyboardOptions) {
@@ -31,48 +31,55 @@ export function useTableKeyboard({
       if (!navKeys.includes(e.key)) return
 
       if (!focusedCell) {
-        // No cell focused — any nav key focuses the first cell
         e.preventDefault()
         e.stopPropagation()
         dispatch({ type: "FOCUS_CELL", coord: { row: 0, col: 0 } })
         return
       }
 
-      // Cell is focused — consume the event so parent tables are unaffected
       e.stopPropagation()
 
-      const numRows = internalData.length
       const numCols = columns.length
       const { row, col } = focusedCell
 
       switch (e.key) {
         case "ArrowUp":
           e.preventDefault()
-          dispatch({
-            type: "FOCUS_CELL",
-            coord: { row: Math.max(0, row - 1), col },
-          })
+          if (e.shiftKey) {
+            dispatch({ type: "FOCUS_CELL", coord: { row: -1, col } })
+          } else if (row > -1) {
+            dispatch({ type: "FOCUS_CELL", coord: { row: row - 1, col } })
+          }
           break
         case "ArrowDown":
           e.preventDefault()
-          dispatch({
-            type: "FOCUS_CELL",
-            coord: { row: Math.min(numRows - 1, row + 1), col },
-          })
+          if (e.shiftKey) {
+            dispatch({ type: "FOCUS_CELL", coord: { row: numRows - 1, col } })
+          } else if (row < numRows - 1) {
+            dispatch({ type: "FOCUS_CELL", coord: { row: row + 1, col } })
+          }
           break
         case "ArrowLeft":
           e.preventDefault()
-          dispatch({
-            type: "FOCUS_CELL",
-            coord: { row, col: Math.max(0, col - 1) },
-          })
+          if (e.shiftKey) {
+            dispatch({ type: "FOCUS_CELL", coord: { row, col: 0 } })
+          } else {
+            dispatch({
+              type: "FOCUS_CELL",
+              coord: { row, col: Math.max(0, col - 1) },
+            })
+          }
           break
         case "ArrowRight":
           e.preventDefault()
-          dispatch({
-            type: "FOCUS_CELL",
-            coord: { row, col: Math.min(numCols - 1, col + 1) },
-          })
+          if (e.shiftKey) {
+            dispatch({ type: "FOCUS_CELL", coord: { row, col: numCols - 1 } })
+          } else {
+            dispatch({
+              type: "FOCUS_CELL",
+              coord: { row, col: Math.min(numCols - 1, col + 1) },
+            })
+          }
           break
         case "Tab":
           e.preventDefault()
@@ -90,9 +97,11 @@ export function useTableKeyboard({
           break
         case "Enter": {
           e.preventDefault()
-          const colDef = columns[focusedCell.col]
-          if (colDef.editable !== false) {
-            dispatch({ type: "EDIT_CELL", coord: focusedCell })
+          if (row !== -1) {
+            const colDef = columns[focusedCell.col]
+            if (colDef.editable !== false) {
+              dispatch({ type: "EDIT_CELL", coord: focusedCell })
+            }
           }
           break
         }
@@ -106,12 +115,12 @@ export function useTableKeyboard({
           break
       }
     },
-    [focusedCell, editingCell, internalData.length, columns, dispatch]
+    [focusedCell, editingCell, numRows, columns, dispatch]
   )
 
   const handleFocus = useCallback(() => {
     if (!focusedCell) {
-      dispatch({ type: "FOCUS_CELL", coord: { row: 0, col: 0 } })
+      dispatch({ type: "FOCUS_CELL", coord: { row: -1, col: 0 } })
     }
   }, [focusedCell, dispatch])
 

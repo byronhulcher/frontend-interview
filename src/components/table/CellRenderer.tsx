@@ -10,11 +10,14 @@ interface CellRendererProps {
 }
 
 export function CellRenderer({ rowIndex, colIndex }: CellRendererProps) {
-  const { state, dispatch, columns } = useTableContext()
+  const { state, dispatch, columns, displayData } = useTableContext()
   const { editingCell, internalData } = state
 
   const column = columns[colIndex]
-  const row = internalData[rowIndex]
+  const row = displayData[rowIndex]
+
+  // Convert display index to internalData index for mutations
+  const internalIndex = internalData.indexOf(row)
 
   const value = column.accessor ? column.accessor(row) : row[column.key]
   const isEditing =
@@ -23,7 +26,7 @@ export function CellRenderer({ rowIndex, colIndex }: CellRendererProps) {
   const onCellChange = (newValue: unknown) => {
     dispatch({
       type: "UPDATE_CELL",
-      row: rowIndex,
+      row: internalIndex,
       columnKey: column.key,
       value: newValue,
     })
@@ -31,6 +34,10 @@ export function CellRenderer({ rowIndex, colIndex }: CellRendererProps) {
 
   const onExitEdit = () => {
     dispatch({ type: "CLEAR_EDIT" })
+  }
+
+  const handleDelete = () => {
+    dispatch({ type: "DELETE_ROW", row: internalIndex })
   }
 
   switch (column.type) {
@@ -69,7 +76,7 @@ export function CellRenderer({ rowIndex, colIndex }: CellRendererProps) {
           triggerText={column.triggerText}
           isEditing={isEditing}
           onExitEdit={onExitEdit}
-          onDeleteRow={() => dispatch({ type: "DELETE_ROW", row: rowIndex })}
+          onDeleteRow={handleDelete}
         />
       )
     default:

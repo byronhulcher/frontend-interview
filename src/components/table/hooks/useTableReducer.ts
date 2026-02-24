@@ -40,9 +40,13 @@ export function tableReducer(
     }
     case "DELETE_ROW": {
       const newData = state.internalData.filter((_, i) => i !== action.row)
-      // Clamp focus to the same position, adjusted for the shorter list
+      // focusedCell.row is a display index — clamp to new display length
       const clampedRow =
-        newData.length === 0 ? null : Math.min(action.row, newData.length - 1)
+        newData.length === 0
+          ? null
+          : state.focusedCell
+            ? Math.min(state.focusedCell.row, newData.length - 1)
+            : null
       const focusedCell =
         clampedRow !== null && state.focusedCell
           ? { row: clampedRow, col: state.focusedCell.col }
@@ -54,6 +58,18 @@ export function tableReducer(
         editingCell: null,
       }
     }
+    case "SORT_COLUMN": {
+      // If sorting the same column, toggle direction or clear sort
+      if (state.sortColumn === action.columnKey) {
+        if (state.sortDirection === "asc") {
+          return { ...state, sortDirection: "desc" }
+        } else {
+          return { ...state, sortColumn: null, sortDirection: "asc" }
+        }
+      }
+      // Sorting a new column: set to ascending
+      return { ...state, sortColumn: action.columnKey, sortDirection: "asc" }
+    }
     default:
       return state
   }
@@ -64,4 +80,6 @@ export const useTableReducer = (data: TableData[]) =>
     focusedCell: null,
     editingCell: null,
     internalData: data,
+    sortColumn: null,
+    sortDirection: "asc",
   })

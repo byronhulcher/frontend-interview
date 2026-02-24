@@ -52,8 +52,12 @@ export function PopperTableCell({
     if (NAV_KEYS.includes(e.key)) {
       e.preventDefault()
       e.stopPropagation()
-    } else if (["Tab", "Enter", "Escape"].includes(e.key)) {
+    } else if (e.key === "Tab" || e.key === "Enter") {
       e.stopPropagation()
+    } else if (e.key === "Escape") {
+      // Let Escape propagate to useTableKeyboard so edit mode is exited.
+      // Radix will close the popover regardless.
+      e.preventDefault()
     }
   }
 
