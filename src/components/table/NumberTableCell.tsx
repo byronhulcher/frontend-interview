@@ -1,3 +1,4 @@
+import { memo } from "react"
 import { useEditableCell } from "./hooks/useEditableCell"
 
 interface NumberTableCellProps {
@@ -8,7 +9,7 @@ interface NumberTableCellProps {
   onExitEdit: () => void
 }
 
-export function NumberTableCell({
+export const NumberTableCell = memo(function NumberTableCell({
   value,
   format,
   isEditing = false,
@@ -33,6 +34,7 @@ export function NumberTableCell({
           currency: "USD",
         }).format(value)
       case "percentage":
+        // Assume value is 0-100, just add % sign
         return `${value.toFixed(2)}%`
       case "decimal":
         return value.toFixed(2)
@@ -57,4 +59,4 @@ export function NumberTableCell({
   }
 
   return <div className="text-right font-mono">{formatValue()}</div>
-}
+})

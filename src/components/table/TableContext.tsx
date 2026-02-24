@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, type Dispatch } from "react"
 import type { CellCoordinate, ColumnDefinition, TableData } from "./types"
 
@@ -16,23 +17,23 @@ export type TableAction =
   | { type: "CLEAR_EDIT" }
   | { type: "UPDATE_CELL"; row: number; columnKey: string; value: unknown }
   | { type: "DELETE_ROW"; row: number }
-  | { type: "SORT_COLUMN"; columnKey: string }
+  | { type: "SORT_COLUMN"; columnKey: string; direction: "asc" | "desc" | null }
 
 export interface TableContextValue {
   state: TableState
   dispatch: Dispatch<TableAction>
   columns: ColumnDefinition[]
   displayData: TableData[]
+  internalIndexMap: Map<TableData, number>
 }
 
 const TableContext = createContext<TableContextValue | null>(null)
 
-// eslint-disable-next-line react-refresh/only-export-components
 export function useTableContext(): TableContextValue {
   const ctx = useContext(TableContext)
   if (!ctx) {
     throw new Error(
-      "useTableContext must be used inside a TableContext.Provider"
+      "useTableContext must be used inside a TableContext.Provider",
     )
   }
   return ctx

@@ -1,11 +1,11 @@
-import { useLayoutEffect, useRef, useState } from "react"
+import { memo, useLayoutEffect, useRef, useState } from "react"
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
 import { Button } from "@/components/ui/button"
-import { NAV_KEYS } from "./consts"
+import { ARROW_KEYS } from "./consts"
 
 interface PopperTableCellProps {
   value: string
@@ -15,7 +15,7 @@ interface PopperTableCellProps {
   onDeleteRow: () => void
 }
 
-export function PopperTableCell({
+export const PopperTableCell = memo(function PopperTableCell({
   value,
   triggerText = "View",
   isEditing = false,
@@ -42,14 +42,14 @@ export function PopperTableCell({
       e.preventDefault()
       e.stopPropagation()
       onExitEdit()
-    } else if (NAV_KEYS.includes(e.key) || e.key === "Tab") {
+    } else if (ARROW_KEYS.includes(e.key) || e.key === "Tab") {
       e.preventDefault()
       e.stopPropagation()
     }
   }
 
   function handlePopoverKeyDown(e: React.KeyboardEvent<HTMLDivElement>) {
-    if (NAV_KEYS.includes(e.key)) {
+    if (ARROW_KEYS.includes(e.key)) {
       e.preventDefault()
       e.stopPropagation()
     } else if (e.key === "Tab" || e.key === "Enter") {
@@ -115,4 +115,4 @@ export function PopperTableCell({
       </PopoverContent>
     </Popover>
   )
-}
+})

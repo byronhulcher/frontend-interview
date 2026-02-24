@@ -1,5 +1,5 @@
 import { useLayoutEffect, useRef } from "react"
-import { NAV_KEYS } from "../consts"
+import { ARROW_KEYS } from "../consts"
 
 interface UseEditableCellOptions<T> {
   isEditing: boolean
@@ -26,7 +26,7 @@ export function useEditableCell<T>({
   }, [isEditing])
 
   function handleKeyDown(e: React.KeyboardEvent) {
-    if (NAV_KEYS.includes(e.key) || e.key === "Tab") {
+    if (ARROW_KEYS.includes(e.key) || e.key === "Tab") {
       e.stopPropagation()
     } else if (e.key === "Enter") {
       e.preventDefault()

@@ -5,7 +5,7 @@ import type { TableState, TableAction } from "../TableContext"
 
 export function tableReducer(
   state: TableState,
-  action: TableAction
+  action: TableAction,
 ): TableState {
   switch (action.type) {
     case "FOCUS_CELL":
@@ -34,7 +34,7 @@ export function tableReducer(
       }
     case "UPDATE_CELL": {
       const newData = state.internalData.map((row, i) =>
-        i === action.row ? { ...row, [action.columnKey]: action.value } : row
+        i === action.row ? { ...row, [action.columnKey]: action.value } : row,
       )
       return { ...state, internalData: newData }
     }
@@ -59,16 +59,14 @@ export function tableReducer(
       }
     }
     case "SORT_COLUMN": {
-      // If sorting the same column, toggle direction or clear sort
-      if (state.sortColumn === action.columnKey) {
-        if (state.sortDirection === "asc") {
-          return { ...state, sortDirection: "desc" }
-        } else {
-          return { ...state, sortColumn: null, sortDirection: "asc" }
-        }
+      if (action.direction === null) {
+        return { ...state, sortColumn: null, sortDirection: "asc" }
       }
-      // Sorting a new column: set to ascending
-      return { ...state, sortColumn: action.columnKey, sortDirection: "asc" }
+      return {
+        ...state,
+        sortColumn: action.columnKey,
+        sortDirection: action.direction,
+      }
     }
     default:
       return state

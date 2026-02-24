@@ -1,3 +1,4 @@
+import { memo } from "react"
 import { useEditableCell } from "./hooks/useEditableCell"
 
 interface TextTableCellProps {
@@ -7,7 +8,7 @@ interface TextTableCellProps {
   onExitEdit: () => void
 }
 
-export function TextTableCell({
+export const TextTableCell = memo(function TextTableCell({
   value,
   isEditing = false,
   onCellChange,
@@ -39,4 +40,4 @@ export function TextTableCell({
       {value}
     </div>
   )
-}
+})

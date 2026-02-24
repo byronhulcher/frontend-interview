@@ -1,3 +1,4 @@
+import { useCallback } from "react"
 import { useTableContext } from "./TableContext"
 import { BoolTableCell } from "./BoolTableCell"
 import { TextTableCell } from "./TextTableCell"
@@ -10,35 +11,42 @@ interface CellRendererProps {
 }
 
 export function CellRenderer({ rowIndex, colIndex }: CellRendererProps) {
-  const { state, dispatch, columns, displayData } = useTableContext()
-  const { editingCell, internalData } = state
+  const {
+    columns,
+    displayData,
+    internalIndexMap,
+    state: { editingCell },
+    dispatch,
+  } = useTableContext()
 
   const column = columns[colIndex]
   const row = displayData[rowIndex]
 
-  // Convert display index to internalData index for mutations
-  const internalIndex = internalData.indexOf(row)
+  const internalRowIndex = internalIndexMap.get(row) ?? -1
 
   const value = column.accessor ? column.accessor(row) : row[column.key]
   const isEditing =
     editingCell?.row === rowIndex && editingCell?.col === colIndex
 
-  const onCellChange = (newValue: unknown) => {
-    dispatch({
-      type: "UPDATE_CELL",
-      row: internalIndex,
-      columnKey: column.key,
-      value: newValue,
-    })
-  }
+  const onCellChange = useCallback(
+    (newValue: unknown) => {
+      dispatch({
+        type: "UPDATE_CELL",
+        row: internalRowIndex,
+        columnKey: column.key,
+        value: newValue,
+      })
+    },
+    [dispatch, internalRowIndex, column.key],
+  )
 
-  const onExitEdit = () => {
+  const onExitEdit = useCallback(() => {
     dispatch({ type: "CLEAR_EDIT" })
-  }
+  }, [dispatch])
 
-  const handleDelete = () => {
-    dispatch({ type: "DELETE_ROW", row: internalIndex })
-  }
+  const handleDelete = useCallback(() => {
+    dispatch({ type: "DELETE_ROW", row: internalRowIndex })
+  }, [dispatch, internalRowIndex])
 
   switch (column.type) {
     case "boolean":

@@ -24,13 +24,32 @@ export function TableCellWrapper({
     focusedCell?.row === rowIndex && focusedCell?.col === colIndex
   const isEditing =
     editingCell?.row === rowIndex && editingCell?.col === colIndex
+  const isEditable = column.editable !== false
 
   const triggerShake = useCallback(() => {
     setIsShaking(false)
-    // Force a re-render with the class removed first, then re-add it
-    // so the animation replays even on repeated attempts.
     requestAnimationFrame(() => setIsShaking(true))
   }, [])
+
+  const handleKeyDown = useCallback(
+    (e: React.KeyboardEvent) => {
+      if (e.key === "Enter" && isFocused && !isEditing && !isEditable) {
+        triggerShake()
+      }
+    },
+    [isFocused, isEditing, isEditable, triggerShake],
+  )
+
+  const handleClick = useCallback(() => {
+    const coord = { row: rowIndex, col: colIndex }
+    if (isFocused && isEditable) {
+      dispatch({ type: "EDIT_CELL", coord })
+    } else if (isFocused && !isEditable) {
+      triggerShake()
+    } else {
+      dispatch({ type: "FOCUS_CELL", coord })
+    }
+  }, [rowIndex, colIndex, isFocused, isEditable, dispatch, triggerShake])
 
   return (
     <TableCell
@@ -40,31 +59,11 @@ export function TableCellWrapper({
         "cursor-default select-none focus-visible:outline-none",
         isShaking && "animate-shake",
         isFocused && !isEditing && "ring-2 ring-inset ring-blue-400",
-        isEditing && "ring-2 ring-inset ring-orange-400"
+        isEditing && "ring-2 ring-inset ring-orange-400",
       )}
       onAnimationEnd={() => setIsShaking(false)}
-      onKeyDown={(e) => {
-        if (
-          e.key === "Enter" &&
-          isFocused &&
-          !isEditing &&
-          column.editable === false
-        ) {
-          triggerShake()
-        }
-      }}
-      onClick={() => {
-        const coord = { row: rowIndex, col: colIndex }
-        const alreadyFocused =
-          focusedCell?.row === rowIndex && focusedCell?.col === colIndex
-        if (alreadyFocused && column.editable !== false) {
-          dispatch({ type: "EDIT_CELL", coord })
-        } else if (alreadyFocused && column.editable === false) {
-          triggerShake()
-        } else {
-          dispatch({ type: "FOCUS_CELL", coord })
-        }
-      }}
+      onKeyDown={handleKeyDown}
+      onClick={handleClick}
     >
       <CellRenderer rowIndex={rowIndex} colIndex={colIndex} />
     </TableCell>

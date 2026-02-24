@@ -1,6 +1,9 @@
 import { useCallback } from "react"
 import type { TableAction } from "../TableContext"
 import type { CellCoordinate, ColumnDefinition } from "../types"
+import { ARROW_KEYS } from "../consts"
+
+const HANDLED_KEYS = [...ARROW_KEYS, "Tab", "Enter", "Escape"]
 
 interface UseTableKeyboardOptions {
   focusedCell: CellCoordinate | null
@@ -19,16 +22,7 @@ export function useTableKeyboard({
 }: UseTableKeyboardOptions) {
   const handleKeyDown = useCallback(
     (e: React.KeyboardEvent<HTMLDivElement>) => {
-      const navKeys = [
-        "ArrowUp",
-        "ArrowDown",
-        "ArrowLeft",
-        "ArrowRight",
-        "Tab",
-        "Enter",
-        "Escape",
-      ]
-      if (!navKeys.includes(e.key)) return
+      if (!HANDLED_KEYS.includes(e.key)) return
 
       if (!focusedCell) {
         e.preventDefault()
@@ -81,20 +75,14 @@ export function useTableKeyboard({
             })
           }
           break
-        case "Tab":
+        case "Tab": {
           e.preventDefault()
-          if (e.shiftKey) {
-            dispatch({
-              type: "FOCUS_CELL",
-              coord: { row, col: Math.max(0, col - 1) },
-            })
-          } else {
-            dispatch({
-              type: "FOCUS_CELL",
-              coord: { row, col: Math.min(numCols - 1, col + 1) },
-            })
-          }
+          const tabTarget = e.shiftKey
+            ? Math.max(0, col - 1)
+            : Math.min(numCols - 1, col + 1)
+          dispatch({ type: "FOCUS_CELL", coord: { row, col: tabTarget } })
           break
+        }
         case "Enter": {
           e.preventDefault()
           if (row !== -1) {
@@ -115,14 +103,8 @@ export function useTableKeyboard({
           break
       }
     },
-    [focusedCell, editingCell, numRows, columns, dispatch]
+    [focusedCell, editingCell, numRows, columns, dispatch],
   )
 
-  const handleFocus = useCallback(() => {
-    if (!focusedCell) {
-      dispatch({ type: "FOCUS_CELL", coord: { row: -1, col: 0 } })
-    }
-  }, [focusedCell, dispatch])
-
-  return { handleKeyDown, handleFocus }
+  return { handleKeyDown }
 }
