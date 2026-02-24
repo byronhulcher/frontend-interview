@@ -26,8 +26,13 @@ export function useEditableCell<T>({
   }, [isEditing])
 
   function handleKeyDown(e: React.KeyboardEvent) {
-    if (ARROW_KEYS.includes(e.key) || e.key === "Tab") {
+    if (ARROW_KEYS.includes(e.key)) {
       e.stopPropagation()
+    } else if (e.key === "Tab") {
+      // Commit the value and let the event bubble up to useTableKeyboard,
+      // which will handle moving focus to the next/previous cell.
+      e.preventDefault()
+      commitValue()
     } else if (e.key === "Enter") {
       e.preventDefault()
       e.stopPropagation()

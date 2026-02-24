@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react"
 import type { Dispatch } from "react"
 import type { TableAction } from "../TableContext"
+import { useTableContext } from "../TableContext"
 import type { CellCoordinate, TableData } from "../types"
 
 /**
@@ -10,11 +11,9 @@ import type { CellCoordinate, TableData } from "../types"
  * Tracks by row ID (stable across edits) rather than object identity, because
  * UPDATE_CELL creates a new row object via spread.
  */
-export function useFocusTracking(
-  focusedCell: CellCoordinate | null,
-  displayData: TableData[],
-  dispatch: Dispatch<TableAction>,
-) {
+export function useFocusTracking() {
+  const { state, dispatch, displayData } = useTableContext()
+  const { focusedCell } = state
   const trackedRowId = useRef<unknown>(null)
   const prevDisplayData = useRef(displayData)
 

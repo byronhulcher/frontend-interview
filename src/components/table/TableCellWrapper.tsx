@@ -1,35 +1,28 @@
-import { useCallback, useState } from "react"
+import { useCallback } from "react"
 import { TableCell } from "@/components/ui/table"
 import { useTableContext } from "./TableContext"
 import { CellRenderer } from "./CellRenderer"
+import { useShake } from "./hooks/useShake"
 import { cn } from "@/lib/utils"
 
 interface TableCellWrapperProps {
   rowIndex: number
   colIndex: number
-  cellRef: React.RefCallback<HTMLElement>
 }
 
 export function TableCellWrapper({
   rowIndex,
   colIndex,
-  cellRef,
 }: TableCellWrapperProps) {
-  const { state, dispatch, columns } = useTableContext()
+  const { state, dispatch, columns, registerCellRef } = useTableContext()
   const { focusedCell, editingCell } = state
-  const [isShaking, setIsShaking] = useState(false)
-
+  const { isShaking, triggerShake, onAnimationEnd } = useShake()
   const column = columns[colIndex]
   const isFocused =
     focusedCell?.row === rowIndex && focusedCell?.col === colIndex
   const isEditing =
     editingCell?.row === rowIndex && editingCell?.col === colIndex
   const isEditable = column.editable !== false
-
-  const triggerShake = useCallback(() => {
-    setIsShaking(false)
-    requestAnimationFrame(() => setIsShaking(true))
-  }, [])
 
   const handleKeyDown = useCallback(
     (e: React.KeyboardEvent) => {
@@ -38,6 +31,13 @@ export function TableCellWrapper({
       }
     },
     [isFocused, isEditing, isEditable, triggerShake],
+  )
+
+  const cellRef = useCallback(
+    (el: HTMLElement | null) => {
+      registerCellRef(rowIndex, colIndex, el)
+    },
+    [registerCellRef, rowIndex, colIndex],
   )
 
   const handleClick = useCallback(() => {
@@ -61,7 +61,7 @@ export function TableCellWrapper({
         isFocused && !isEditing && "ring-2 ring-inset ring-blue-400",
         isEditing && "ring-2 ring-inset ring-orange-400",
       )}
-      onAnimationEnd={() => setIsShaking(false)}
+      onAnimationEnd={onAnimationEnd}
       onKeyDown={handleKeyDown}
       onClick={handleClick}
     >

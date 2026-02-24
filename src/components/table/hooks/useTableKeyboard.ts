@@ -1,34 +1,32 @@
 import { useCallback, type RefObject } from "react"
-import type { TableAction } from "../TableContext"
-import type { CellCoordinate, ColumnDefinition } from "../types"
+import { useTableContext } from "../TableContext"
 import { ARROW_KEYS } from "../consts"
 
 const HANDLED_KEYS = [...ARROW_KEYS, "Tab", "Enter", "Escape"]
 
 interface UseTableKeyboardOptions {
-  focusedCell: CellCoordinate | null
-  editingCell: CellCoordinate | null
-  numRows: number
-  columns: ColumnDefinition[]
-  dispatch: React.Dispatch<TableAction>
   containerRef: RefObject<HTMLDivElement | null>
   beforeSentinelRef: RefObject<HTMLSpanElement | null>
   afterSentinelRef: RefObject<HTMLSpanElement | null>
 }
 
+/**
+ * Keyboard navigation: arrow keys, Tab, Enter, and Escape within the table.
+ */
 export function useTableKeyboard({
-  focusedCell,
-  editingCell,
-  numRows,
-  columns,
-  dispatch,
   containerRef,
   beforeSentinelRef,
   afterSentinelRef,
 }: UseTableKeyboardOptions) {
+  const { state, dispatch, columns, displayData } = useTableContext()
+  const { focusedCell, editingCell } = state
+
   const handleKeyDown = useCallback(
     (e: React.KeyboardEvent<HTMLDivElement>) => {
       if (!HANDLED_KEYS.includes(e.key)) return
+
+      const numRows = displayData.length
+      const numCols = columns.length
 
       if (!focusedCell) {
         e.preventDefault()
@@ -39,7 +37,6 @@ export function useTableKeyboard({
 
       e.stopPropagation()
 
-      const numCols = columns.length
       const { row, col } = focusedCell
 
       switch (e.key) {
@@ -149,7 +146,16 @@ export function useTableKeyboard({
           break
       }
     },
-    [focusedCell, editingCell, numRows, columns, dispatch],
+    [
+      focusedCell,
+      editingCell,
+      displayData,
+      columns,
+      dispatch,
+      containerRef,
+      beforeSentinelRef,
+      afterSentinelRef,
+    ],
   )
 
   return { handleKeyDown }

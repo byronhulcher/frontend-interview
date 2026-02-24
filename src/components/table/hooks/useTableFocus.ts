@@ -1,6 +1,5 @@
-import { useCallback, useLayoutEffect, useRef } from "react"
-import type { CellCoordinate } from "../types"
-import type { TableAction } from "../TableContext"
+import { useCallback, useLayoutEffect, useRef, type RefObject } from "react"
+import { useTableContext } from "../TableContext"
 
 function focusElement(el: HTMLElement) {
   el.focus({ preventScroll: true })
@@ -8,22 +7,19 @@ function focusElement(el: HTMLElement) {
 }
 
 interface UseTableFocusOptions {
-  focusedCell: CellCoordinate | null
-  editingCell: CellCoordinate | null
-  cellRefs: React.RefObject<(HTMLElement | null)[][]>
-  dispatch: React.Dispatch<TableAction>
-  sentinelFocusing: React.RefObject<boolean>
+  sentinelFocusing: RefObject<boolean>
 }
 
-export function useTableFocus({
-  focusedCell,
-  editingCell,
-  cellRefs,
-  dispatch,
-  sentinelFocusing,
-}: UseTableFocusOptions) {
-  const prevFocusedRef = useRef<CellCoordinate | null>(null)
-  const prevEditingRef = useRef<CellCoordinate | null>(null)
+/**
+ * Imperatively moves DOM focus to match the reducer's focusedCell state,
+ * and restores focus to the cell wrapper when exiting edit mode.
+ */
+export function useTableFocus({ sentinelFocusing }: UseTableFocusOptions) {
+  const { state, dispatch, cellRefs } = useTableContext()
+  const { focusedCell, editingCell } = state
+
+  const prevFocusedRef = useRef(focusedCell)
+  const prevEditingRef = useRef(editingCell)
 
   // Move focus when navigating to a different cell.
   // Skipped when editing — the editor widget auto-focuses itself.
@@ -40,7 +36,7 @@ export function useTableFocus({
     }
   }, [focusedCell, editingCell, cellRefs])
 
-  // Restore focus to the cell wrapper when exiting edit mode
+  // Restore focus to the cell wrapper when exiting edit mode.
   useLayoutEffect(() => {
     const prevEditing = prevEditingRef.current
     prevEditingRef.current = editingCell
@@ -51,7 +47,7 @@ export function useTableFocus({
     }
   }, [editingCell, focusedCell, cellRefs])
 
-  // On initial focus, select the first header cell
+  // On initial container focus, select the first header cell.
   const handleFocus = useCallback(() => {
     if (sentinelFocusing.current) return
     if (!focusedCell) {

@@ -6,12 +6,13 @@ import {
 } from "@/components/ui/popover"
 import { Button } from "@/components/ui/button"
 import { ARROW_KEYS } from "./consts"
+import type { EditableCellProps } from "./types"
 
-interface PopperTableCellProps {
-  value: string
+interface PopperTableCellProps extends Omit<
+  EditableCellProps<string>,
+  "onCellChange"
+> {
   triggerText?: string
-  isEditing?: boolean
-  onExitEdit: () => void
   onDeleteRow: () => void
 }
 

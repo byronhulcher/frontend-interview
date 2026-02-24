@@ -115,5 +115,6 @@ export const columns: ColumnDefinition[] = [
     header: "Description",
     type: "popper",
     triggerText: "View Details",
+    sortable: false,
   },
 ]

@@ -8,6 +8,14 @@ export interface ColumnDefinition<T = unknown> {
   format?: "currency" | "percentage" | "decimal"
   triggerText?: string
   accessor?: (row: T) => unknown
+  sortable?: boolean
+}
+
+export interface EditableCellProps<T> {
+  value: T
+  isEditing?: boolean
+  onCellChange: (value: T) => void
+  onExitEdit: () => void
 }
 
 export interface TableData {

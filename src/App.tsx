@@ -16,7 +16,7 @@ function App() {
 
         <div className="mb-4">
           <Button disabled={!hasUnsavedChanges} onClick={handleSave}>
-            Save
+            Save changes
           </Button>
         </div>
 
@@ -30,7 +30,7 @@ function App() {
 
         <div className="mt-4">
           <Button disabled={!hasUnsavedChanges} onClick={handleSave}>
-            Save
+            Save changes
           </Button>
         </div>
       </div>

@@ -1,12 +1,9 @@
 import { memo } from "react"
 import { useEditableCell } from "./hooks/useEditableCell"
+import type { EditableCellProps } from "./types"
 
-interface NumberTableCellProps {
-  value: number
+interface NumberTableCellProps extends EditableCellProps<number> {
   format?: "currency" | "percentage" | "decimal"
-  isEditing?: boolean
-  onCellChange: (value: number) => void
-  onExitEdit: () => void
 }
 
 export const NumberTableCell = memo(function NumberTableCell({

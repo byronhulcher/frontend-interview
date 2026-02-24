@@ -1,5 +1,5 @@
 /* eslint-disable react-refresh/only-export-components */
-import { createContext, useContext, type Dispatch } from "react"
+import { createContext, useContext, type Dispatch, type RefObject } from "react"
 import type { CellCoordinate, ColumnDefinition, TableData } from "./types"
 
 export interface TableState {
@@ -25,6 +25,8 @@ export interface TableContextValue {
   columns: ColumnDefinition[]
   displayData: TableData[]
   internalIndexMap: Map<TableData, number>
+  registerCellRef: (row: number, col: number, el: HTMLElement | null) => void
+  cellRefs: RefObject<(HTMLElement | null)[][]>
 }
 
 const TableContext = createContext<TableContextValue | null>(null)

@@ -1,19 +1,13 @@
 import { memo } from "react"
 import { useEditableCell } from "./hooks/useEditableCell"
-
-interface BoolTableCellProps {
-  value: boolean
-  isEditing?: boolean
-  onCellChange: (value: boolean) => void
-  onExitEdit: () => void
-}
+import type { EditableCellProps } from "./types"
 
 export const BoolTableCell = memo(function BoolTableCell({
   value,
   isEditing = false,
   onCellChange,
   onExitEdit,
-}: BoolTableCellProps) {
+}: EditableCellProps<boolean>) {
   const { inputRef, handleKeyDown, handleBlur } = useEditableCell<boolean>({
     isEditing,
     onCellChange,
