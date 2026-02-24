@@ -8,12 +8,13 @@ import { useTableReducer } from "./hooks/useTableReducer"
 import { useTableFocus } from "./hooks/useTableFocus"
 import { useTableKeyboard } from "./hooks/useTableKeyboard"
 import { useFocusTracking } from "./hooks/useFocusTracking"
+import { useTableSentinels } from "./hooks/useTableSentinels"
 import { sortData } from "./utils/sortData"
 
 interface DataTableProps {
   columns: ColumnDefinition[]
   data: TableData[]
-  onDataChange?: (data: TableData[]) => void
+  onDataChange: (data: TableData[]) => void
 }
 
 export function DataTable({ columns, data, onDataChange }: DataTableProps) {
@@ -34,19 +35,39 @@ export function DataTable({ columns, data, onDataChange }: DataTableProps) {
 
   // 2D array of refs indexed by [displayIndex][colIndex] (row -1 = headers).
   const cellRefs = useRef<(HTMLElement | null)[][]>([])
+  const prevInternalDataRef = useRef(internalData)
 
   useFocusTracking(focusedCell, displayData, dispatch)
 
   // Notify consumer when internalData changes (optional external sync).
+  // Only call when data actually changes, not on initial mount.
   useEffect(() => {
-    onDataChange?.(internalData)
+    if (internalData !== prevInternalDataRef.current) {
+      onDataChange?.(internalData)
+    }
+    prevInternalDataRef.current = internalData
   }, [internalData, onDataChange])
+
+  const {
+    containerRef,
+    beforeSentinelRef,
+    afterSentinelRef,
+    sentinelFocusing,
+    handleBeforeSentinelFocus,
+    handleAfterSentinelFocus,
+  } = useTableSentinels({
+    displayDataLength: displayData.length,
+    numColumns: columns.length,
+    cellRefs,
+    dispatch,
+  })
 
   const { handleFocus } = useTableFocus({
     focusedCell,
     editingCell,
     cellRefs,
     dispatch,
+    sentinelFocusing,
   })
 
   const { handleKeyDown } = useTableKeyboard({
@@ -55,6 +76,9 @@ export function DataTable({ columns, data, onDataChange }: DataTableProps) {
     numRows: displayData.length,
     columns,
     dispatch,
+    containerRef,
+    beforeSentinelRef,
+    afterSentinelRef,
   })
 
   // Map from row object identity → internal index, so CellRenderer avoids O(n) indexOf.
@@ -85,7 +109,15 @@ export function DataTable({ columns, data, onDataChange }: DataTableProps) {
 
   return (
     <TableContext.Provider value={contextValue}>
+      <span
+        ref={beforeSentinelRef}
+        tabIndex={0}
+        onFocus={handleBeforeSentinelFocus}
+        aria-hidden="true"
+        className="sr-only"
+      />
       <div
+        ref={containerRef}
         tabIndex={0}
         onKeyDown={handleKeyDown}
         onFocus={handleFocus}
@@ -132,6 +164,13 @@ export function DataTable({ columns, data, onDataChange }: DataTableProps) {
           </TableBody>
         </Table>
       </div>
+      <span
+        ref={afterSentinelRef}
+        tabIndex={0}
+        onFocus={handleAfterSentinelFocus}
+        aria-hidden="true"
+        className="sr-only"
+      />
     </TableContext.Provider>
   )
 }

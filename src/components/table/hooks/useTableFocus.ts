@@ -12,6 +12,7 @@ interface UseTableFocusOptions {
   editingCell: CellCoordinate | null
   cellRefs: React.RefObject<(HTMLElement | null)[][]>
   dispatch: React.Dispatch<TableAction>
+  sentinelFocusing: React.RefObject<boolean>
 }
 
 export function useTableFocus({
@@ -19,6 +20,7 @@ export function useTableFocus({
   editingCell,
   cellRefs,
   dispatch,
+  sentinelFocusing,
 }: UseTableFocusOptions) {
   const prevFocusedRef = useRef<CellCoordinate | null>(null)
   const prevEditingRef = useRef<CellCoordinate | null>(null)
@@ -51,10 +53,11 @@ export function useTableFocus({
 
   // On initial focus, select the first header cell
   const handleFocus = useCallback(() => {
+    if (sentinelFocusing.current) return
     if (!focusedCell) {
       dispatch({ type: "FOCUS_CELL", coord: { row: -1, col: 0 } })
     }
-  }, [focusedCell, dispatch])
+  }, [focusedCell, dispatch, sentinelFocusing])
 
   return { handleFocus }
 }

@@ -1,4 +1,4 @@
-import { useCallback } from "react"
+import { useCallback, type RefObject } from "react"
 import type { TableAction } from "../TableContext"
 import type { CellCoordinate, ColumnDefinition } from "../types"
 import { ARROW_KEYS } from "../consts"
@@ -11,6 +11,9 @@ interface UseTableKeyboardOptions {
   numRows: number
   columns: ColumnDefinition[]
   dispatch: React.Dispatch<TableAction>
+  containerRef: RefObject<HTMLDivElement | null>
+  beforeSentinelRef: RefObject<HTMLSpanElement | null>
+  afterSentinelRef: RefObject<HTMLSpanElement | null>
 }
 
 export function useTableKeyboard({
@@ -19,6 +22,9 @@ export function useTableKeyboard({
   numRows,
   columns,
   dispatch,
+  containerRef,
+  beforeSentinelRef,
+  afterSentinelRef,
 }: UseTableKeyboardOptions) {
   const handleKeyDown = useCallback(
     (e: React.KeyboardEvent<HTMLDivElement>) => {
@@ -27,7 +33,7 @@ export function useTableKeyboard({
       if (!focusedCell) {
         e.preventDefault()
         e.stopPropagation()
-        dispatch({ type: "FOCUS_CELL", coord: { row: 0, col: 0 } })
+        dispatch({ type: "FOCUS_CELL", coord: { row: -1, col: 0 } })
         return
       }
 
@@ -76,11 +82,51 @@ export function useTableKeyboard({
           }
           break
         case "Tab": {
-          e.preventDefault()
-          const tabTarget = e.shiftKey
-            ? Math.max(0, col - 1)
-            : Math.min(numCols - 1, col + 1)
-          dispatch({ type: "FOCUS_CELL", coord: { row, col: tabTarget } })
+          if (e.shiftKey) {
+            if (col > 0) {
+              e.preventDefault()
+              dispatch({ type: "FOCUS_CELL", coord: { row, col: col - 1 } })
+            } else if (row > -1) {
+              e.preventDefault()
+              dispatch({
+                type: "FOCUS_CELL",
+                coord: { row: row - 1, col: numCols - 1 },
+              })
+            } else {
+              // Temporarily remove from tab order so browser skips to external elements
+              if (containerRef.current) containerRef.current.tabIndex = -1
+              if (beforeSentinelRef.current)
+                beforeSentinelRef.current.tabIndex = -1
+              requestAnimationFrame(() => {
+                if (containerRef.current) containerRef.current.tabIndex = 0
+                if (beforeSentinelRef.current)
+                  beforeSentinelRef.current.tabIndex = 0
+              })
+              dispatch({ type: "CLEAR_FOCUS" })
+            }
+          } else {
+            if (col < numCols - 1) {
+              e.preventDefault()
+              dispatch({ type: "FOCUS_CELL", coord: { row, col: col + 1 } })
+            } else if (row < numRows - 1) {
+              e.preventDefault()
+              dispatch({
+                type: "FOCUS_CELL",
+                coord: { row: row + 1, col: 0 },
+              })
+            } else {
+              // Temporarily remove from tab order so browser skips to external elements
+              if (containerRef.current) containerRef.current.tabIndex = -1
+              if (afterSentinelRef.current)
+                afterSentinelRef.current.tabIndex = -1
+              requestAnimationFrame(() => {
+                if (containerRef.current) containerRef.current.tabIndex = 0
+                if (afterSentinelRef.current)
+                  afterSentinelRef.current.tabIndex = 0
+              })
+              dispatch({ type: "CLEAR_FOCUS" })
+            }
+          }
           break
         }
         case "Enter": {
