@@ -38,6 +38,22 @@ export function tableReducer(
       )
       return { ...state, internalData: newData }
     }
+    case "DELETE_ROW": {
+      const newData = state.internalData.filter((_, i) => i !== action.row)
+      // Clamp focus to the same position, adjusted for the shorter list
+      const clampedRow =
+        newData.length === 0 ? null : Math.min(action.row, newData.length - 1)
+      const focusedCell =
+        clampedRow !== null && state.focusedCell
+          ? { row: clampedRow, col: state.focusedCell.col }
+          : null
+      return {
+        ...state,
+        internalData: newData,
+        focusedCell,
+        editingCell: null,
+      }
+    }
     default:
       return state
   }

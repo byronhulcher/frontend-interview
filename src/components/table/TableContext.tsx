@@ -13,6 +13,7 @@ export type TableAction =
   | { type: "CLEAR_FOCUS" }
   | { type: "CLEAR_EDIT" }
   | { type: "UPDATE_CELL"; row: number; columnKey: string; value: unknown }
+  | { type: "DELETE_ROW"; row: number }
 
 export interface TableContextValue {
   state: TableState

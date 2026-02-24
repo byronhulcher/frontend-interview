@@ -3,8 +3,8 @@ import { useEditableCell } from "./hooks/useEditableCell"
 interface BoolTableCellProps {
   value: boolean
   isEditing?: boolean
-  onCellChange?: (value: boolean) => void
-  onExitEdit?: () => void
+  onCellChange: (value: boolean) => void
+  onExitEdit: () => void
 }
 
 export function BoolTableCell({

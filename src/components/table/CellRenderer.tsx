@@ -69,6 +69,7 @@ export function CellRenderer({ rowIndex, colIndex }: CellRendererProps) {
           triggerText={column.triggerText}
           isEditing={isEditing}
           onExitEdit={onExitEdit}
+          onDeleteRow={() => dispatch({ type: "DELETE_ROW", row: rowIndex })}
         />
       )
     default:

@@ -3,8 +3,8 @@ import { useEditableCell } from "./hooks/useEditableCell"
 interface TextTableCellProps {
   value: string
   isEditing?: boolean
-  onCellChange?: (value: string) => void
-  onExitEdit?: () => void
+  onCellChange: (value: string) => void
+  onExitEdit: () => void
 }
 
 export function TextTableCell({

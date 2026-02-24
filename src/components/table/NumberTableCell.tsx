@@ -4,8 +4,8 @@ interface NumberTableCellProps {
   value: number
   format?: "currency" | "percentage" | "decimal"
   isEditing?: boolean
-  onCellChange?: (value: number) => void
-  onExitEdit?: () => void
+  onCellChange: (value: number) => void
+  onExitEdit: () => void
 }
 
 export function NumberTableCell({

@@ -44,10 +44,27 @@ export function DataTable({ columns, data, onDataChange }: DataTableProps) {
     dispatch,
   })
 
+  const handleCopy = (e: React.ClipboardEvent<HTMLDivElement>) => {
+    // Don't copy while editing a cell
+    if (!focusedCell || editingCell) return
+
+    const column = columns[focusedCell.col]
+    const row = internalData[focusedCell.row]
+    const value = column.accessor ? column.accessor(row) : row[column.key]
+
+    e.clipboardData.setData("text/plain", String(value))
+    e.preventDefault()
+  }
+
   return (
     <TableContext.Provider value={{ state, dispatch, columns }}>
       {/* Wrapper is a native tab stop. When table gains focus, auto-focus cell {0,0} */}
-      <div tabIndex={0} onKeyDown={handleKeyDown} onFocus={handleFocus}>
+      <div
+        tabIndex={0}
+        onKeyDown={handleKeyDown}
+        onFocus={handleFocus}
+        onCopy={handleCopy}
+      >
         <Table>
           <TableHeader>
             <TableRow>
@@ -68,8 +85,8 @@ export function DataTable({ columns, data, onDataChange }: DataTableProps) {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {internalData.map((_, rowIndex) => (
-              <TableRow key={rowIndex}>
+            {internalData.map((row, rowIndex) => (
+              <TableRow key={row.id as string | number}>
                 {columns.map((column, colIndex) => (
                   <TableCellWrapper
                     key={column.key}

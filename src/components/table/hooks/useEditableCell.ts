@@ -1,9 +1,10 @@
 import { useLayoutEffect, useRef } from "react"
+import { NAV_KEYS } from "../consts"
 
 interface UseEditableCellOptions<T> {
   isEditing: boolean
-  onCellChange?: (value: T) => void
-  onExitEdit?: () => void
+  onCellChange: (value: T) => void
+  onExitEdit: () => void
   parseValue: (raw: string) => T | null
 }
 
@@ -25,20 +26,16 @@ export function useEditableCell<T>({
   }, [isEditing])
 
   function handleKeyDown(e: React.KeyboardEvent) {
-    if (
-      ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "Tab"].includes(e.key)
-    ) {
+    if (NAV_KEYS.includes(e.key) || e.key === "Tab") {
       e.stopPropagation()
-    }
-
-    if (e.key === "Enter") {
+    } else if (e.key === "Enter") {
       e.preventDefault()
       e.stopPropagation()
       commitValue()
     } else if (e.key === "Escape") {
       e.preventDefault()
       e.stopPropagation()
-      onExitEdit?.()
+      onExitEdit()
     }
   }
 
@@ -46,13 +43,13 @@ export function useEditableCell<T>({
     const raw = inputRef.current?.value ?? ""
     const parsed = parseValue(raw)
     if (parsed !== null) {
-      onCellChange?.(parsed)
+      onCellChange(parsed)
     }
-    onExitEdit?.()
+    onExitEdit()
   }
 
   function handleBlur() {
-    onExitEdit?.()
+    onExitEdit()
   }
 
   return { inputRef, handleKeyDown, handleBlur }

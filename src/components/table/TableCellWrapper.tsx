@@ -1,3 +1,4 @@
+import { useCallback, useState } from "react"
 import { TableCell } from "@/components/ui/table"
 import { useTableContext } from "./TableContext"
 import { CellRenderer } from "./CellRenderer"
@@ -16,6 +17,7 @@ export function TableCellWrapper({
 }: TableCellWrapperProps) {
   const { state, dispatch, columns } = useTableContext()
   const { focusedCell, editingCell } = state
+  const [isShaking, setIsShaking] = useState(false)
 
   const column = columns[colIndex]
   const isFocused =
@@ -23,25 +25,42 @@ export function TableCellWrapper({
   const isEditing =
     editingCell?.row === rowIndex && editingCell?.col === colIndex
 
+  const triggerShake = useCallback(() => {
+    setIsShaking(false)
+    // Force a re-render with the class removed first, then re-add it
+    // so the animation replays even on repeated attempts.
+    requestAnimationFrame(() => setIsShaking(true))
+  }, [])
+
   return (
     <TableCell
       ref={cellRef}
-      // Roving tabIndex: only the focused cell is in the tab order.
-      // All others are reachable via arrow keys but not Tab traversal.
       tabIndex={isFocused ? 0 : -1}
-      // Suppress browser's default focus outline — we render our own
-      // via ring-inset so it stays within the cell border.
       className={cn(
         "cursor-default select-none focus-visible:outline-none",
+        isShaking && "animate-shake",
         isFocused && !isEditing && "ring-2 ring-inset ring-blue-400",
         isEditing && "ring-2 ring-inset ring-orange-400"
       )}
+      onAnimationEnd={() => setIsShaking(false)}
+      onKeyDown={(e) => {
+        if (
+          e.key === "Enter" &&
+          isFocused &&
+          !isEditing &&
+          column.editable === false
+        ) {
+          triggerShake()
+        }
+      }}
       onClick={() => {
         const coord = { row: rowIndex, col: colIndex }
         const alreadyFocused =
           focusedCell?.row === rowIndex && focusedCell?.col === colIndex
         if (alreadyFocused && column.editable !== false) {
           dispatch({ type: "EDIT_CELL", coord })
+        } else if (alreadyFocused && column.editable === false) {
+          triggerShake()
         } else {
           dispatch({ type: "FOCUS_CELL", coord })
         }
