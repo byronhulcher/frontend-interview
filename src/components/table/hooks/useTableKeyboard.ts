@@ -1,5 +1,6 @@
 import { useCallback, type RefObject } from "react"
-import { useTableContext } from "../TableContext"
+import { useTableReactiveContext } from "../context/TableReactiveContext"
+import { useTableStableContext } from "../context/TableStableContext"
 import { ARROW_KEYS } from "../consts"
 
 const HANDLED_KEYS = [...ARROW_KEYS, "Tab", "Enter", "Escape"]
@@ -18,7 +19,8 @@ export function useTableKeyboard({
   beforeSentinelRef,
   afterSentinelRef,
 }: UseTableKeyboardOptions) {
-  const { state, dispatch, columns, displayData } = useTableContext()
+  const { state, columns, displayData } = useTableReactiveContext()
+  const { dispatch } = useTableStableContext()
   const { focusedCell, editingCell } = state
 
   const handleKeyDown = useCallback(
@@ -29,6 +31,9 @@ export function useTableKeyboard({
       const numCols = columns.length
 
       if (!focusedCell) {
+        // Let Escape bubble up (e.g. to close a parent popper) rather than
+        // consuming it to focus the header row.
+        if (e.key === "Escape") return
         e.preventDefault()
         e.stopPropagation()
         dispatch({ type: "FOCUS_CELL", coord: { row: -1, col: 0 } })

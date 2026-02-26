@@ -3,7 +3,11 @@ import { Table, TableBody, TableHeader, TableRow } from "@/components/ui/table"
 import { TableCellWrapper } from "./TableCellWrapper"
 import { HeaderCell } from "./HeaderCell"
 import type { ColumnDefinition, TableData } from "./types"
-import { TableContext, useTableContext } from "./TableContext"
+import {
+  TableReactiveContext,
+  useTableReactiveContext,
+} from "./context/TableReactiveContext"
+import { TableStableContext } from "./context/TableStableContext"
 import { useTableReducer } from "./hooks/useTableReducer"
 import { useFocusTracking } from "./hooks/useFocusTracking"
 import { useTableNavigation } from "./hooks/useTableNavigation"
@@ -51,36 +55,25 @@ export function DataTable({
       if (!cellRefs.current[row]) cellRefs.current[row] = []
       cellRefs.current[row][col] = el
     },
-    [cellRefs],
+    [],
   )
 
   const contextValue = useMemo(
-    () => ({
-      state,
-      dispatch,
-      columns,
-      displayData,
-      internalIndexMap,
-      registerCellRef,
-      cellRefs,
-      dataMap,
-    }),
-    [
-      state,
-      dispatch,
-      columns,
-      displayData,
-      internalIndexMap,
-      registerCellRef,
-      cellRefs,
-      dataMap,
-    ],
+    () => ({ state, columns, displayData, internalIndexMap }),
+    [state, columns, displayData, internalIndexMap],
+  )
+
+  const stableContextValue = useMemo(
+    () => ({ dispatch, registerCellRef, cellRefs, dataMap }),
+    [dispatch, registerCellRef, cellRefs, dataMap],
   )
 
   return (
-    <TableContext.Provider value={contextValue}>
-      <DataTableInner onDataChange={onDataChange} />
-    </TableContext.Provider>
+    <TableStableContext.Provider value={stableContextValue}>
+      <TableReactiveContext.Provider value={contextValue}>
+        <DataTableInner onDataChange={onDataChange} />
+      </TableReactiveContext.Provider>
+    </TableStableContext.Provider>
   )
 }
 
@@ -89,8 +82,10 @@ interface DataTableInnerProps {
 }
 
 function DataTableInner({ onDataChange }: DataTableInnerProps) {
-  const { state, columns, displayData } = useTableContext()
-  const { internalData, focusedCell, sortColumn, sortDirection } = state
+  const { state, columns, displayData, internalIndexMap } =
+    useTableReactiveContext()
+  const { internalData, focusedCell, editingCell, sortColumn, sortDirection } =
+    state
 
   const prevInternalDataRef = useRef(internalData)
 
@@ -115,7 +110,7 @@ function DataTableInner({ onDataChange }: DataTableInnerProps) {
 
   const handleCopy = useCallback(
     (e: React.ClipboardEvent<HTMLDivElement>) => {
-      if (!focusedCell || state.editingCell || focusedCell.row === -1) return
+      if (!focusedCell || editingCell || focusedCell.row === -1) return
 
       const column = columns[focusedCell.col]
       const row = displayData[focusedCell.row]
@@ -124,8 +119,10 @@ function DataTableInner({ onDataChange }: DataTableInnerProps) {
       e.clipboardData.setData("text/plain", String(value))
       e.preventDefault()
     },
-    [focusedCell, state.editingCell, columns, displayData],
+    [focusedCell, editingCell, columns, displayData],
   )
+
+  const hasEditingCell = editingCell !== null
 
   return (
     <>
@@ -144,27 +141,43 @@ function DataTableInner({ onDataChange }: DataTableInnerProps) {
                 <HeaderCell
                   key={column.key}
                   column={column}
+                  colIndex={colIndex}
                   isFocused={
                     focusedCell?.row === -1 && focusedCell?.col === colIndex
                   }
                   isSorted={sortColumn === column.key}
                   sortDirection={sortDirection}
+                  hasEditingCell={hasEditingCell}
                 />
               ))}
             </TableRow>
           </TableHeader>
           <TableBody>
-            {displayData.map((row, displayIndex) => (
-              <TableRow key={row.id as string | number}>
-                {columns.map((column, colIndex) => (
-                  <TableCellWrapper
-                    key={column.key}
-                    rowIndex={displayIndex}
-                    colIndex={colIndex}
-                  />
-                ))}
-              </TableRow>
-            ))}
+            {displayData.map((row, displayIndex) => {
+              const internalRowIndex = internalIndexMap.get(row) ?? -1
+              return (
+                <TableRow key={row.id as string | number}>
+                  {columns.map((column, colIndex) => (
+                    <TableCellWrapper
+                      key={column.key}
+                      rowIndex={displayIndex}
+                      colIndex={colIndex}
+                      column={column}
+                      row={row}
+                      internalRowIndex={internalRowIndex}
+                      isFocused={
+                        focusedCell?.row === displayIndex &&
+                        focusedCell?.col === colIndex
+                      }
+                      isEditing={
+                        editingCell?.row === displayIndex &&
+                        editingCell?.col === colIndex
+                      }
+                    />
+                  ))}
+                </TableRow>
+              )
+            })}
           </TableBody>
         </Table>
       </div>

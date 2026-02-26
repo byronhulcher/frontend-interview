@@ -1,6 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
-import { createContext, useContext, type Dispatch, type RefObject } from "react"
-import type { CellCoordinate, ColumnDefinition, TableData } from "./types"
+import { createContext, useContext } from "react"
+import type { ColumnDefinition, TableData } from "../types"
+import type { CellCoordinate } from "../types"
 
 export interface TableState {
   focusedCell: CellCoordinate | null
@@ -19,27 +20,27 @@ export type TableAction =
   | { type: "DELETE_ROW"; row: number }
   | { type: "SORT_COLUMN"; columnKey: string; direction: "asc" | "desc" | null }
 
-export interface TableContextValue {
+// Reactive context — changes on any user action (focus, edit, sort, data mutation).
+// Only subscribe to this when you need to react to those changes.
+export interface TableReactiveContextValue {
   state: TableState
-  dispatch: Dispatch<TableAction>
   columns: ColumnDefinition[]
   displayData: TableData[]
   internalIndexMap: Map<TableData, number>
-  registerCellRef: (row: number, col: number, el: HTMLElement | null) => void
-  cellRefs: RefObject<(HTMLElement | null)[][]>
-  dataMap: Map<unknown, TableData>
 }
 
-const TableContext = createContext<TableContextValue | null>(null)
+const TableReactiveContext = createContext<TableReactiveContextValue | null>(
+  null,
+)
 
-export function useTableContext(): TableContextValue {
-  const ctx = useContext(TableContext)
+export function useTableReactiveContext(): TableReactiveContextValue {
+  const ctx = useContext(TableReactiveContext)
   if (!ctx) {
     throw new Error(
-      "useTableContext must be used inside a TableContext.Provider",
+      "useTableReactiveContext must be used inside a TableReactiveContext.Provider",
     )
   }
   return ctx
 }
 
-export { TableContext }
+export { TableReactiveContext }

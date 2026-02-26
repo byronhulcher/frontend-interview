@@ -1,32 +1,26 @@
-import { useCallback } from "react"
-import { useTableContext } from "./TableContext"
+import { memo, useCallback } from "react"
+import { useTableStableContext } from "./context/TableStableContext"
 import { BoolTableCell } from "./BoolTableCell"
 import { TextTableCell } from "./TextTableCell"
 import { NumberTableCell } from "./NumberTableCell"
 import { PopperTableCell } from "./PopperTableCell"
+import type { ColumnDefinition, TableData } from "./types"
 
 interface CellRendererProps {
-  rowIndex: number
-  colIndex: number
+  column: ColumnDefinition
+  row: TableData
+  internalRowIndex: number
+  isEditing: boolean
 }
 
-export function CellRenderer({ rowIndex, colIndex }: CellRendererProps) {
-  const {
-    columns,
-    displayData,
-    internalIndexMap,
-    state: { editingCell },
-    dispatch,
-  } = useTableContext()
-
-  const column = columns[colIndex]
-  const row = displayData[rowIndex]
-
-  const internalRowIndex = internalIndexMap.get(row) ?? -1
-
+export const CellRenderer = memo(function CellRenderer({
+  column,
+  row,
+  internalRowIndex,
+  isEditing,
+}: CellRendererProps) {
+  const { dispatch } = useTableStableContext()
   const value = column.accessor ? column.accessor(row) : row[column.key]
-  const isEditing =
-    editingCell?.row === rowIndex && editingCell?.col === colIndex
 
   const onCellChange = useCallback(
     (newValue: unknown) => {
@@ -81,7 +75,9 @@ export function CellRenderer({ rowIndex, colIndex }: CellRendererProps) {
       return (
         <PopperTableCell
           value={value as string}
+          rowId={row.id as string}
           triggerText={column.triggerText}
+          label={row.name as string}
           isEditing={isEditing}
           onExitEdit={onExitEdit}
           onDeleteRow={handleDelete}
@@ -90,4 +86,4 @@ export function CellRenderer({ rowIndex, colIndex }: CellRendererProps) {
     default:
       return <>{String(value)}</>
   }
-}
+})

@@ -1,5 +1,6 @@
 import { useCallback, useRef, type RefObject } from "react"
-import { useTableContext } from "../TableContext"
+import { useTableReactiveContext } from "../context/TableReactiveContext"
+import { useTableStableContext } from "../context/TableStableContext"
 import { SentinelSpan } from "../SentinelSpan"
 
 interface UseTableSentinelsOptions {
@@ -11,7 +12,8 @@ interface UseTableSentinelsOptions {
  * Routes incoming tab focus to the first or last cell.
  */
 export function useTableSentinels({ containerRef }: UseTableSentinelsOptions) {
-  const { dispatch, columns, displayData, cellRefs } = useTableContext()
+  const { columns, displayData } = useTableReactiveContext()
+  const { dispatch, cellRefs } = useTableStableContext()
 
   const beforeSentinelRef = useRef<HTMLSpanElement>(null)
   const afterSentinelRef = useRef<HTMLSpanElement>(null)

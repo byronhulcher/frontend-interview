@@ -1,13 +1,14 @@
 import { useMemo } from "react"
 import { DataTable } from "./components/table/DataTable"
 import { SaveButton } from "./components/SaveButton"
-import { useUnsavedChanges } from "./hooks/useUnsavedChanges"
+import { useChangeTracking } from "./hooks/useChangeTracking"
 import { generateData, columns } from "./data/generateData"
+import { ChangeTrackingProvider } from "./context/ChangeTrackingContext"
 
-function App() {
+function AppContent() {
   const initialData = useMemo(() => generateData(100), [])
   const { unsavedChangesCount, handleDataChange, handleSave, data, dataMap } =
-    useUnsavedChanges(initialData)
+    useChangeTracking(initialData)
 
   return (
     <div className="min-h-screen p-8 bg-background text-foreground">
@@ -38,6 +39,14 @@ function App() {
         </div>
       </div>
     </div>
+  )
+}
+
+function App() {
+  return (
+    <ChangeTrackingProvider>
+      <AppContent />
+    </ChangeTrackingProvider>
   )
 }
 

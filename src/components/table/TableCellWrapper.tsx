@@ -1,32 +1,35 @@
-import { useCallback } from "react"
+import { memo, useCallback } from "react"
 import { TableCell } from "@/components/ui/table"
-import { useTableContext } from "./TableContext"
+import { useTableStableContext } from "./context/TableStableContext"
 import { CellRenderer } from "./CellRenderer"
 import { useShake } from "./hooks/useShake"
 import { cn } from "@/lib/utils"
+import type { ColumnDefinition, TableData } from "./types"
 
 interface TableCellWrapperProps {
   rowIndex: number
   colIndex: number
+  column: ColumnDefinition
+  row: TableData
+  internalRowIndex: number
+  isFocused: boolean
+  isEditing: boolean
 }
 
-export function TableCellWrapper({
+export const TableCellWrapper = memo(function TableCellWrapper({
   rowIndex,
   colIndex,
+  column,
+  row,
+  internalRowIndex,
+  isFocused,
+  isEditing,
 }: TableCellWrapperProps) {
-  const { state, dispatch, columns, registerCellRef, displayData, dataMap } =
-    useTableContext()
-  const { focusedCell, editingCell } = state
+  const { dispatch, registerCellRef, dataMap } = useTableStableContext()
   const { isShaking, triggerShake, onAnimationEnd } = useShake()
-  const column = columns[colIndex]
-  const isFocused =
-    focusedCell?.row === rowIndex && focusedCell?.col === colIndex
-  const isEditing =
-    editingCell?.row === rowIndex && editingCell?.col === colIndex
   const isEditable = column.editable !== false
 
   // Compute isDirty by comparing current value to original value (O(1) Map lookup)
-  const row = displayData[rowIndex]
   const originalRow = dataMap.get(row.id)
   let isDirty = false
   if (originalRow) {
@@ -81,7 +84,12 @@ export function TableCellWrapper({
       onKeyDown={handleKeyDown}
       onClick={handleClick}
     >
-      <CellRenderer rowIndex={rowIndex} colIndex={colIndex} />
+      <CellRenderer
+        column={column}
+        row={row}
+        internalRowIndex={internalRowIndex}
+        isEditing={isEditing}
+      />
     </TableCell>
   )
-}
+})

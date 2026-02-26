@@ -1,7 +1,7 @@
 import { useReducer } from "react"
 
 import type { TableData } from "../types"
-import type { TableState, TableAction } from "../TableContext"
+import type { TableState, TableAction } from "../context/TableReactiveContext"
 
 export function tableReducer(
   state: TableState,

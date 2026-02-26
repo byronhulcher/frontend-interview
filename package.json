@@ -7,9 +7,9 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "format": "prettier --write .",
+    "prettier": "prettier --check .",
     "preview": "vite preview",
-    "checks": "pnpm run lint --fix && pnpm run format"
+    "checks": "pnpm run lint && pnpm run prettier"
   },
   "dependencies": {
     "@radix-ui/react-popover": "^1.1.15",

@@ -1,26 +1,29 @@
-import { useCallback } from "react"
+import { memo, useCallback } from "react"
 import { TableHead } from "@/components/ui/table"
-import { useTableContext } from "./TableContext"
+import { useTableStableContext } from "./context/TableStableContext"
 import type { ColumnDefinition } from "./types"
 import { useShake } from "./hooks/useShake"
 import { cn } from "@/lib/utils"
 
 interface HeaderCellProps {
   column: ColumnDefinition
+  colIndex: number
   isFocused: boolean
   isSorted: boolean
   sortDirection: "asc" | "desc"
+  hasEditingCell: boolean
 }
 
-export function HeaderCell({
+export const HeaderCell = memo(function HeaderCell({
   column,
+  colIndex,
   isFocused,
   isSorted,
   sortDirection,
+  hasEditingCell,
 }: HeaderCellProps) {
-  const { state, dispatch, columns, registerCellRef } = useTableContext()
+  const { dispatch, registerCellRef } = useTableStableContext()
   const { isShaking, triggerShake, onAnimationEnd } = useShake()
-  const colIndex = columns.findIndex((c) => c.key === column.key)
 
   const cellRef = useCallback(
     (el: HTMLElement | null) => {
@@ -32,15 +35,13 @@ export function HeaderCell({
   const sortIndicator = isSorted ? (sortDirection === "asc" ? "⏶" : "⏷") : ""
   const isSortable = column.sortable !== false
 
-  // Prevent mousedown from stealing focus away from the editing input.
-  // This keeps the cell in edit mode so onClick can check and confirm.
   const handleMouseDown = useCallback(
     (e: React.MouseEvent) => {
-      if (state.editingCell) {
+      if (hasEditingCell) {
         e.preventDefault()
       }
     },
-    [state.editingCell],
+    [hasEditingCell],
   )
 
   const cycleSort = useCallback(() => {
@@ -97,4 +98,4 @@ export function HeaderCell({
       {column.header} {sortIndicator}
     </TableHead>
   )
-}
+})

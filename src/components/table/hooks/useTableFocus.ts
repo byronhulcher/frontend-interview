@@ -1,5 +1,6 @@
 import { useCallback, useLayoutEffect, useRef, type RefObject } from "react"
-import { useTableContext } from "../TableContext"
+import { useTableReactiveContext } from "../context/TableReactiveContext"
+import { useTableStableContext } from "../context/TableStableContext"
 
 function focusElement(el: HTMLElement) {
   el.focus({ preventScroll: true })
@@ -15,24 +16,19 @@ interface UseTableFocusOptions {
  * and restores focus to the cell wrapper when exiting edit mode.
  */
 export function useTableFocus({ sentinelFocusing }: UseTableFocusOptions) {
-  const { state, dispatch, cellRefs } = useTableContext()
+  const { state } = useTableReactiveContext()
+  const { dispatch, cellRefs } = useTableStableContext()
   const { focusedCell, editingCell } = state
 
-  const prevFocusedRef = useRef(focusedCell)
   const prevEditingRef = useRef(editingCell)
 
-  // Move focus when navigating to a different cell.
+  // Move focus when navigating to a different cell, or when the focused cell's
+  // DOM element is replaced (e.g. after a row deletion causes a re-render).
   // Skipped when editing — the editor widget auto-focuses itself.
   useLayoutEffect(() => {
-    const prevFocused = prevFocusedRef.current
-    prevFocusedRef.current = focusedCell
-
-    const moved =
-      focusedCell?.row !== prevFocused?.row ||
-      focusedCell?.col !== prevFocused?.col
-    if (focusedCell && moved && !editingCell) {
+    if (focusedCell && !editingCell) {
       const el = cellRefs.current[focusedCell.row]?.[focusedCell.col]
-      if (el) focusElement(el)
+      if (el && document.activeElement !== el) focusElement(el)
     }
   }, [focusedCell, editingCell, cellRefs])
 

@@ -1,7 +1,8 @@
 import { useEffect, useRef } from "react"
 import type { Dispatch } from "react"
-import type { TableAction } from "../TableContext"
-import { useTableContext } from "../TableContext"
+import type { TableAction } from "../context/TableReactiveContext"
+import { useTableReactiveContext } from "../context/TableReactiveContext"
+import { useTableStableContext } from "../context/TableStableContext"
 import type { CellCoordinate, TableData } from "../types"
 
 /**
@@ -12,7 +13,8 @@ import type { CellCoordinate, TableData } from "../types"
  * UPDATE_CELL creates a new row object via spread.
  */
 export function useFocusTracking() {
-  const { state, dispatch, displayData } = useTableContext()
+  const { state, displayData } = useTableReactiveContext()
+  const { dispatch } = useTableStableContext()
   const { focusedCell } = state
   const trackedRowId = useRef<unknown>(null)
   const prevDisplayData = useRef(displayData)
