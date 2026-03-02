@@ -38,6 +38,21 @@ describe("NumberCell", () => {
       expect(screen.getByText("$1,234.50")).toBeInTheDocument();
     });
 
+    it("shows percentage format correctly", () => {
+      setup({ ...baseProps, value: 0.85, format: "percentage" });
+      expect(screen.getByText("0.85%")).toBeInTheDocument();
+    });
+
+    it("shows decimal format correctly", () => {
+      setup({ ...baseProps, value: 1234.567, format: "decimal" });
+      expect(screen.getByText("1234.57")).toBeInTheDocument();
+    });
+
+    it("shows default format correctly", () => {
+      setup({ ...baseProps, value: 1234.5 });
+      expect(screen.getByText("1,234.5")).toBeInTheDocument();
+    });
+
     it("applies a blue-400 ring when selected", () => {
       const { cell } = setup({ ...baseProps, isSelected: true });
       expect(cell.className).toMatch(/ring-blue-400/);

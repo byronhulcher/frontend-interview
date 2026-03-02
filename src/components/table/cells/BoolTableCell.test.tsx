@@ -128,6 +128,20 @@ describe("BoolTableCell", () => {
       expect(onNavigate).toHaveBeenCalledWith("next");
     });
 
+    it("calls onExitEdit on blur", async () => {
+      const onExitEdit = vi.fn();
+      const { user } = setup({
+        ...baseProps,
+        isSelected: true,
+        isEditing: true,
+        onExitEdit,
+      });
+      const combobox = screen.getByRole("combobox");
+      await user.click(combobox);
+      await user.tab(); // This will trigger blur
+      expect(onExitEdit).toHaveBeenCalledOnce();
+    });
+
     it("updates the displayed badge after selecting a new value", async () => {
       const { user } = setup({
         ...baseProps,

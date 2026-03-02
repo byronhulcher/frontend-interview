@@ -1,4 +1,4 @@
-import type { ColumnDefinition, TableData } from "@/components/table/types"
+import type { ColumnDefinition, TableData } from "@/components/table/types";
 
 // Sample data generators
 const names = [
@@ -12,7 +12,7 @@ const names = [
   "Hannah Montana",
   "Isaac Newton",
   "Julia Roberts",
-]
+];
 
 export const companies = [
   "Acme Corp",
@@ -25,7 +25,7 @@ export const companies = [
   "Data Analytics Ltd",
   "Software Solutions",
   "Enterprise Group",
-]
+];
 
 const descriptions = [
   "Senior Software Engineer with 10+ years of experience",
@@ -38,22 +38,25 @@ const descriptions = [
   "Customer Success Manager ensuring client satisfaction",
   "Research Scientist developing new technologies",
   "Business Analyst optimizing operations",
-]
+];
 
 function randomElement<T>(array: T[]): T {
-  return array[Math.floor(Math.random() * array.length)]
+  return array[Math.floor(Math.random() * array.length)];
 }
 
 function randomInt(min: number, max: number): number {
-  return Math.floor(Math.random() * (max - min + 1)) + min
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 function randomFloat(min: number, max: number): number {
-  return Math.random() * (max - min) + min
+  return Math.random() * (max - min) + min;
 }
 
+// Export for testing
+export { randomElement, randomInt, randomFloat };
+
 export function generateData(count: number = 100): TableData[] {
-  const data: TableData[] = []
+  const data: TableData[] = [];
 
   for (let i = 0; i < count; i++) {
     data.push({
@@ -65,10 +68,10 @@ export function generateData(count: number = 100): TableData[] {
       active: Math.random() > 0.3,
       score: randomFloat(0, 100),
       description: `${randomElement(descriptions)}. ID: ${i + 1}. This is a detailed description that contains more information about the person and their role in the organization.`,
-    })
+    });
   }
 
-  return data
+  return data;
 }
 
 export const columns: ColumnDefinition[] = [
@@ -115,5 +118,4 @@ export const columns: ColumnDefinition[] = [
     type: "popper",
     triggerText: "View Details",
   },
-]
-
+];
