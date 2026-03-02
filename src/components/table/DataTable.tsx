@@ -1,74 +1,107 @@
-import React from "react"
+import { useCallback, useMemo } from "react";
 import {
   Table,
   TableBody,
-  TableCell,
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table"
-import { BoolTableCell } from "./BoolTableCell"
-import { TextTableCell } from "./TextTableCell"
-import { NumberTableCell } from "./NumberTableCell"
-import { PopperTableCell } from "./PopperTableCell"
-import type { ColumnDefinition, TableData } from "./types"
+} from "@/components/ui/table";
+import { useTableNavigation } from "./hooks/useTableNavigation";
+import type { ColumnDefinition, TableData } from "./types";
+import { DataTableCell } from "./cells/DataTableCell";
 
 interface DataTableProps {
-  columns: ColumnDefinition[]
-  data: TableData[]
+  columns: ColumnDefinition[];
+  data: TableData[];
+  basePath?: string;
+  onCellChange?: (rowIndex: number, key: string, value: unknown) => void;
 }
 
-export function DataTable({ columns, data }: DataTableProps) {
-  const renderCell = (column: ColumnDefinition, row: TableData) => {
-    const value = column.accessor
-      ? column.accessor(row)
-      : row[column.key]
+export function DataTable({
+  columns,
+  data,
+  basePath = "",
+  onCellChange,
+}: DataTableProps) {
+  const numRows = data.length;
+  const numCols = columns.length;
 
-    switch (column.type) {
-      case "boolean":
-        return <BoolTableCell value={value as boolean} />
-      case "text":
-        return <TextTableCell value={value as string} />
-      case "number":
-        return (
-          <NumberTableCell
-            value={value as number}
-            format={column.format}
-          />
-        )
-      case "popper":
-        return (
-          <PopperTableCell
-            value={value as string}
-            triggerText={column.triggerText}
-          />
-        )
-      default:
-        return <TableCell>{String(value)}</TableCell>
-    }
-  }
+  const {
+    activeCell,
+    wrapperRef,
+    navigate,
+    selectCell,
+    editCell,
+    exitEdit,
+    handleFocus,
+    handleKeyDown,
+  } = useTableNavigation({ numRows, numCols });
 
-  return (
-    <Table>
-      <TableHeader>
-        <TableRow>
-          {columns.map((column) => (
-            <TableHead key={column.key}>{column.header}</TableHead>
-          ))}
+  // Shared by all cells in this DataTable. Reads activeCell at call-time so it
+  // always reports the currently active row/col, regardless of which cell's
+  // render captured it last (avoids stale-closure row-index issues in tests).
+  const handleCellChange = useCallback(
+    (v: unknown) => {
+      if (activeCell) {
+        onCellChange?.(activeCell.row, columns[activeCell.col].key, v);
+      }
+    },
+    [activeCell, columns, onCellChange],
+  );
+
+  // Memoize row rendering to avoid re-rendering unchanged rows
+  const rows = useMemo(
+    () =>
+      data.map((row, rowIndex) => (
+        <TableRow key={String(row.id ?? rowIndex)}>
+          {columns.map((column, colIndex) => {
+            const isSelected =
+              activeCell?.row === rowIndex && activeCell?.col === colIndex;
+            const isEditing = isSelected
+              ? activeCell?.mode === "editing"
+              : false;
+            return (
+              <DataTableCell
+                key={column.key}
+                column={column}
+                row={row}
+                rowIndex={rowIndex}
+                isSelected={isSelected ?? false}
+                isEditing={isEditing ?? false}
+                onSelect={() => selectCell(rowIndex, colIndex)}
+                onEdit={() => editCell(rowIndex, colIndex)}
+                onExitEdit={exitEdit}
+                onNavigate={navigate}
+                onChange={handleCellChange}
+                basePath={basePath}
+              />
+            );
+          })}
         </TableRow>
-      </TableHeader>
-      <TableBody>
-        {data.map((row, rowIndex) => (
-          <TableRow key={rowIndex}>
+      )),
+    [data, columns, activeCell, selectCell, editCell, exitEdit, navigate, handleCellChange, basePath]
+  );
+
+  // tabIndex={0} lets the wrapper receive focus so keyboard events are captured.
+  // outline-none removes the browser's default focus ring (cells show their own rings).
+  return (
+    <div
+      ref={wrapperRef}
+      tabIndex={0}
+      onFocus={handleFocus}
+      onKeyDown={handleKeyDown}
+      className="outline-none"
+    >
+      <Table>
+        <TableHeader>
+          <TableRow>
             {columns.map((column) => (
-              <React.Fragment key={column.key}>
-                {renderCell(column, row)}
-              </React.Fragment>
+              <TableHead key={column.key}>{column.header}</TableHead>
             ))}
           </TableRow>
-        ))}
-      </TableBody>
-    </Table>
-  )
+        </TableHeader>
+        <TableBody>{rows}</TableBody>
+      </Table>
+    </div>
+  );
 }
-

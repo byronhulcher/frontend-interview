@@ -1,0 +1,2419 @@
+[vite] connecting... client:733:9
+[vite] connected. client:827:12
+Download the React DevTools for a better development experience: https://react.dev/link/react-devtools react-dom_client.js:20103:54
+[PopperTableCell 1] Mounted/Updated: 
+Object { tableId: 1, innerDataFirstCell: "Hannah Montana", initialDataFirstCell: "Hannah Montana", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 2] Mounted/Updated: 
+Object { tableId: 2, innerDataFirstCell: "Edward Norton", initialDataFirstCell: "Edward Norton", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 3] Mounted/Updated: 
+Object { tableId: 3, innerDataFirstCell: "Hannah Montana", initialDataFirstCell: "Hannah Montana", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 4] Mounted/Updated: 
+Object { tableId: 4, innerDataFirstCell: "Diana Prince", initialDataFirstCell: "Diana Prince", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 5] Mounted/Updated: 
+Object { tableId: 5, innerDataFirstCell: "Charlie Brown", initialDataFirstCell: "Charlie Brown", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 6] Mounted/Updated: 
+Object { tableId: 6, innerDataFirstCell: "Hannah Montana", initialDataFirstCell: "Hannah Montana", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 7] Mounted/Updated: 
+Object { tableId: 7, innerDataFirstCell: "Diana Prince", initialDataFirstCell: "Diana Prince", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 8] Mounted/Updated: 
+Object { tableId: 8, innerDataFirstCell: "Julia Roberts", initialDataFirstCell: "Julia Roberts", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 9] Mounted/Updated: 
+Object { tableId: 9, innerDataFirstCell: "Charlie Brown", initialDataFirstCell: "Charlie Brown", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 10] Mounted/Updated: 
+Object { tableId: 10, innerDataFirstCell: "Diana Prince", initialDataFirstCell: "Diana Prince", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 11] Mounted/Updated: 
+Object { tableId: 11, innerDataFirstCell: "Alice Johnson", initialDataFirstCell: "Alice Johnson", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 12] Mounted/Updated: 
+Object { tableId: 12, innerDataFirstCell: "George Washington", initialDataFirstCell: "George Washington", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 13] Mounted/Updated: 
+Object { tableId: 13, innerDataFirstCell: "Bob Smith", initialDataFirstCell: "Bob Smith", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 14] Mounted/Updated: 
+Object { tableId: 14, innerDataFirstCell: "Isaac Newton", initialDataFirstCell: "Isaac Newton", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 15] Mounted/Updated: 
+Object { tableId: 15, innerDataFirstCell: "Hannah Montana", initialDataFirstCell: "Hannah Montana", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 16] Mounted/Updated: 
+Object { tableId: 16, innerDataFirstCell: "Alice Johnson", initialDataFirstCell: "Alice Johnson", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 17] Mounted/Updated: 
+Object { tableId: 17, innerDataFirstCell: "Julia Roberts", initialDataFirstCell: "Julia Roberts", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 18] Mounted/Updated: 
+Object { tableId: 18, innerDataFirstCell: "Hannah Montana", initialDataFirstCell: "Hannah Montana", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 19] Mounted/Updated: 
+Object { tableId: 19, innerDataFirstCell: "George Washington", initialDataFirstCell: "George Washington", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 20] Mounted/Updated: 
+Object { tableId: 20, innerDataFirstCell: "Isaac Newton", initialDataFirstCell: "Isaac Newton", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 21] Mounted/Updated: 
+Object { tableId: 21, innerDataFirstCell: "Fiona Apple", initialDataFirstCell: "Fiona Apple", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 22] Mounted/Updated: 
+Object { tableId: 22, innerDataFirstCell: "Edward Norton", initialDataFirstCell: "Edward Norton", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 23] Mounted/Updated: 
+Object { tableId: 23, innerDataFirstCell: "Diana Prince", initialDataFirstCell: "Diana Prince", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 24] Mounted/Updated: 
+Object { tableId: 24, innerDataFirstCell: "Bob Smith", initialDataFirstCell: "Bob Smith", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 25] Mounted/Updated: 
+Object { tableId: 25, innerDataFirstCell: "Alice Johnson", initialDataFirstCell: "Alice Johnson", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 26] Mounted/Updated: 
+Object { tableId: 26, innerDataFirstCell: "Julia Roberts", initialDataFirstCell: "Julia Roberts", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 27] Mounted/Updated: 
+Object { tableId: 27, innerDataFirstCell: "George Washington", initialDataFirstCell: "George Washington", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 28] Mounted/Updated: 
+Object { tableId: 28, innerDataFirstCell: "Fiona Apple", initialDataFirstCell: "Fiona Apple", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 29] Mounted/Updated: 
+Object { tableId: 29, innerDataFirstCell: "Julia Roberts", initialDataFirstCell: "Julia Roberts", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 30] Mounted/Updated: 
+Object { tableId: 30, innerDataFirstCell: "Diana Prince", initialDataFirstCell: "Diana Prince", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 31] Mounted/Updated: 
+Object { tableId: 31, innerDataFirstCell: "Isaac Newton", initialDataFirstCell: "Isaac Newton", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 32] Mounted/Updated: 
+Object { tableId: 32, innerDataFirstCell: "Julia Roberts", initialDataFirstCell: "Julia Roberts", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 33] Mounted/Updated: 
+Object { tableId: 33, innerDataFirstCell: "Isaac Newton", initialDataFirstCell: "Isaac Newton", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 34] Mounted/Updated: 
+Object { tableId: 34, innerDataFirstCell: "Charlie Brown", initialDataFirstCell: "Charlie Brown", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 35] Mounted/Updated: 
+Object { tableId: 35, innerDataFirstCell: "Fiona Apple", initialDataFirstCell: "Fiona Apple", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 36] Mounted/Updated: 
+Object { tableId: 36, innerDataFirstCell: "Alice Johnson", initialDataFirstCell: "Alice Johnson", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 37] Mounted/Updated: 
+Object { tableId: 37, innerDataFirstCell: "Julia Roberts", initialDataFirstCell: "Julia Roberts", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 38] Mounted/Updated: 
+Object { tableId: 38, innerDataFirstCell: "Isaac Newton", initialDataFirstCell: "Isaac Newton", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 39] Mounted/Updated: 
+Object { tableId: 39, innerDataFirstCell: "Edward Norton", initialDataFirstCell: "Edward Norton", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 40] Mounted/Updated: 
+Object { tableId: 40, innerDataFirstCell: "Diana Prince", initialDataFirstCell: "Diana Prince", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 41] Mounted/Updated: 
+Object { tableId: 41, innerDataFirstCell: "Charlie Brown", initialDataFirstCell: "Charlie Brown", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 42] Mounted/Updated: 
+Object { tableId: 42, innerDataFirstCell: "Hannah Montana", initialDataFirstCell: "Hannah Montana", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 43] Mounted/Updated: 
+Object { tableId: 43, innerDataFirstCell: "Isaac Newton", initialDataFirstCell: "Isaac Newton", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 44] Mounted/Updated: 
+Object { tableId: 44, innerDataFirstCell: "Julia Roberts", initialDataFirstCell: "Julia Roberts", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 45] Mounted/Updated: 
+Object { tableId: 45, innerDataFirstCell: "Charlie Brown", initialDataFirstCell: "Charlie Brown", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 46] Mounted/Updated: 
+Object { tableId: 46, innerDataFirstCell: "Bob Smith", initialDataFirstCell: "Bob Smith", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 47] Mounted/Updated: 
+Object { tableId: 47, innerDataFirstCell: "Charlie Brown", initialDataFirstCell: "Charlie Brown", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 48] Mounted/Updated: 
+Object { tableId: 48, innerDataFirstCell: "Bob Smith", initialDataFirstCell: "Bob Smith", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 49] Mounted/Updated: 
+Object { tableId: 49, innerDataFirstCell: "Fiona Apple", initialDataFirstCell: "Fiona Apple", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 50] Mounted/Updated: 
+Object { tableId: 50, innerDataFirstCell: "Bob Smith", initialDataFirstCell: "Bob Smith", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 51] Mounted/Updated: 
+Object { tableId: 51, innerDataFirstCell: "Fiona Apple", initialDataFirstCell: "Fiona Apple", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 52] Mounted/Updated: 
+Object { tableId: 52, innerDataFirstCell: "Isaac Newton", initialDataFirstCell: "Isaac Newton", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 53] Mounted/Updated: 
+Object { tableId: 53, innerDataFirstCell: "George Washington", initialDataFirstCell: "George Washington", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 54] Mounted/Updated: 
+Object { tableId: 54, innerDataFirstCell: "Charlie Brown", initialDataFirstCell: "Charlie Brown", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 55] Mounted/Updated: 
+Object { tableId: 55, innerDataFirstCell: "Julia Roberts", initialDataFirstCell: "Julia Roberts", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 56] Mounted/Updated: 
+Object { tableId: 56, innerDataFirstCell: "Isaac Newton", initialDataFirstCell: "Isaac Newton", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 57] Mounted/Updated: 
+Object { tableId: 57, innerDataFirstCell: "Bob Smith", initialDataFirstCell: "Bob Smith", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 58] Mounted/Updated: 
+Object { tableId: 58, innerDataFirstCell: "Julia Roberts", initialDataFirstCell: "Julia Roberts", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 59] Mounted/Updated: 
+Object { tableId: 59, innerDataFirstCell: "Bob Smith", initialDataFirstCell: "Bob Smith", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 60] Mounted/Updated: 
+Object { tableId: 60, innerDataFirstCell: "George Washington", initialDataFirstCell: "George Washington", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 61] Mounted/Updated: 
+Object { tableId: 61, innerDataFirstCell: "Hannah Montana", initialDataFirstCell: "Hannah Montana", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 62] Mounted/Updated: 
+Object { tableId: 62, innerDataFirstCell: "Edward Norton", initialDataFirstCell: "Edward Norton", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 63] Mounted/Updated: 
+Object { tableId: 63, innerDataFirstCell: "Edward Norton", initialDataFirstCell: "Edward Norton", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 64] Mounted/Updated: 
+Object { tableId: 64, innerDataFirstCell: "Fiona Apple", initialDataFirstCell: "Fiona Apple", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 65] Mounted/Updated: 
+Object { tableId: 65, innerDataFirstCell: "George Washington", initialDataFirstCell: "George Washington", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 66] Mounted/Updated: 
+Object { tableId: 66, innerDataFirstCell: "Bob Smith", initialDataFirstCell: "Bob Smith", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 67] Mounted/Updated: 
+Object { tableId: 67, innerDataFirstCell: "Diana Prince", initialDataFirstCell: "Diana Prince", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 68] Mounted/Updated: 
+Object { tableId: 68, innerDataFirstCell: "Isaac Newton", initialDataFirstCell: "Isaac Newton", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 69] Mounted/Updated: 
+Object { tableId: 69, innerDataFirstCell: "Hannah Montana", initialDataFirstCell: "Hannah Montana", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 70] Mounted/Updated: 
+Object { tableId: 70, innerDataFirstCell: "Hannah Montana", initialDataFirstCell: "Hannah Montana", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 71] Mounted/Updated: 
+Object { tableId: 71, innerDataFirstCell: "Fiona Apple", initialDataFirstCell: "Fiona Apple", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 72] Mounted/Updated: 
+Object { tableId: 72, innerDataFirstCell: "Alice Johnson", initialDataFirstCell: "Alice Johnson", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 73] Mounted/Updated: 
+Object { tableId: 73, innerDataFirstCell: "Fiona Apple", initialDataFirstCell: "Fiona Apple", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 74] Mounted/Updated: 
+Object { tableId: 74, innerDataFirstCell: "Hannah Montana", initialDataFirstCell: "Hannah Montana", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 75] Mounted/Updated: 
+Object { tableId: 75, innerDataFirstCell: "Edward Norton", initialDataFirstCell: "Edward Norton", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 76] Mounted/Updated: 
+Object { tableId: 76, innerDataFirstCell: "Isaac Newton", initialDataFirstCell: "Isaac Newton", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 77] Mounted/Updated: 
+Object { tableId: 77, innerDataFirstCell: "George Washington", initialDataFirstCell: "George Washington", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 78] Mounted/Updated: 
+Object { tableId: 78, innerDataFirstCell: "Alice Johnson", initialDataFirstCell: "Alice Johnson", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 79] Mounted/Updated: 
+Object { tableId: 79, innerDataFirstCell: "Isaac Newton", initialDataFirstCell: "Isaac Newton", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 80] Mounted/Updated: 
+Object { tableId: 80, innerDataFirstCell: "George Washington", initialDataFirstCell: "George Washington", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 81] Mounted/Updated: 
+Object { tableId: 81, innerDataFirstCell: "Diana Prince", initialDataFirstCell: "Diana Prince", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 82] Mounted/Updated: 
+Object { tableId: 82, innerDataFirstCell: "Julia Roberts", initialDataFirstCell: "Julia Roberts", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 83] Mounted/Updated: 
+Object { tableId: 83, innerDataFirstCell: "Hannah Montana", initialDataFirstCell: "Hannah Montana", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 84] Mounted/Updated: 
+Object { tableId: 84, innerDataFirstCell: "Fiona Apple", initialDataFirstCell: "Fiona Apple", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 85] Mounted/Updated: 
+Object { tableId: 85, innerDataFirstCell: "Diana Prince", initialDataFirstCell: "Diana Prince", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 86] Mounted/Updated: 
+Object { tableId: 86, innerDataFirstCell: "Fiona Apple", initialDataFirstCell: "Fiona Apple", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 87] Mounted/Updated: 
+Object { tableId: 87, innerDataFirstCell: "Julia Roberts", initialDataFirstCell: "Julia Roberts", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 88] Mounted/Updated: 
+Object { tableId: 88, innerDataFirstCell: "Hannah Montana", initialDataFirstCell: "Hannah Montana", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 89] Mounted/Updated: 
+Object { tableId: 89, innerDataFirstCell: "Julia Roberts", initialDataFirstCell: "Julia Roberts", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 90] Mounted/Updated: 
+Object { tableId: 90, innerDataFirstCell: "Diana Prince", initialDataFirstCell: "Diana Prince", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 91] Mounted/Updated: 
+Object { tableId: 91, innerDataFirstCell: "Charlie Brown", initialDataFirstCell: "Charlie Brown", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 92] Mounted/Updated: 
+Object { tableId: 92, innerDataFirstCell: "Diana Prince", initialDataFirstCell: "Diana Prince", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 93] Mounted/Updated: 
+Object { tableId: 93, innerDataFirstCell: "Hannah Montana", initialDataFirstCell: "Hannah Montana", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 94] Mounted/Updated: 
+Object { tableId: 94, innerDataFirstCell: "Isaac Newton", initialDataFirstCell: "Isaac Newton", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 95] Mounted/Updated: 
+Object { tableId: 95, innerDataFirstCell: "Bob Smith", initialDataFirstCell: "Bob Smith", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 96] Mounted/Updated: 
+Object { tableId: 96, innerDataFirstCell: "George Washington", initialDataFirstCell: "George Washington", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 97] Mounted/Updated: 
+Object { tableId: 97, innerDataFirstCell: "Julia Roberts", initialDataFirstCell: "Julia Roberts", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 98] Mounted/Updated: 
+Object { tableId: 98, innerDataFirstCell: "Hannah Montana", initialDataFirstCell: "Hannah Montana", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 99] Mounted/Updated: 
+Object { tableId: 99, innerDataFirstCell: "Charlie Brown", initialDataFirstCell: "Charlie Brown", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 100] Mounted/Updated: 
+Object { tableId: 100, innerDataFirstCell: "Bob Smith", initialDataFirstCell: "Bob Smith", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[ChangeTrackingContext] Registered table "1": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Hannah Montana", firstSavedCell: "Hannah Montana" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "2": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Edward Norton", firstSavedCell: "Edward Norton" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "3": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Hannah Montana", firstSavedCell: "Hannah Montana" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "4": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Diana Prince", firstSavedCell: "Diana Prince" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "5": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Charlie Brown", firstSavedCell: "Charlie Brown" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "6": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Hannah Montana", firstSavedCell: "Hannah Montana" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "7": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Diana Prince", firstSavedCell: "Diana Prince" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "8": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Julia Roberts", firstSavedCell: "Julia Roberts" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "9": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Charlie Brown", firstSavedCell: "Charlie Brown" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "10": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Diana Prince", firstSavedCell: "Diana Prince" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "11": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Alice Johnson", firstSavedCell: "Alice Johnson" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "12": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "George Washington", firstSavedCell: "George Washington" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "13": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Bob Smith", firstSavedCell: "Bob Smith" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "14": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Isaac Newton", firstSavedCell: "Isaac Newton" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "15": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Hannah Montana", firstSavedCell: "Hannah Montana" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "16": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Alice Johnson", firstSavedCell: "Alice Johnson" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "17": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Julia Roberts", firstSavedCell: "Julia Roberts" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "18": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Hannah Montana", firstSavedCell: "Hannah Montana" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "19": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "George Washington", firstSavedCell: "George Washington" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "20": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Isaac Newton", firstSavedCell: "Isaac Newton" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "21": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Fiona Apple", firstSavedCell: "Fiona Apple" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "22": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Edward Norton", firstSavedCell: "Edward Norton" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "23": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Diana Prince", firstSavedCell: "Diana Prince" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "24": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Bob Smith", firstSavedCell: "Bob Smith" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "25": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Alice Johnson", firstSavedCell: "Alice Johnson" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "26": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Julia Roberts", firstSavedCell: "Julia Roberts" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "27": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "George Washington", firstSavedCell: "George Washington" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "28": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Fiona Apple", firstSavedCell: "Fiona Apple" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "29": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Julia Roberts", firstSavedCell: "Julia Roberts" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "30": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Diana Prince", firstSavedCell: "Diana Prince" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "31": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Isaac Newton", firstSavedCell: "Isaac Newton" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "32": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Julia Roberts", firstSavedCell: "Julia Roberts" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "33": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Isaac Newton", firstSavedCell: "Isaac Newton" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "34": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Charlie Brown", firstSavedCell: "Charlie Brown" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "35": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Fiona Apple", firstSavedCell: "Fiona Apple" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "36": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Alice Johnson", firstSavedCell: "Alice Johnson" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "37": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Julia Roberts", firstSavedCell: "Julia Roberts" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "38": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Isaac Newton", firstSavedCell: "Isaac Newton" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "39": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Edward Norton", firstSavedCell: "Edward Norton" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "40": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Diana Prince", firstSavedCell: "Diana Prince" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "41": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Charlie Brown", firstSavedCell: "Charlie Brown" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "42": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Hannah Montana", firstSavedCell: "Hannah Montana" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "43": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Isaac Newton", firstSavedCell: "Isaac Newton" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "44": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Julia Roberts", firstSavedCell: "Julia Roberts" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "45": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Charlie Brown", firstSavedCell: "Charlie Brown" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "46": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Bob Smith", firstSavedCell: "Bob Smith" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "47": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Charlie Brown", firstSavedCell: "Charlie Brown" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "48": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Bob Smith", firstSavedCell: "Bob Smith" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "49": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Fiona Apple", firstSavedCell: "Fiona Apple" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "50": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Bob Smith", firstSavedCell: "Bob Smith" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "51": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Fiona Apple", firstSavedCell: "Fiona Apple" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "52": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Isaac Newton", firstSavedCell: "Isaac Newton" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "53": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "George Washington", firstSavedCell: "George Washington" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "54": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Charlie Brown", firstSavedCell: "Charlie Brown" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "55": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Julia Roberts", firstSavedCell: "Julia Roberts" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "56": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Isaac Newton", firstSavedCell: "Isaac Newton" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "57": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Bob Smith", firstSavedCell: "Bob Smith" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "58": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Julia Roberts", firstSavedCell: "Julia Roberts" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "59": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Bob Smith", firstSavedCell: "Bob Smith" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "60": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "George Washington", firstSavedCell: "George Washington" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "61": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Hannah Montana", firstSavedCell: "Hannah Montana" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "62": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Edward Norton", firstSavedCell: "Edward Norton" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "63": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Edward Norton", firstSavedCell: "Edward Norton" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "64": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Fiona Apple", firstSavedCell: "Fiona Apple" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "65": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "George Washington", firstSavedCell: "George Washington" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "66": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Bob Smith", firstSavedCell: "Bob Smith" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "67": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Diana Prince", firstSavedCell: "Diana Prince" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "68": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Isaac Newton", firstSavedCell: "Isaac Newton" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "69": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Hannah Montana", firstSavedCell: "Hannah Montana" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "70": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Hannah Montana", firstSavedCell: "Hannah Montana" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "71": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Fiona Apple", firstSavedCell: "Fiona Apple" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "72": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Alice Johnson", firstSavedCell: "Alice Johnson" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "73": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Fiona Apple", firstSavedCell: "Fiona Apple" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "74": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Hannah Montana", firstSavedCell: "Hannah Montana" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "75": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Edward Norton", firstSavedCell: "Edward Norton" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "76": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Isaac Newton", firstSavedCell: "Isaac Newton" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "77": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "George Washington", firstSavedCell: "George Washington" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "78": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Alice Johnson", firstSavedCell: "Alice Johnson" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "79": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Isaac Newton", firstSavedCell: "Isaac Newton" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "80": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "George Washington", firstSavedCell: "George Washington" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "81": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Diana Prince", firstSavedCell: "Diana Prince" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "82": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Julia Roberts", firstSavedCell: "Julia Roberts" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "83": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Hannah Montana", firstSavedCell: "Hannah Montana" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "84": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Fiona Apple", firstSavedCell: "Fiona Apple" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "85": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Diana Prince", firstSavedCell: "Diana Prince" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "86": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Fiona Apple", firstSavedCell: "Fiona Apple" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "87": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Julia Roberts", firstSavedCell: "Julia Roberts" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "88": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Hannah Montana", firstSavedCell: "Hannah Montana" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "89": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Julia Roberts", firstSavedCell: "Julia Roberts" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "90": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Diana Prince", firstSavedCell: "Diana Prince" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "91": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Charlie Brown", firstSavedCell: "Charlie Brown" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "92": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Diana Prince", firstSavedCell: "Diana Prince" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "93": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Hannah Montana", firstSavedCell: "Hannah Montana" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "94": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Isaac Newton", firstSavedCell: "Isaac Newton" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "95": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Bob Smith", firstSavedCell: "Bob Smith" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "96": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "George Washington", firstSavedCell: "George Washington" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "97": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Julia Roberts", firstSavedCell: "Julia Roberts" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "98": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Hannah Montana", firstSavedCell: "Hannah Montana" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "99": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Charlie Brown", firstSavedCell: "Charlie Brown" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "100": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Bob Smith", firstSavedCell: "Bob Smith" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "": 
+Object { currentLength: 100, savedLength: 100, firstCurrentCell: "Charlie Brown", firstSavedCell: "Charlie Brown" }
+ChangeTrackingContext.tsx:42:15
+[PopperTableCell 1] Mounted/Updated: 
+Object { tableId: 1, innerDataFirstCell: "Hannah Montana", initialDataFirstCell: "Hannah Montana", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 2] Mounted/Updated: 
+Object { tableId: 2, innerDataFirstCell: "Edward Norton", initialDataFirstCell: "Edward Norton", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 3] Mounted/Updated: 
+Object { tableId: 3, innerDataFirstCell: "Hannah Montana", initialDataFirstCell: "Hannah Montana", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 4] Mounted/Updated: 
+Object { tableId: 4, innerDataFirstCell: "Diana Prince", initialDataFirstCell: "Diana Prince", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 5] Mounted/Updated: 
+Object { tableId: 5, innerDataFirstCell: "Charlie Brown", initialDataFirstCell: "Charlie Brown", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 6] Mounted/Updated: 
+Object { tableId: 6, innerDataFirstCell: "Hannah Montana", initialDataFirstCell: "Hannah Montana", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 7] Mounted/Updated: 
+Object { tableId: 7, innerDataFirstCell: "Diana Prince", initialDataFirstCell: "Diana Prince", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 8] Mounted/Updated: 
+Object { tableId: 8, innerDataFirstCell: "Julia Roberts", initialDataFirstCell: "Julia Roberts", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 9] Mounted/Updated: 
+Object { tableId: 9, innerDataFirstCell: "Charlie Brown", initialDataFirstCell: "Charlie Brown", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 10] Mounted/Updated: 
+Object { tableId: 10, innerDataFirstCell: "Diana Prince", initialDataFirstCell: "Diana Prince", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 11] Mounted/Updated: 
+Object { tableId: 11, innerDataFirstCell: "Alice Johnson", initialDataFirstCell: "Alice Johnson", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 12] Mounted/Updated: 
+Object { tableId: 12, innerDataFirstCell: "George Washington", initialDataFirstCell: "George Washington", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 13] Mounted/Updated: 
+Object { tableId: 13, innerDataFirstCell: "Bob Smith", initialDataFirstCell: "Bob Smith", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 14] Mounted/Updated: 
+Object { tableId: 14, innerDataFirstCell: "Isaac Newton", initialDataFirstCell: "Isaac Newton", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 15] Mounted/Updated: 
+Object { tableId: 15, innerDataFirstCell: "Hannah Montana", initialDataFirstCell: "Hannah Montana", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 16] Mounted/Updated: 
+Object { tableId: 16, innerDataFirstCell: "Alice Johnson", initialDataFirstCell: "Alice Johnson", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 17] Mounted/Updated: 
+Object { tableId: 17, innerDataFirstCell: "Julia Roberts", initialDataFirstCell: "Julia Roberts", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 18] Mounted/Updated: 
+Object { tableId: 18, innerDataFirstCell: "Hannah Montana", initialDataFirstCell: "Hannah Montana", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 19] Mounted/Updated: 
+Object { tableId: 19, innerDataFirstCell: "George Washington", initialDataFirstCell: "George Washington", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 20] Mounted/Updated: 
+Object { tableId: 20, innerDataFirstCell: "Isaac Newton", initialDataFirstCell: "Isaac Newton", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 21] Mounted/Updated: 
+Object { tableId: 21, innerDataFirstCell: "Fiona Apple", initialDataFirstCell: "Fiona Apple", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 22] Mounted/Updated: 
+Object { tableId: 22, innerDataFirstCell: "Edward Norton", initialDataFirstCell: "Edward Norton", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 23] Mounted/Updated: 
+Object { tableId: 23, innerDataFirstCell: "Diana Prince", initialDataFirstCell: "Diana Prince", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 24] Mounted/Updated: 
+Object { tableId: 24, innerDataFirstCell: "Bob Smith", initialDataFirstCell: "Bob Smith", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 25] Mounted/Updated: 
+Object { tableId: 25, innerDataFirstCell: "Alice Johnson", initialDataFirstCell: "Alice Johnson", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 26] Mounted/Updated: 
+Object { tableId: 26, innerDataFirstCell: "Julia Roberts", initialDataFirstCell: "Julia Roberts", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 27] Mounted/Updated: 
+Object { tableId: 27, innerDataFirstCell: "George Washington", initialDataFirstCell: "George Washington", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 28] Mounted/Updated: 
+Object { tableId: 28, innerDataFirstCell: "Fiona Apple", initialDataFirstCell: "Fiona Apple", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 29] Mounted/Updated: 
+Object { tableId: 29, innerDataFirstCell: "Julia Roberts", initialDataFirstCell: "Julia Roberts", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 30] Mounted/Updated: 
+Object { tableId: 30, innerDataFirstCell: "Diana Prince", initialDataFirstCell: "Diana Prince", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 31] Mounted/Updated: 
+Object { tableId: 31, innerDataFirstCell: "Isaac Newton", initialDataFirstCell: "Isaac Newton", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 32] Mounted/Updated: 
+Object { tableId: 32, innerDataFirstCell: "Julia Roberts", initialDataFirstCell: "Julia Roberts", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 33] Mounted/Updated: 
+Object { tableId: 33, innerDataFirstCell: "Isaac Newton", initialDataFirstCell: "Isaac Newton", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 34] Mounted/Updated: 
+Object { tableId: 34, innerDataFirstCell: "Charlie Brown", initialDataFirstCell: "Charlie Brown", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 35] Mounted/Updated: 
+Object { tableId: 35, innerDataFirstCell: "Fiona Apple", initialDataFirstCell: "Fiona Apple", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 36] Mounted/Updated: 
+Object { tableId: 36, innerDataFirstCell: "Alice Johnson", initialDataFirstCell: "Alice Johnson", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 37] Mounted/Updated: 
+Object { tableId: 37, innerDataFirstCell: "Julia Roberts", initialDataFirstCell: "Julia Roberts", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 38] Mounted/Updated: 
+Object { tableId: 38, innerDataFirstCell: "Isaac Newton", initialDataFirstCell: "Isaac Newton", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 39] Mounted/Updated: 
+Object { tableId: 39, innerDataFirstCell: "Edward Norton", initialDataFirstCell: "Edward Norton", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 40] Mounted/Updated: 
+Object { tableId: 40, innerDataFirstCell: "Diana Prince", initialDataFirstCell: "Diana Prince", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 41] Mounted/Updated: 
+Object { tableId: 41, innerDataFirstCell: "Charlie Brown", initialDataFirstCell: "Charlie Brown", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 42] Mounted/Updated: 
+Object { tableId: 42, innerDataFirstCell: "Hannah Montana", initialDataFirstCell: "Hannah Montana", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 43] Mounted/Updated: 
+Object { tableId: 43, innerDataFirstCell: "Isaac Newton", initialDataFirstCell: "Isaac Newton", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 44] Mounted/Updated: 
+Object { tableId: 44, innerDataFirstCell: "Julia Roberts", initialDataFirstCell: "Julia Roberts", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 45] Mounted/Updated: 
+Object { tableId: 45, innerDataFirstCell: "Charlie Brown", initialDataFirstCell: "Charlie Brown", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 46] Mounted/Updated: 
+Object { tableId: 46, innerDataFirstCell: "Bob Smith", initialDataFirstCell: "Bob Smith", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 47] Mounted/Updated: 
+Object { tableId: 47, innerDataFirstCell: "Charlie Brown", initialDataFirstCell: "Charlie Brown", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 48] Mounted/Updated: 
+Object { tableId: 48, innerDataFirstCell: "Bob Smith", initialDataFirstCell: "Bob Smith", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 49] Mounted/Updated: 
+Object { tableId: 49, innerDataFirstCell: "Fiona Apple", initialDataFirstCell: "Fiona Apple", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 50] Mounted/Updated: 
+Object { tableId: 50, innerDataFirstCell: "Bob Smith", initialDataFirstCell: "Bob Smith", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 51] Mounted/Updated: 
+Object { tableId: 51, innerDataFirstCell: "Fiona Apple", initialDataFirstCell: "Fiona Apple", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 52] Mounted/Updated: 
+Object { tableId: 52, innerDataFirstCell: "Isaac Newton", initialDataFirstCell: "Isaac Newton", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 53] Mounted/Updated: 
+Object { tableId: 53, innerDataFirstCell: "George Washington", initialDataFirstCell: "George Washington", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 54] Mounted/Updated: 
+Object { tableId: 54, innerDataFirstCell: "Charlie Brown", initialDataFirstCell: "Charlie Brown", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 55] Mounted/Updated: 
+Object { tableId: 55, innerDataFirstCell: "Julia Roberts", initialDataFirstCell: "Julia Roberts", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 56] Mounted/Updated: 
+Object { tableId: 56, innerDataFirstCell: "Isaac Newton", initialDataFirstCell: "Isaac Newton", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 57] Mounted/Updated: 
+Object { tableId: 57, innerDataFirstCell: "Bob Smith", initialDataFirstCell: "Bob Smith", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 58] Mounted/Updated: 
+Object { tableId: 58, innerDataFirstCell: "Julia Roberts", initialDataFirstCell: "Julia Roberts", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 59] Mounted/Updated: 
+Object { tableId: 59, innerDataFirstCell: "Bob Smith", initialDataFirstCell: "Bob Smith", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 60] Mounted/Updated: 
+Object { tableId: 60, innerDataFirstCell: "George Washington", initialDataFirstCell: "George Washington", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 61] Mounted/Updated: 
+Object { tableId: 61, innerDataFirstCell: "Hannah Montana", initialDataFirstCell: "Hannah Montana", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 62] Mounted/Updated: 
+Object { tableId: 62, innerDataFirstCell: "Edward Norton", initialDataFirstCell: "Edward Norton", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 63] Mounted/Updated: 
+Object { tableId: 63, innerDataFirstCell: "Edward Norton", initialDataFirstCell: "Edward Norton", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 64] Mounted/Updated: 
+Object { tableId: 64, innerDataFirstCell: "Fiona Apple", initialDataFirstCell: "Fiona Apple", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 65] Mounted/Updated: 
+Object { tableId: 65, innerDataFirstCell: "George Washington", initialDataFirstCell: "George Washington", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 66] Mounted/Updated: 
+Object { tableId: 66, innerDataFirstCell: "Bob Smith", initialDataFirstCell: "Bob Smith", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 67] Mounted/Updated: 
+Object { tableId: 67, innerDataFirstCell: "Diana Prince", initialDataFirstCell: "Diana Prince", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 68] Mounted/Updated: 
+Object { tableId: 68, innerDataFirstCell: "Isaac Newton", initialDataFirstCell: "Isaac Newton", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 69] Mounted/Updated: 
+Object { tableId: 69, innerDataFirstCell: "Hannah Montana", initialDataFirstCell: "Hannah Montana", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 70] Mounted/Updated: 
+Object { tableId: 70, innerDataFirstCell: "Hannah Montana", initialDataFirstCell: "Hannah Montana", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 71] Mounted/Updated: 
+Object { tableId: 71, innerDataFirstCell: "Fiona Apple", initialDataFirstCell: "Fiona Apple", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 72] Mounted/Updated: 
+Object { tableId: 72, innerDataFirstCell: "Alice Johnson", initialDataFirstCell: "Alice Johnson", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 73] Mounted/Updated: 
+Object { tableId: 73, innerDataFirstCell: "Fiona Apple", initialDataFirstCell: "Fiona Apple", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 74] Mounted/Updated: 
+Object { tableId: 74, innerDataFirstCell: "Hannah Montana", initialDataFirstCell: "Hannah Montana", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 75] Mounted/Updated: 
+Object { tableId: 75, innerDataFirstCell: "Edward Norton", initialDataFirstCell: "Edward Norton", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 76] Mounted/Updated: 
+Object { tableId: 76, innerDataFirstCell: "Isaac Newton", initialDataFirstCell: "Isaac Newton", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 77] Mounted/Updated: 
+Object { tableId: 77, innerDataFirstCell: "George Washington", initialDataFirstCell: "George Washington", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 78] Mounted/Updated: 
+Object { tableId: 78, innerDataFirstCell: "Alice Johnson", initialDataFirstCell: "Alice Johnson", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 79] Mounted/Updated: 
+Object { tableId: 79, innerDataFirstCell: "Isaac Newton", initialDataFirstCell: "Isaac Newton", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 80] Mounted/Updated: 
+Object { tableId: 80, innerDataFirstCell: "George Washington", initialDataFirstCell: "George Washington", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 81] Mounted/Updated: 
+Object { tableId: 81, innerDataFirstCell: "Diana Prince", initialDataFirstCell: "Diana Prince", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 82] Mounted/Updated: 
+Object { tableId: 82, innerDataFirstCell: "Julia Roberts", initialDataFirstCell: "Julia Roberts", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 83] Mounted/Updated: 
+Object { tableId: 83, innerDataFirstCell: "Hannah Montana", initialDataFirstCell: "Hannah Montana", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 84] Mounted/Updated: 
+Object { tableId: 84, innerDataFirstCell: "Fiona Apple", initialDataFirstCell: "Fiona Apple", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 85] Mounted/Updated: 
+Object { tableId: 85, innerDataFirstCell: "Diana Prince", initialDataFirstCell: "Diana Prince", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 86] Mounted/Updated: 
+Object { tableId: 86, innerDataFirstCell: "Fiona Apple", initialDataFirstCell: "Fiona Apple", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 87] Mounted/Updated: 
+Object { tableId: 87, innerDataFirstCell: "Julia Roberts", initialDataFirstCell: "Julia Roberts", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 88] Mounted/Updated: 
+Object { tableId: 88, innerDataFirstCell: "Hannah Montana", initialDataFirstCell: "Hannah Montana", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 89] Mounted/Updated: 
+Object { tableId: 89, innerDataFirstCell: "Julia Roberts", initialDataFirstCell: "Julia Roberts", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 90] Mounted/Updated: 
+Object { tableId: 90, innerDataFirstCell: "Diana Prince", initialDataFirstCell: "Diana Prince", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 91] Mounted/Updated: 
+Object { tableId: 91, innerDataFirstCell: "Charlie Brown", initialDataFirstCell: "Charlie Brown", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 92] Mounted/Updated: 
+Object { tableId: 92, innerDataFirstCell: "Diana Prince", initialDataFirstCell: "Diana Prince", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 93] Mounted/Updated: 
+Object { tableId: 93, innerDataFirstCell: "Hannah Montana", initialDataFirstCell: "Hannah Montana", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 94] Mounted/Updated: 
+Object { tableId: 94, innerDataFirstCell: "Isaac Newton", initialDataFirstCell: "Isaac Newton", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 95] Mounted/Updated: 
+Object { tableId: 95, innerDataFirstCell: "Bob Smith", initialDataFirstCell: "Bob Smith", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 96] Mounted/Updated: 
+Object { tableId: 96, innerDataFirstCell: "George Washington", initialDataFirstCell: "George Washington", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 97] Mounted/Updated: 
+Object { tableId: 97, innerDataFirstCell: "Julia Roberts", initialDataFirstCell: "Julia Roberts", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 98] Mounted/Updated: 
+Object { tableId: 98, innerDataFirstCell: "Hannah Montana", initialDataFirstCell: "Hannah Montana", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 99] Mounted/Updated: 
+Object { tableId: 99, innerDataFirstCell: "Charlie Brown", initialDataFirstCell: "Charlie Brown", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 100] Mounted/Updated: 
+Object { tableId: 100, innerDataFirstCell: "Bob Smith", initialDataFirstCell: "Bob Smith", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[ChangeTrackingContext] Registered table "1": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Hannah Montana", firstSavedCell: "Hannah Montana" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "2": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Edward Norton", firstSavedCell: "Edward Norton" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "3": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Hannah Montana", firstSavedCell: "Hannah Montana" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "4": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Diana Prince", firstSavedCell: "Diana Prince" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "5": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Charlie Brown", firstSavedCell: "Charlie Brown" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "6": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Hannah Montana", firstSavedCell: "Hannah Montana" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "7": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Diana Prince", firstSavedCell: "Diana Prince" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "8": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Julia Roberts", firstSavedCell: "Julia Roberts" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "9": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Charlie Brown", firstSavedCell: "Charlie Brown" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "10": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Diana Prince", firstSavedCell: "Diana Prince" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "11": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Alice Johnson", firstSavedCell: "Alice Johnson" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "12": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "George Washington", firstSavedCell: "George Washington" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "13": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Bob Smith", firstSavedCell: "Bob Smith" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "14": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Isaac Newton", firstSavedCell: "Isaac Newton" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "15": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Hannah Montana", firstSavedCell: "Hannah Montana" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "16": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Alice Johnson", firstSavedCell: "Alice Johnson" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "17": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Julia Roberts", firstSavedCell: "Julia Roberts" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "18": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Hannah Montana", firstSavedCell: "Hannah Montana" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "19": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "George Washington", firstSavedCell: "George Washington" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "20": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Isaac Newton", firstSavedCell: "Isaac Newton" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "21": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Fiona Apple", firstSavedCell: "Fiona Apple" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "22": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Edward Norton", firstSavedCell: "Edward Norton" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "23": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Diana Prince", firstSavedCell: "Diana Prince" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "24": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Bob Smith", firstSavedCell: "Bob Smith" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "25": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Alice Johnson", firstSavedCell: "Alice Johnson" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "26": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Julia Roberts", firstSavedCell: "Julia Roberts" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "27": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "George Washington", firstSavedCell: "George Washington" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "28": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Fiona Apple", firstSavedCell: "Fiona Apple" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "29": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Julia Roberts", firstSavedCell: "Julia Roberts" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "30": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Diana Prince", firstSavedCell: "Diana Prince" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "31": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Isaac Newton", firstSavedCell: "Isaac Newton" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "32": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Julia Roberts", firstSavedCell: "Julia Roberts" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "33": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Isaac Newton", firstSavedCell: "Isaac Newton" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "34": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Charlie Brown", firstSavedCell: "Charlie Brown" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "35": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Fiona Apple", firstSavedCell: "Fiona Apple" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "36": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Alice Johnson", firstSavedCell: "Alice Johnson" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "37": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Julia Roberts", firstSavedCell: "Julia Roberts" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "38": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Isaac Newton", firstSavedCell: "Isaac Newton" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "39": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Edward Norton", firstSavedCell: "Edward Norton" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "40": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Diana Prince", firstSavedCell: "Diana Prince" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "41": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Charlie Brown", firstSavedCell: "Charlie Brown" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "42": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Hannah Montana", firstSavedCell: "Hannah Montana" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "43": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Isaac Newton", firstSavedCell: "Isaac Newton" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "44": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Julia Roberts", firstSavedCell: "Julia Roberts" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "45": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Charlie Brown", firstSavedCell: "Charlie Brown" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "46": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Bob Smith", firstSavedCell: "Bob Smith" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "47": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Charlie Brown", firstSavedCell: "Charlie Brown" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "48": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Bob Smith", firstSavedCell: "Bob Smith" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "49": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Fiona Apple", firstSavedCell: "Fiona Apple" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "50": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Bob Smith", firstSavedCell: "Bob Smith" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "51": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Fiona Apple", firstSavedCell: "Fiona Apple" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "52": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Isaac Newton", firstSavedCell: "Isaac Newton" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "53": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "George Washington", firstSavedCell: "George Washington" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "54": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Charlie Brown", firstSavedCell: "Charlie Brown" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "55": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Julia Roberts", firstSavedCell: "Julia Roberts" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "56": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Isaac Newton", firstSavedCell: "Isaac Newton" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "57": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Bob Smith", firstSavedCell: "Bob Smith" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "58": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Julia Roberts", firstSavedCell: "Julia Roberts" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "59": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Bob Smith", firstSavedCell: "Bob Smith" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "60": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "George Washington", firstSavedCell: "George Washington" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "61": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Hannah Montana", firstSavedCell: "Hannah Montana" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "62": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Edward Norton", firstSavedCell: "Edward Norton" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "63": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Edward Norton", firstSavedCell: "Edward Norton" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "64": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Fiona Apple", firstSavedCell: "Fiona Apple" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "65": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "George Washington", firstSavedCell: "George Washington" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "66": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Bob Smith", firstSavedCell: "Bob Smith" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "67": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Diana Prince", firstSavedCell: "Diana Prince" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "68": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Isaac Newton", firstSavedCell: "Isaac Newton" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "69": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Hannah Montana", firstSavedCell: "Hannah Montana" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "70": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Hannah Montana", firstSavedCell: "Hannah Montana" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "71": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Fiona Apple", firstSavedCell: "Fiona Apple" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "72": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Alice Johnson", firstSavedCell: "Alice Johnson" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "73": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Fiona Apple", firstSavedCell: "Fiona Apple" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "74": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Hannah Montana", firstSavedCell: "Hannah Montana" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "75": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Edward Norton", firstSavedCell: "Edward Norton" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "76": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Isaac Newton", firstSavedCell: "Isaac Newton" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "77": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "George Washington", firstSavedCell: "George Washington" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "78": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Alice Johnson", firstSavedCell: "Alice Johnson" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "79": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Isaac Newton", firstSavedCell: "Isaac Newton" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "80": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "George Washington", firstSavedCell: "George Washington" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "81": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Diana Prince", firstSavedCell: "Diana Prince" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "82": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Julia Roberts", firstSavedCell: "Julia Roberts" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "83": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Hannah Montana", firstSavedCell: "Hannah Montana" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "84": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Fiona Apple", firstSavedCell: "Fiona Apple" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "85": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Diana Prince", firstSavedCell: "Diana Prince" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "86": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Fiona Apple", firstSavedCell: "Fiona Apple" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "87": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Julia Roberts", firstSavedCell: "Julia Roberts" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "88": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Hannah Montana", firstSavedCell: "Hannah Montana" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "89": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Julia Roberts", firstSavedCell: "Julia Roberts" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "90": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Diana Prince", firstSavedCell: "Diana Prince" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "91": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Charlie Brown", firstSavedCell: "Charlie Brown" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "92": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Diana Prince", firstSavedCell: "Diana Prince" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "93": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Hannah Montana", firstSavedCell: "Hannah Montana" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "94": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Isaac Newton", firstSavedCell: "Isaac Newton" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "95": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Bob Smith", firstSavedCell: "Bob Smith" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "96": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "George Washington", firstSavedCell: "George Washington" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "97": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Julia Roberts", firstSavedCell: "Julia Roberts" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "98": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Hannah Montana", firstSavedCell: "Hannah Montana" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "99": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Charlie Brown", firstSavedCell: "Charlie Brown" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "100": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Bob Smith", firstSavedCell: "Bob Smith" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "": 
+Object { currentLength: 100, savedLength: 100, firstCurrentCell: "Charlie Brown", firstSavedCell: "Charlie Brown" }
+ChangeTrackingContext.tsx:42:15
+[PopperTableCell 1] Mounted/Updated: 
+Object { tableId: 1, innerDataFirstCell: "Hannah Montana", initialDataFirstCell: "Hannah Montana", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[ChangeTrackingContext] Registered table "": 
+Object { currentLength: 100, savedLength: 100, firstCurrentCell: "AAAAA", firstSavedCell: "Charlie Brown" }
+ChangeTrackingContext.tsx:42:15
+[PopperTableCell 2] Mounted/Updated: 
+Object { tableId: 2, innerDataFirstCell: "Edward Norton", initialDataFirstCell: "Edward Norton", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 3] Mounted/Updated: 
+Object { tableId: 3, innerDataFirstCell: "Hannah Montana", initialDataFirstCell: "Hannah Montana", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 4] Mounted/Updated: 
+Object { tableId: 4, innerDataFirstCell: "Diana Prince", initialDataFirstCell: "Diana Prince", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 5] Mounted/Updated: 
+Object { tableId: 5, innerDataFirstCell: "Charlie Brown", initialDataFirstCell: "Charlie Brown", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 6] Mounted/Updated: 
+Object { tableId: 6, innerDataFirstCell: "Hannah Montana", initialDataFirstCell: "Hannah Montana", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 7] Mounted/Updated: 
+Object { tableId: 7, innerDataFirstCell: "Diana Prince", initialDataFirstCell: "Diana Prince", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 8] Mounted/Updated: 
+Object { tableId: 8, innerDataFirstCell: "Julia Roberts", initialDataFirstCell: "Julia Roberts", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 9] Mounted/Updated: 
+Object { tableId: 9, innerDataFirstCell: "Charlie Brown", initialDataFirstCell: "Charlie Brown", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 10] Mounted/Updated: 
+Object { tableId: 10, innerDataFirstCell: "Diana Prince", initialDataFirstCell: "Diana Prince", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 11] Mounted/Updated: 
+Object { tableId: 11, innerDataFirstCell: "Alice Johnson", initialDataFirstCell: "Alice Johnson", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 12] Mounted/Updated: 
+Object { tableId: 12, innerDataFirstCell: "George Washington", initialDataFirstCell: "George Washington", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 13] Mounted/Updated: 
+Object { tableId: 13, innerDataFirstCell: "Bob Smith", initialDataFirstCell: "Bob Smith", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 14] Mounted/Updated: 
+Object { tableId: 14, innerDataFirstCell: "Isaac Newton", initialDataFirstCell: "Isaac Newton", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 15] Mounted/Updated: 
+Object { tableId: 15, innerDataFirstCell: "Hannah Montana", initialDataFirstCell: "Hannah Montana", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 16] Mounted/Updated: 
+Object { tableId: 16, innerDataFirstCell: "Alice Johnson", initialDataFirstCell: "Alice Johnson", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 17] Mounted/Updated: 
+Object { tableId: 17, innerDataFirstCell: "Julia Roberts", initialDataFirstCell: "Julia Roberts", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 18] Mounted/Updated: 
+Object { tableId: 18, innerDataFirstCell: "Hannah Montana", initialDataFirstCell: "Hannah Montana", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 19] Mounted/Updated: 
+Object { tableId: 19, innerDataFirstCell: "George Washington", initialDataFirstCell: "George Washington", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 20] Mounted/Updated: 
+Object { tableId: 20, innerDataFirstCell: "Isaac Newton", initialDataFirstCell: "Isaac Newton", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 21] Mounted/Updated: 
+Object { tableId: 21, innerDataFirstCell: "Fiona Apple", initialDataFirstCell: "Fiona Apple", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 22] Mounted/Updated: 
+Object { tableId: 22, innerDataFirstCell: "Edward Norton", initialDataFirstCell: "Edward Norton", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 23] Mounted/Updated: 
+Object { tableId: 23, innerDataFirstCell: "Diana Prince", initialDataFirstCell: "Diana Prince", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 24] Mounted/Updated: 
+Object { tableId: 24, innerDataFirstCell: "Bob Smith", initialDataFirstCell: "Bob Smith", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 25] Mounted/Updated: 
+Object { tableId: 25, innerDataFirstCell: "Alice Johnson", initialDataFirstCell: "Alice Johnson", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 26] Mounted/Updated: 
+Object { tableId: 26, innerDataFirstCell: "Julia Roberts", initialDataFirstCell: "Julia Roberts", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 27] Mounted/Updated: 
+Object { tableId: 27, innerDataFirstCell: "George Washington", initialDataFirstCell: "George Washington", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 28] Mounted/Updated: 
+Object { tableId: 28, innerDataFirstCell: "Fiona Apple", initialDataFirstCell: "Fiona Apple", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 29] Mounted/Updated: 
+Object { tableId: 29, innerDataFirstCell: "Julia Roberts", initialDataFirstCell: "Julia Roberts", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 30] Mounted/Updated: 
+Object { tableId: 30, innerDataFirstCell: "Diana Prince", initialDataFirstCell: "Diana Prince", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 31] Mounted/Updated: 
+Object { tableId: 31, innerDataFirstCell: "Isaac Newton", initialDataFirstCell: "Isaac Newton", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 32] Mounted/Updated: 
+Object { tableId: 32, innerDataFirstCell: "Julia Roberts", initialDataFirstCell: "Julia Roberts", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 33] Mounted/Updated: 
+Object { tableId: 33, innerDataFirstCell: "Isaac Newton", initialDataFirstCell: "Isaac Newton", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 34] Mounted/Updated: 
+Object { tableId: 34, innerDataFirstCell: "Charlie Brown", initialDataFirstCell: "Charlie Brown", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 35] Mounted/Updated: 
+Object { tableId: 35, innerDataFirstCell: "Fiona Apple", initialDataFirstCell: "Fiona Apple", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 36] Mounted/Updated: 
+Object { tableId: 36, innerDataFirstCell: "Alice Johnson", initialDataFirstCell: "Alice Johnson", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 37] Mounted/Updated: 
+Object { tableId: 37, innerDataFirstCell: "Julia Roberts", initialDataFirstCell: "Julia Roberts", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 38] Mounted/Updated: 
+Object { tableId: 38, innerDataFirstCell: "Isaac Newton", initialDataFirstCell: "Isaac Newton", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 39] Mounted/Updated: 
+Object { tableId: 39, innerDataFirstCell: "Edward Norton", initialDataFirstCell: "Edward Norton", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 40] Mounted/Updated: 
+Object { tableId: 40, innerDataFirstCell: "Diana Prince", initialDataFirstCell: "Diana Prince", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 41] Mounted/Updated: 
+Object { tableId: 41, innerDataFirstCell: "Charlie Brown", initialDataFirstCell: "Charlie Brown", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 42] Mounted/Updated: 
+Object { tableId: 42, innerDataFirstCell: "Hannah Montana", initialDataFirstCell: "Hannah Montana", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 43] Mounted/Updated: 
+Object { tableId: 43, innerDataFirstCell: "Isaac Newton", initialDataFirstCell: "Isaac Newton", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 44] Mounted/Updated: 
+Object { tableId: 44, innerDataFirstCell: "Julia Roberts", initialDataFirstCell: "Julia Roberts", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 45] Mounted/Updated: 
+Object { tableId: 45, innerDataFirstCell: "Charlie Brown", initialDataFirstCell: "Charlie Brown", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 46] Mounted/Updated: 
+Object { tableId: 46, innerDataFirstCell: "Bob Smith", initialDataFirstCell: "Bob Smith", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 47] Mounted/Updated: 
+Object { tableId: 47, innerDataFirstCell: "Charlie Brown", initialDataFirstCell: "Charlie Brown", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 48] Mounted/Updated: 
+Object { tableId: 48, innerDataFirstCell: "Bob Smith", initialDataFirstCell: "Bob Smith", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 49] Mounted/Updated: 
+Object { tableId: 49, innerDataFirstCell: "Fiona Apple", initialDataFirstCell: "Fiona Apple", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 50] Mounted/Updated: 
+Object { tableId: 50, innerDataFirstCell: "Bob Smith", initialDataFirstCell: "Bob Smith", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 51] Mounted/Updated: 
+Object { tableId: 51, innerDataFirstCell: "Fiona Apple", initialDataFirstCell: "Fiona Apple", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 52] Mounted/Updated: 
+Object { tableId: 52, innerDataFirstCell: "Isaac Newton", initialDataFirstCell: "Isaac Newton", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 53] Mounted/Updated: 
+Object { tableId: 53, innerDataFirstCell: "George Washington", initialDataFirstCell: "George Washington", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 54] Mounted/Updated: 
+Object { tableId: 54, innerDataFirstCell: "Charlie Brown", initialDataFirstCell: "Charlie Brown", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 55] Mounted/Updated: 
+Object { tableId: 55, innerDataFirstCell: "Julia Roberts", initialDataFirstCell: "Julia Roberts", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 56] Mounted/Updated: 
+Object { tableId: 56, innerDataFirstCell: "Isaac Newton", initialDataFirstCell: "Isaac Newton", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 57] Mounted/Updated: 
+Object { tableId: 57, innerDataFirstCell: "Bob Smith", initialDataFirstCell: "Bob Smith", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 58] Mounted/Updated: 
+Object { tableId: 58, innerDataFirstCell: "Julia Roberts", initialDataFirstCell: "Julia Roberts", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 59] Mounted/Updated: 
+Object { tableId: 59, innerDataFirstCell: "Bob Smith", initialDataFirstCell: "Bob Smith", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 60] Mounted/Updated: 
+Object { tableId: 60, innerDataFirstCell: "George Washington", initialDataFirstCell: "George Washington", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 61] Mounted/Updated: 
+Object { tableId: 61, innerDataFirstCell: "Hannah Montana", initialDataFirstCell: "Hannah Montana", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 62] Mounted/Updated: 
+Object { tableId: 62, innerDataFirstCell: "Edward Norton", initialDataFirstCell: "Edward Norton", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 63] Mounted/Updated: 
+Object { tableId: 63, innerDataFirstCell: "Edward Norton", initialDataFirstCell: "Edward Norton", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 64] Mounted/Updated: 
+Object { tableId: 64, innerDataFirstCell: "Fiona Apple", initialDataFirstCell: "Fiona Apple", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 65] Mounted/Updated: 
+Object { tableId: 65, innerDataFirstCell: "George Washington", initialDataFirstCell: "George Washington", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 66] Mounted/Updated: 
+Object { tableId: 66, innerDataFirstCell: "Bob Smith", initialDataFirstCell: "Bob Smith", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 67] Mounted/Updated: 
+Object { tableId: 67, innerDataFirstCell: "Diana Prince", initialDataFirstCell: "Diana Prince", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 68] Mounted/Updated: 
+Object { tableId: 68, innerDataFirstCell: "Isaac Newton", initialDataFirstCell: "Isaac Newton", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 69] Mounted/Updated: 
+Object { tableId: 69, innerDataFirstCell: "Hannah Montana", initialDataFirstCell: "Hannah Montana", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 70] Mounted/Updated: 
+Object { tableId: 70, innerDataFirstCell: "Hannah Montana", initialDataFirstCell: "Hannah Montana", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 71] Mounted/Updated: 
+Object { tableId: 71, innerDataFirstCell: "Fiona Apple", initialDataFirstCell: "Fiona Apple", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 72] Mounted/Updated: 
+Object { tableId: 72, innerDataFirstCell: "Alice Johnson", initialDataFirstCell: "Alice Johnson", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 73] Mounted/Updated: 
+Object { tableId: 73, innerDataFirstCell: "Fiona Apple", initialDataFirstCell: "Fiona Apple", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 74] Mounted/Updated: 
+Object { tableId: 74, innerDataFirstCell: "Hannah Montana", initialDataFirstCell: "Hannah Montana", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 75] Mounted/Updated: 
+Object { tableId: 75, innerDataFirstCell: "Edward Norton", initialDataFirstCell: "Edward Norton", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 76] Mounted/Updated: 
+Object { tableId: 76, innerDataFirstCell: "Isaac Newton", initialDataFirstCell: "Isaac Newton", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 77] Mounted/Updated: 
+Object { tableId: 77, innerDataFirstCell: "George Washington", initialDataFirstCell: "George Washington", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 78] Mounted/Updated: 
+Object { tableId: 78, innerDataFirstCell: "Alice Johnson", initialDataFirstCell: "Alice Johnson", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 79] Mounted/Updated: 
+Object { tableId: 79, innerDataFirstCell: "Isaac Newton", initialDataFirstCell: "Isaac Newton", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 80] Mounted/Updated: 
+Object { tableId: 80, innerDataFirstCell: "George Washington", initialDataFirstCell: "George Washington", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 81] Mounted/Updated: 
+Object { tableId: 81, innerDataFirstCell: "Diana Prince", initialDataFirstCell: "Diana Prince", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 82] Mounted/Updated: 
+Object { tableId: 82, innerDataFirstCell: "Julia Roberts", initialDataFirstCell: "Julia Roberts", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 83] Mounted/Updated: 
+Object { tableId: 83, innerDataFirstCell: "Hannah Montana", initialDataFirstCell: "Hannah Montana", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 84] Mounted/Updated: 
+Object { tableId: 84, innerDataFirstCell: "Fiona Apple", initialDataFirstCell: "Fiona Apple", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 85] Mounted/Updated: 
+Object { tableId: 85, innerDataFirstCell: "Diana Prince", initialDataFirstCell: "Diana Prince", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 86] Mounted/Updated: 
+Object { tableId: 86, innerDataFirstCell: "Fiona Apple", initialDataFirstCell: "Fiona Apple", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 87] Mounted/Updated: 
+Object { tableId: 87, innerDataFirstCell: "Julia Roberts", initialDataFirstCell: "Julia Roberts", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 88] Mounted/Updated: 
+Object { tableId: 88, innerDataFirstCell: "Hannah Montana", initialDataFirstCell: "Hannah Montana", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 89] Mounted/Updated: 
+Object { tableId: 89, innerDataFirstCell: "Julia Roberts", initialDataFirstCell: "Julia Roberts", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 90] Mounted/Updated: 
+Object { tableId: 90, innerDataFirstCell: "Diana Prince", initialDataFirstCell: "Diana Prince", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 91] Mounted/Updated: 
+Object { tableId: 91, innerDataFirstCell: "Charlie Brown", initialDataFirstCell: "Charlie Brown", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 92] Mounted/Updated: 
+Object { tableId: 92, innerDataFirstCell: "Diana Prince", initialDataFirstCell: "Diana Prince", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 93] Mounted/Updated: 
+Object { tableId: 93, innerDataFirstCell: "Hannah Montana", initialDataFirstCell: "Hannah Montana", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 94] Mounted/Updated: 
+Object { tableId: 94, innerDataFirstCell: "Isaac Newton", initialDataFirstCell: "Isaac Newton", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 95] Mounted/Updated: 
+Object { tableId: 95, innerDataFirstCell: "Bob Smith", initialDataFirstCell: "Bob Smith", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 96] Mounted/Updated: 
+Object { tableId: 96, innerDataFirstCell: "George Washington", initialDataFirstCell: "George Washington", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 97] Mounted/Updated: 
+Object { tableId: 97, innerDataFirstCell: "Julia Roberts", initialDataFirstCell: "Julia Roberts", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 98] Mounted/Updated: 
+Object { tableId: 98, innerDataFirstCell: "Hannah Montana", initialDataFirstCell: "Hannah Montana", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 99] Mounted/Updated: 
+Object { tableId: 99, innerDataFirstCell: "Charlie Brown", initialDataFirstCell: "Charlie Brown", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 100] Mounted/Updated: 
+Object { tableId: 100, innerDataFirstCell: "Bob Smith", initialDataFirstCell: "Bob Smith", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/1] Mounted/Updated: 
+Object { tableId: "1/1", innerDataFirstCell: "Charlie Brown", initialDataFirstCell: "Charlie Brown", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/2] Mounted/Updated: 
+Object { tableId: "1/2", innerDataFirstCell: "Julia Roberts", initialDataFirstCell: "Julia Roberts", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/3] Mounted/Updated: 
+Object { tableId: "1/3", innerDataFirstCell: "Hannah Montana", initialDataFirstCell: "Hannah Montana", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/4] Mounted/Updated: 
+Object { tableId: "1/4", innerDataFirstCell: "Alice Johnson", initialDataFirstCell: "Alice Johnson", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/5] Mounted/Updated: 
+Object { tableId: "1/5", innerDataFirstCell: "Isaac Newton", initialDataFirstCell: "Isaac Newton", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[ChangeTrackingContext] Registered table "1/1": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Charlie Brown", firstSavedCell: "Charlie Brown" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "1/2": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Julia Roberts", firstSavedCell: "Julia Roberts" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "1/3": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Hannah Montana", firstSavedCell: "Hannah Montana" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "1/4": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Alice Johnson", firstSavedCell: "Alice Johnson" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "1/5": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Isaac Newton", firstSavedCell: "Isaac Newton" }
+ChangeTrackingContext.tsx:42:15
+[PopperTableCell 1/1] Mounted/Updated: 
+Object { tableId: "1/1", innerDataFirstCell: "Charlie Brown", initialDataFirstCell: "Charlie Brown", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/2] Mounted/Updated: 
+Object { tableId: "1/2", innerDataFirstCell: "Julia Roberts", initialDataFirstCell: "Julia Roberts", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/3] Mounted/Updated: 
+Object { tableId: "1/3", innerDataFirstCell: "Hannah Montana", initialDataFirstCell: "Hannah Montana", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/4] Mounted/Updated: 
+Object { tableId: "1/4", innerDataFirstCell: "Alice Johnson", initialDataFirstCell: "Alice Johnson", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/5] Mounted/Updated: 
+Object { tableId: "1/5", innerDataFirstCell: "Isaac Newton", initialDataFirstCell: "Isaac Newton", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[ChangeTrackingContext] Registered table "1/1": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Charlie Brown", firstSavedCell: "Charlie Brown" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "1/2": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Julia Roberts", firstSavedCell: "Julia Roberts" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "1/3": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Hannah Montana", firstSavedCell: "Hannah Montana" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "1/4": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Alice Johnson", firstSavedCell: "Alice Johnson" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "1/5": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Isaac Newton", firstSavedCell: "Isaac Newton" }
+ChangeTrackingContext.tsx:42:15
+[PopperTableCell 1/1] Mounted/Updated: 
+Object { tableId: "1/1", innerDataFirstCell: "Charlie Brown", initialDataFirstCell: "Charlie Brown", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1] Mounted/Updated: 
+Object { tableId: 1, innerDataFirstCell: "BBBBBB", initialDataFirstCell: "Hannah Montana", isDirty: true, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[ChangeTrackingContext] Registered table "1": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "BBBBBB", firstSavedCell: "Hannah Montana" }
+ChangeTrackingContext.tsx:42:15
+[PopperTableCell 1/2] Mounted/Updated: 
+Object { tableId: "1/2", innerDataFirstCell: "Julia Roberts", initialDataFirstCell: "Julia Roberts", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/3] Mounted/Updated: 
+Object { tableId: "1/3", innerDataFirstCell: "Hannah Montana", initialDataFirstCell: "Hannah Montana", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/4] Mounted/Updated: 
+Object { tableId: "1/4", innerDataFirstCell: "Alice Johnson", initialDataFirstCell: "Alice Johnson", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/5] Mounted/Updated: 
+Object { tableId: "1/5", innerDataFirstCell: "Isaac Newton", initialDataFirstCell: "Isaac Newton", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1] Mounted/Updated: 
+Object { tableId: 1, innerDataFirstCell: "BBBBBB", initialDataFirstCell: "Hannah Montana", isDirty: true, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/1/1] Mounted/Updated: 
+Object { tableId: "1/1/1", innerDataFirstCell: "Julia Roberts", initialDataFirstCell: "Julia Roberts", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/1/2] Mounted/Updated: 
+Object { tableId: "1/1/2", innerDataFirstCell: "Hannah Montana", initialDataFirstCell: "Hannah Montana", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/1/3] Mounted/Updated: 
+Object { tableId: "1/1/3", innerDataFirstCell: "Edward Norton", initialDataFirstCell: "Edward Norton", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/1/4] Mounted/Updated: 
+Object { tableId: "1/1/4", innerDataFirstCell: "Bob Smith", initialDataFirstCell: "Bob Smith", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/1/5] Mounted/Updated: 
+Object { tableId: "1/1/5", innerDataFirstCell: "Charlie Brown", initialDataFirstCell: "Charlie Brown", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[ChangeTrackingContext] Registered table "1/1/1": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Julia Roberts", firstSavedCell: "Julia Roberts" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "1/1/2": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Hannah Montana", firstSavedCell: "Hannah Montana" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "1/1/3": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Edward Norton", firstSavedCell: "Edward Norton" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "1/1/4": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Bob Smith", firstSavedCell: "Bob Smith" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "1/1/5": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Charlie Brown", firstSavedCell: "Charlie Brown" }
+ChangeTrackingContext.tsx:42:15
+[PopperTableCell 1/1/1] Mounted/Updated: 
+Object { tableId: "1/1/1", innerDataFirstCell: "Julia Roberts", initialDataFirstCell: "Julia Roberts", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/1/2] Mounted/Updated: 
+Object { tableId: "1/1/2", innerDataFirstCell: "Hannah Montana", initialDataFirstCell: "Hannah Montana", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/1/3] Mounted/Updated: 
+Object { tableId: "1/1/3", innerDataFirstCell: "Edward Norton", initialDataFirstCell: "Edward Norton", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/1/4] Mounted/Updated: 
+Object { tableId: "1/1/4", innerDataFirstCell: "Bob Smith", initialDataFirstCell: "Bob Smith", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/1/5] Mounted/Updated: 
+Object { tableId: "1/1/5", innerDataFirstCell: "Charlie Brown", initialDataFirstCell: "Charlie Brown", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[ChangeTrackingContext] Registered table "1/1/1": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Julia Roberts", firstSavedCell: "Julia Roberts" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "1/1/2": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Hannah Montana", firstSavedCell: "Hannah Montana" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "1/1/3": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Edward Norton", firstSavedCell: "Edward Norton" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "1/1/4": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Bob Smith", firstSavedCell: "Bob Smith" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "1/1/5": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Charlie Brown", firstSavedCell: "Charlie Brown" }
+ChangeTrackingContext.tsx:42:15
+[PopperTableCell 1/1/1] Mounted/Updated: 
+Object { tableId: "1/1/1", innerDataFirstCell: "Julia Roberts", initialDataFirstCell: "Julia Roberts", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/1] Mounted/Updated: 
+Object { tableId: "1/1", innerDataFirstCell: "CCCCC", initialDataFirstCell: "Charlie Brown", isDirty: true, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[ChangeTrackingContext] Registered table "1/1": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "CCCCC", firstSavedCell: "Charlie Brown" }
+ChangeTrackingContext.tsx:42:15
+[PopperTableCell 1/1/2] Mounted/Updated: 
+Object { tableId: "1/1/2", innerDataFirstCell: "Hannah Montana", initialDataFirstCell: "Hannah Montana", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/1/3] Mounted/Updated: 
+Object { tableId: "1/1/3", innerDataFirstCell: "Edward Norton", initialDataFirstCell: "Edward Norton", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/1/4] Mounted/Updated: 
+Object { tableId: "1/1/4", innerDataFirstCell: "Bob Smith", initialDataFirstCell: "Bob Smith", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/1/5] Mounted/Updated: 
+Object { tableId: "1/1/5", innerDataFirstCell: "Charlie Brown", initialDataFirstCell: "Charlie Brown", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/1] Mounted/Updated: 
+Object { tableId: "1/1", innerDataFirstCell: "CCCCC", initialDataFirstCell: "Charlie Brown", isDirty: true, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/1/1/1] Mounted/Updated: 
+Object { tableId: "1/1/1/1", innerDataFirstCell: "George Washington", initialDataFirstCell: "George Washington", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/1/1/2] Mounted/Updated: 
+Object { tableId: "1/1/1/2", innerDataFirstCell: "Alice Johnson", initialDataFirstCell: "Alice Johnson", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/1/1/3] Mounted/Updated: 
+Object { tableId: "1/1/1/3", innerDataFirstCell: "Isaac Newton", initialDataFirstCell: "Isaac Newton", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/1/1/4] Mounted/Updated: 
+Object { tableId: "1/1/1/4", innerDataFirstCell: "Fiona Apple", initialDataFirstCell: "Fiona Apple", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/1/1/5] Mounted/Updated: 
+Object { tableId: "1/1/1/5", innerDataFirstCell: "Bob Smith", initialDataFirstCell: "Bob Smith", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[ChangeTrackingContext] Registered table "1/1/1/1": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "George Washington", firstSavedCell: "George Washington" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "1/1/1/2": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Alice Johnson", firstSavedCell: "Alice Johnson" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "1/1/1/3": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Isaac Newton", firstSavedCell: "Isaac Newton" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "1/1/1/4": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Fiona Apple", firstSavedCell: "Fiona Apple" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "1/1/1/5": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Bob Smith", firstSavedCell: "Bob Smith" }
+ChangeTrackingContext.tsx:42:15
+[PopperTableCell 1/1/1/1] Mounted/Updated: 
+Object { tableId: "1/1/1/1", innerDataFirstCell: "George Washington", initialDataFirstCell: "George Washington", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/1/1/2] Mounted/Updated: 
+Object { tableId: "1/1/1/2", innerDataFirstCell: "Alice Johnson", initialDataFirstCell: "Alice Johnson", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/1/1/3] Mounted/Updated: 
+Object { tableId: "1/1/1/3", innerDataFirstCell: "Isaac Newton", initialDataFirstCell: "Isaac Newton", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/1/1/4] Mounted/Updated: 
+Object { tableId: "1/1/1/4", innerDataFirstCell: "Fiona Apple", initialDataFirstCell: "Fiona Apple", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/1/1/5] Mounted/Updated: 
+Object { tableId: "1/1/1/5", innerDataFirstCell: "Bob Smith", initialDataFirstCell: "Bob Smith", isDirty: false, snapshotExists: false, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[ChangeTrackingContext] Registered table "1/1/1/1": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "George Washington", firstSavedCell: "George Washington" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "1/1/1/2": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Alice Johnson", firstSavedCell: "Alice Johnson" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "1/1/1/3": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Isaac Newton", firstSavedCell: "Isaac Newton" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "1/1/1/4": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Fiona Apple", firstSavedCell: "Fiona Apple" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "1/1/1/5": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Bob Smith", firstSavedCell: "Bob Smith" }
+ChangeTrackingContext.tsx:42:15
+[PopperTableCell 1/1/1/1] Mounted/Updated: 
+Object { tableId: "1/1/1/1", innerDataFirstCell: "George Washington", initialDataFirstCell: "George Washington", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/1/1] Mounted/Updated: 
+Object { tableId: "1/1/1", innerDataFirstCell: "DDDDDD", initialDataFirstCell: "Julia Roberts", isDirty: true, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[ChangeTrackingContext] Registered table "1/1/1": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "DDDDDD", firstSavedCell: "Julia Roberts" }
+ChangeTrackingContext.tsx:42:15
+[PopperTableCell 1/1/1/2] Mounted/Updated: 
+Object { tableId: "1/1/1/2", innerDataFirstCell: "Alice Johnson", initialDataFirstCell: "Alice Johnson", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/1/1/3] Mounted/Updated: 
+Object { tableId: "1/1/1/3", innerDataFirstCell: "Isaac Newton", initialDataFirstCell: "Isaac Newton", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/1/1/4] Mounted/Updated: 
+Object { tableId: "1/1/1/4", innerDataFirstCell: "Fiona Apple", initialDataFirstCell: "Fiona Apple", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/1/1/5] Mounted/Updated: 
+Object { tableId: "1/1/1/5", innerDataFirstCell: "Bob Smith", initialDataFirstCell: "Bob Smith", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/1/1] Mounted/Updated: 
+Object { tableId: "1/1/1", innerDataFirstCell: "DDDDDD", initialDataFirstCell: "Julia Roberts", isDirty: true, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[ChangeTrackingContext] Clearing dirty state for all tables: ChangeTrackingContext.tsx:54:13
+  - Table "1": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "BBBBBB", firstSavedCell: "Hannah Montana" }
+ChangeTrackingContext.tsx:56:15
+  - Table "2": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Edward Norton", firstSavedCell: "Edward Norton" }
+ChangeTrackingContext.tsx:56:15
+  - Table "3": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Hannah Montana", firstSavedCell: "Hannah Montana" }
+ChangeTrackingContext.tsx:56:15
+  - Table "4": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Diana Prince", firstSavedCell: "Diana Prince" }
+ChangeTrackingContext.tsx:56:15
+  - Table "5": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Charlie Brown", firstSavedCell: "Charlie Brown" }
+ChangeTrackingContext.tsx:56:15
+  - Table "6": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Hannah Montana", firstSavedCell: "Hannah Montana" }
+ChangeTrackingContext.tsx:56:15
+  - Table "7": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Diana Prince", firstSavedCell: "Diana Prince" }
+ChangeTrackingContext.tsx:56:15
+  - Table "8": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Julia Roberts", firstSavedCell: "Julia Roberts" }
+ChangeTrackingContext.tsx:56:15
+  - Table "9": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Charlie Brown", firstSavedCell: "Charlie Brown" }
+ChangeTrackingContext.tsx:56:15
+  - Table "10": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Diana Prince", firstSavedCell: "Diana Prince" }
+ChangeTrackingContext.tsx:56:15
+  - Table "11": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Alice Johnson", firstSavedCell: "Alice Johnson" }
+ChangeTrackingContext.tsx:56:15
+  - Table "12": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "George Washington", firstSavedCell: "George Washington" }
+ChangeTrackingContext.tsx:56:15
+  - Table "13": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Bob Smith", firstSavedCell: "Bob Smith" }
+ChangeTrackingContext.tsx:56:15
+  - Table "14": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Isaac Newton", firstSavedCell: "Isaac Newton" }
+ChangeTrackingContext.tsx:56:15
+  - Table "15": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Hannah Montana", firstSavedCell: "Hannah Montana" }
+ChangeTrackingContext.tsx:56:15
+  - Table "16": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Alice Johnson", firstSavedCell: "Alice Johnson" }
+ChangeTrackingContext.tsx:56:15
+  - Table "17": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Julia Roberts", firstSavedCell: "Julia Roberts" }
+ChangeTrackingContext.tsx:56:15
+  - Table "18": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Hannah Montana", firstSavedCell: "Hannah Montana" }
+ChangeTrackingContext.tsx:56:15
+  - Table "19": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "George Washington", firstSavedCell: "George Washington" }
+ChangeTrackingContext.tsx:56:15
+  - Table "20": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Isaac Newton", firstSavedCell: "Isaac Newton" }
+ChangeTrackingContext.tsx:56:15
+  - Table "21": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Fiona Apple", firstSavedCell: "Fiona Apple" }
+ChangeTrackingContext.tsx:56:15
+  - Table "22": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Edward Norton", firstSavedCell: "Edward Norton" }
+ChangeTrackingContext.tsx:56:15
+  - Table "23": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Diana Prince", firstSavedCell: "Diana Prince" }
+ChangeTrackingContext.tsx:56:15
+  - Table "24": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Bob Smith", firstSavedCell: "Bob Smith" }
+ChangeTrackingContext.tsx:56:15
+  - Table "25": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Alice Johnson", firstSavedCell: "Alice Johnson" }
+ChangeTrackingContext.tsx:56:15
+  - Table "26": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Julia Roberts", firstSavedCell: "Julia Roberts" }
+ChangeTrackingContext.tsx:56:15
+  - Table "27": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "George Washington", firstSavedCell: "George Washington" }
+ChangeTrackingContext.tsx:56:15
+  - Table "28": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Fiona Apple", firstSavedCell: "Fiona Apple" }
+ChangeTrackingContext.tsx:56:15
+  - Table "29": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Julia Roberts", firstSavedCell: "Julia Roberts" }
+ChangeTrackingContext.tsx:56:15
+  - Table "30": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Diana Prince", firstSavedCell: "Diana Prince" }
+ChangeTrackingContext.tsx:56:15
+  - Table "31": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Isaac Newton", firstSavedCell: "Isaac Newton" }
+ChangeTrackingContext.tsx:56:15
+  - Table "32": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Julia Roberts", firstSavedCell: "Julia Roberts" }
+ChangeTrackingContext.tsx:56:15
+  - Table "33": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Isaac Newton", firstSavedCell: "Isaac Newton" }
+ChangeTrackingContext.tsx:56:15
+  - Table "34": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Charlie Brown", firstSavedCell: "Charlie Brown" }
+ChangeTrackingContext.tsx:56:15
+  - Table "35": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Fiona Apple", firstSavedCell: "Fiona Apple" }
+ChangeTrackingContext.tsx:56:15
+  - Table "36": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Alice Johnson", firstSavedCell: "Alice Johnson" }
+ChangeTrackingContext.tsx:56:15
+  - Table "37": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Julia Roberts", firstSavedCell: "Julia Roberts" }
+ChangeTrackingContext.tsx:56:15
+  - Table "38": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Isaac Newton", firstSavedCell: "Isaac Newton" }
+ChangeTrackingContext.tsx:56:15
+  - Table "39": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Edward Norton", firstSavedCell: "Edward Norton" }
+ChangeTrackingContext.tsx:56:15
+  - Table "40": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Diana Prince", firstSavedCell: "Diana Prince" }
+ChangeTrackingContext.tsx:56:15
+  - Table "41": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Charlie Brown", firstSavedCell: "Charlie Brown" }
+ChangeTrackingContext.tsx:56:15
+  - Table "42": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Hannah Montana", firstSavedCell: "Hannah Montana" }
+ChangeTrackingContext.tsx:56:15
+  - Table "43": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Isaac Newton", firstSavedCell: "Isaac Newton" }
+ChangeTrackingContext.tsx:56:15
+  - Table "44": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Julia Roberts", firstSavedCell: "Julia Roberts" }
+ChangeTrackingContext.tsx:56:15
+  - Table "45": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Charlie Brown", firstSavedCell: "Charlie Brown" }
+ChangeTrackingContext.tsx:56:15
+  - Table "46": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Bob Smith", firstSavedCell: "Bob Smith" }
+ChangeTrackingContext.tsx:56:15
+  - Table "47": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Charlie Brown", firstSavedCell: "Charlie Brown" }
+ChangeTrackingContext.tsx:56:15
+  - Table "48": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Bob Smith", firstSavedCell: "Bob Smith" }
+ChangeTrackingContext.tsx:56:15
+  - Table "49": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Fiona Apple", firstSavedCell: "Fiona Apple" }
+ChangeTrackingContext.tsx:56:15
+  - Table "50": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Bob Smith", firstSavedCell: "Bob Smith" }
+ChangeTrackingContext.tsx:56:15
+  - Table "51": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Fiona Apple", firstSavedCell: "Fiona Apple" }
+ChangeTrackingContext.tsx:56:15
+  - Table "52": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Isaac Newton", firstSavedCell: "Isaac Newton" }
+ChangeTrackingContext.tsx:56:15
+  - Table "53": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "George Washington", firstSavedCell: "George Washington" }
+ChangeTrackingContext.tsx:56:15
+  - Table "54": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Charlie Brown", firstSavedCell: "Charlie Brown" }
+ChangeTrackingContext.tsx:56:15
+  - Table "55": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Julia Roberts", firstSavedCell: "Julia Roberts" }
+ChangeTrackingContext.tsx:56:15
+  - Table "56": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Isaac Newton", firstSavedCell: "Isaac Newton" }
+ChangeTrackingContext.tsx:56:15
+  - Table "57": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Bob Smith", firstSavedCell: "Bob Smith" }
+ChangeTrackingContext.tsx:56:15
+  - Table "58": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Julia Roberts", firstSavedCell: "Julia Roberts" }
+ChangeTrackingContext.tsx:56:15
+  - Table "59": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Bob Smith", firstSavedCell: "Bob Smith" }
+ChangeTrackingContext.tsx:56:15
+  - Table "60": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "George Washington", firstSavedCell: "George Washington" }
+ChangeTrackingContext.tsx:56:15
+  - Table "61": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Hannah Montana", firstSavedCell: "Hannah Montana" }
+ChangeTrackingContext.tsx:56:15
+  - Table "62": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Edward Norton", firstSavedCell: "Edward Norton" }
+ChangeTrackingContext.tsx:56:15
+  - Table "63": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Edward Norton", firstSavedCell: "Edward Norton" }
+ChangeTrackingContext.tsx:56:15
+  - Table "64": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Fiona Apple", firstSavedCell: "Fiona Apple" }
+ChangeTrackingContext.tsx:56:15
+  - Table "65": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "George Washington", firstSavedCell: "George Washington" }
+ChangeTrackingContext.tsx:56:15
+  - Table "66": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Bob Smith", firstSavedCell: "Bob Smith" }
+ChangeTrackingContext.tsx:56:15
+  - Table "67": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Diana Prince", firstSavedCell: "Diana Prince" }
+ChangeTrackingContext.tsx:56:15
+  - Table "68": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Isaac Newton", firstSavedCell: "Isaac Newton" }
+ChangeTrackingContext.tsx:56:15
+  - Table "69": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Hannah Montana", firstSavedCell: "Hannah Montana" }
+ChangeTrackingContext.tsx:56:15
+  - Table "70": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Hannah Montana", firstSavedCell: "Hannah Montana" }
+ChangeTrackingContext.tsx:56:15
+  - Table "71": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Fiona Apple", firstSavedCell: "Fiona Apple" }
+ChangeTrackingContext.tsx:56:15
+  - Table "72": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Alice Johnson", firstSavedCell: "Alice Johnson" }
+ChangeTrackingContext.tsx:56:15
+  - Table "73": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Fiona Apple", firstSavedCell: "Fiona Apple" }
+ChangeTrackingContext.tsx:56:15
+  - Table "74": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Hannah Montana", firstSavedCell: "Hannah Montana" }
+ChangeTrackingContext.tsx:56:15
+  - Table "75": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Edward Norton", firstSavedCell: "Edward Norton" }
+ChangeTrackingContext.tsx:56:15
+  - Table "76": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Isaac Newton", firstSavedCell: "Isaac Newton" }
+ChangeTrackingContext.tsx:56:15
+  - Table "77": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "George Washington", firstSavedCell: "George Washington" }
+ChangeTrackingContext.tsx:56:15
+  - Table "78": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Alice Johnson", firstSavedCell: "Alice Johnson" }
+ChangeTrackingContext.tsx:56:15
+  - Table "79": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Isaac Newton", firstSavedCell: "Isaac Newton" }
+ChangeTrackingContext.tsx:56:15
+  - Table "80": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "George Washington", firstSavedCell: "George Washington" }
+ChangeTrackingContext.tsx:56:15
+  - Table "81": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Diana Prince", firstSavedCell: "Diana Prince" }
+ChangeTrackingContext.tsx:56:15
+  - Table "82": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Julia Roberts", firstSavedCell: "Julia Roberts" }
+ChangeTrackingContext.tsx:56:15
+  - Table "83": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Hannah Montana", firstSavedCell: "Hannah Montana" }
+ChangeTrackingContext.tsx:56:15
+  - Table "84": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Fiona Apple", firstSavedCell: "Fiona Apple" }
+ChangeTrackingContext.tsx:56:15
+  - Table "85": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Diana Prince", firstSavedCell: "Diana Prince" }
+ChangeTrackingContext.tsx:56:15
+  - Table "86": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Fiona Apple", firstSavedCell: "Fiona Apple" }
+ChangeTrackingContext.tsx:56:15
+  - Table "87": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Julia Roberts", firstSavedCell: "Julia Roberts" }
+ChangeTrackingContext.tsx:56:15
+  - Table "88": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Hannah Montana", firstSavedCell: "Hannah Montana" }
+ChangeTrackingContext.tsx:56:15
+  - Table "89": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Julia Roberts", firstSavedCell: "Julia Roberts" }
+ChangeTrackingContext.tsx:56:15
+  - Table "90": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Diana Prince", firstSavedCell: "Diana Prince" }
+ChangeTrackingContext.tsx:56:15
+  - Table "91": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Charlie Brown", firstSavedCell: "Charlie Brown" }
+ChangeTrackingContext.tsx:56:15
+  - Table "92": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Diana Prince", firstSavedCell: "Diana Prince" }
+ChangeTrackingContext.tsx:56:15
+  - Table "93": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Hannah Montana", firstSavedCell: "Hannah Montana" }
+ChangeTrackingContext.tsx:56:15
+  - Table "94": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Isaac Newton", firstSavedCell: "Isaac Newton" }
+ChangeTrackingContext.tsx:56:15
+  - Table "95": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Bob Smith", firstSavedCell: "Bob Smith" }
+ChangeTrackingContext.tsx:56:15
+  - Table "96": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "George Washington", firstSavedCell: "George Washington" }
+ChangeTrackingContext.tsx:56:15
+  - Table "97": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Julia Roberts", firstSavedCell: "Julia Roberts" }
+ChangeTrackingContext.tsx:56:15
+  - Table "98": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Hannah Montana", firstSavedCell: "Hannah Montana" }
+ChangeTrackingContext.tsx:56:15
+  - Table "99": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Charlie Brown", firstSavedCell: "Charlie Brown" }
+ChangeTrackingContext.tsx:56:15
+  - Table "100": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Bob Smith", firstSavedCell: "Bob Smith" }
+ChangeTrackingContext.tsx:56:15
+  - Table "": 
+Object { currentLength: 100, savedLength: 100, firstCurrentCell: "AAAAA", firstSavedCell: "Charlie Brown" }
+ChangeTrackingContext.tsx:56:15
+  - Table "1/1": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "CCCCC", firstSavedCell: "Charlie Brown" }
+ChangeTrackingContext.tsx:56:15
+  - Table "1/2": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Julia Roberts", firstSavedCell: "Julia Roberts" }
+ChangeTrackingContext.tsx:56:15
+  - Table "1/3": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Hannah Montana", firstSavedCell: "Hannah Montana" }
+ChangeTrackingContext.tsx:56:15
+  - Table "1/4": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Alice Johnson", firstSavedCell: "Alice Johnson" }
+ChangeTrackingContext.tsx:56:15
+  - Table "1/5": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Isaac Newton", firstSavedCell: "Isaac Newton" }
+ChangeTrackingContext.tsx:56:15
+  - Table "1/1/1": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "DDDDDD", firstSavedCell: "Julia Roberts" }
+ChangeTrackingContext.tsx:56:15
+  - Table "1/1/2": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Hannah Montana", firstSavedCell: "Hannah Montana" }
+ChangeTrackingContext.tsx:56:15
+  - Table "1/1/3": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Edward Norton", firstSavedCell: "Edward Norton" }
+ChangeTrackingContext.tsx:56:15
+  - Table "1/1/4": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Bob Smith", firstSavedCell: "Bob Smith" }
+ChangeTrackingContext.tsx:56:15
+  - Table "1/1/5": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Charlie Brown", firstSavedCell: "Charlie Brown" }
+ChangeTrackingContext.tsx:56:15
+  - Table "1/1/1/1": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "George Washington", firstSavedCell: "George Washington" }
+ChangeTrackingContext.tsx:56:15
+  - Table "1/1/1/2": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Alice Johnson", firstSavedCell: "Alice Johnson" }
+ChangeTrackingContext.tsx:56:15
+  - Table "1/1/1/3": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Isaac Newton", firstSavedCell: "Isaac Newton" }
+ChangeTrackingContext.tsx:56:15
+  - Table "1/1/1/4": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Fiona Apple", firstSavedCell: "Fiona Apple" }
+ChangeTrackingContext.tsx:56:15
+  - Table "1/1/1/5": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Bob Smith", firstSavedCell: "Bob Smith" }
+ChangeTrackingContext.tsx:56:15
+[ChangeTrackingContext] After clear: ChangeTrackingContext.tsx:64:13
+  - Table "1": firstCell = BBBBBB ChangeTrackingContext.tsx:66:15
+  - Table "2": firstCell = Edward Norton ChangeTrackingContext.tsx:66:15
+  - Table "3": firstCell = Hannah Montana ChangeTrackingContext.tsx:66:15
+  - Table "4": firstCell = Diana Prince ChangeTrackingContext.tsx:66:15
+  - Table "5": firstCell = Charlie Brown ChangeTrackingContext.tsx:66:15
+  - Table "6": firstCell = Hannah Montana ChangeTrackingContext.tsx:66:15
+  - Table "7": firstCell = Diana Prince ChangeTrackingContext.tsx:66:15
+  - Table "8": firstCell = Julia Roberts ChangeTrackingContext.tsx:66:15
+  - Table "9": firstCell = Charlie Brown ChangeTrackingContext.tsx:66:15
+  - Table "10": firstCell = Diana Prince ChangeTrackingContext.tsx:66:15
+  - Table "11": firstCell = Alice Johnson ChangeTrackingContext.tsx:66:15
+  - Table "12": firstCell = George Washington ChangeTrackingContext.tsx:66:15
+  - Table "13": firstCell = Bob Smith ChangeTrackingContext.tsx:66:15
+  - Table "14": firstCell = Isaac Newton ChangeTrackingContext.tsx:66:15
+  - Table "15": firstCell = Hannah Montana ChangeTrackingContext.tsx:66:15
+  - Table "16": firstCell = Alice Johnson ChangeTrackingContext.tsx:66:15
+  - Table "17": firstCell = Julia Roberts ChangeTrackingContext.tsx:66:15
+  - Table "18": firstCell = Hannah Montana ChangeTrackingContext.tsx:66:15
+  - Table "19": firstCell = George Washington ChangeTrackingContext.tsx:66:15
+  - Table "20": firstCell = Isaac Newton ChangeTrackingContext.tsx:66:15
+  - Table "21": firstCell = Fiona Apple ChangeTrackingContext.tsx:66:15
+  - Table "22": firstCell = Edward Norton ChangeTrackingContext.tsx:66:15
+  - Table "23": firstCell = Diana Prince ChangeTrackingContext.tsx:66:15
+  - Table "24": firstCell = Bob Smith ChangeTrackingContext.tsx:66:15
+  - Table "25": firstCell = Alice Johnson ChangeTrackingContext.tsx:66:15
+  - Table "26": firstCell = Julia Roberts ChangeTrackingContext.tsx:66:15
+  - Table "27": firstCell = George Washington ChangeTrackingContext.tsx:66:15
+  - Table "28": firstCell = Fiona Apple ChangeTrackingContext.tsx:66:15
+  - Table "29": firstCell = Julia Roberts ChangeTrackingContext.tsx:66:15
+  - Table "30": firstCell = Diana Prince ChangeTrackingContext.tsx:66:15
+  - Table "31": firstCell = Isaac Newton ChangeTrackingContext.tsx:66:15
+  - Table "32": firstCell = Julia Roberts ChangeTrackingContext.tsx:66:15
+  - Table "33": firstCell = Isaac Newton ChangeTrackingContext.tsx:66:15
+  - Table "34": firstCell = Charlie Brown ChangeTrackingContext.tsx:66:15
+  - Table "35": firstCell = Fiona Apple ChangeTrackingContext.tsx:66:15
+  - Table "36": firstCell = Alice Johnson ChangeTrackingContext.tsx:66:15
+  - Table "37": firstCell = Julia Roberts ChangeTrackingContext.tsx:66:15
+  - Table "38": firstCell = Isaac Newton ChangeTrackingContext.tsx:66:15
+  - Table "39": firstCell = Edward Norton ChangeTrackingContext.tsx:66:15
+  - Table "40": firstCell = Diana Prince ChangeTrackingContext.tsx:66:15
+  - Table "41": firstCell = Charlie Brown ChangeTrackingContext.tsx:66:15
+  - Table "42": firstCell = Hannah Montana ChangeTrackingContext.tsx:66:15
+  - Table "43": firstCell = Isaac Newton ChangeTrackingContext.tsx:66:15
+  - Table "44": firstCell = Julia Roberts ChangeTrackingContext.tsx:66:15
+  - Table "45": firstCell = Charlie Brown ChangeTrackingContext.tsx:66:15
+  - Table "46": firstCell = Bob Smith ChangeTrackingContext.tsx:66:15
+  - Table "47": firstCell = Charlie Brown ChangeTrackingContext.tsx:66:15
+  - Table "48": firstCell = Bob Smith ChangeTrackingContext.tsx:66:15
+  - Table "49": firstCell = Fiona Apple ChangeTrackingContext.tsx:66:15
+  - Table "50": firstCell = Bob Smith ChangeTrackingContext.tsx:66:15
+  - Table "51": firstCell = Fiona Apple ChangeTrackingContext.tsx:66:15
+  - Table "52": firstCell = Isaac Newton ChangeTrackingContext.tsx:66:15
+  - Table "53": firstCell = George Washington ChangeTrackingContext.tsx:66:15
+  - Table "54": firstCell = Charlie Brown ChangeTrackingContext.tsx:66:15
+  - Table "55": firstCell = Julia Roberts ChangeTrackingContext.tsx:66:15
+  - Table "56": firstCell = Isaac Newton ChangeTrackingContext.tsx:66:15
+  - Table "57": firstCell = Bob Smith ChangeTrackingContext.tsx:66:15
+  - Table "58": firstCell = Julia Roberts ChangeTrackingContext.tsx:66:15
+  - Table "59": firstCell = Bob Smith ChangeTrackingContext.tsx:66:15
+  - Table "60": firstCell = George Washington ChangeTrackingContext.tsx:66:15
+  - Table "61": firstCell = Hannah Montana ChangeTrackingContext.tsx:66:15
+  - Table "62": firstCell = Edward Norton ChangeTrackingContext.tsx:66:15
+  - Table "63": firstCell = Edward Norton ChangeTrackingContext.tsx:66:15
+  - Table "64": firstCell = Fiona Apple ChangeTrackingContext.tsx:66:15
+  - Table "65": firstCell = George Washington ChangeTrackingContext.tsx:66:15
+  - Table "66": firstCell = Bob Smith ChangeTrackingContext.tsx:66:15
+  - Table "67": firstCell = Diana Prince ChangeTrackingContext.tsx:66:15
+  - Table "68": firstCell = Isaac Newton ChangeTrackingContext.tsx:66:15
+  - Table "69": firstCell = Hannah Montana ChangeTrackingContext.tsx:66:15
+  - Table "70": firstCell = Hannah Montana ChangeTrackingContext.tsx:66:15
+  - Table "71": firstCell = Fiona Apple ChangeTrackingContext.tsx:66:15
+  - Table "72": firstCell = Alice Johnson ChangeTrackingContext.tsx:66:15
+  - Table "73": firstCell = Fiona Apple ChangeTrackingContext.tsx:66:15
+  - Table "74": firstCell = Hannah Montana ChangeTrackingContext.tsx:66:15
+  - Table "75": firstCell = Edward Norton ChangeTrackingContext.tsx:66:15
+  - Table "76": firstCell = Isaac Newton ChangeTrackingContext.tsx:66:15
+  - Table "77": firstCell = George Washington ChangeTrackingContext.tsx:66:15
+  - Table "78": firstCell = Alice Johnson ChangeTrackingContext.tsx:66:15
+  - Table "79": firstCell = Isaac Newton ChangeTrackingContext.tsx:66:15
+  - Table "80": firstCell = George Washington ChangeTrackingContext.tsx:66:15
+  - Table "81": firstCell = Diana Prince ChangeTrackingContext.tsx:66:15
+  - Table "82": firstCell = Julia Roberts ChangeTrackingContext.tsx:66:15
+  - Table "83": firstCell = Hannah Montana ChangeTrackingContext.tsx:66:15
+  - Table "84": firstCell = Fiona Apple ChangeTrackingContext.tsx:66:15
+  - Table "85": firstCell = Diana Prince ChangeTrackingContext.tsx:66:15
+  - Table "86": firstCell = Fiona Apple ChangeTrackingContext.tsx:66:15
+  - Table "87": firstCell = Julia Roberts ChangeTrackingContext.tsx:66:15
+  - Table "88": firstCell = Hannah Montana ChangeTrackingContext.tsx:66:15
+  - Table "89": firstCell = Julia Roberts ChangeTrackingContext.tsx:66:15
+  - Table "90": firstCell = Diana Prince ChangeTrackingContext.tsx:66:15
+  - Table "91": firstCell = Charlie Brown ChangeTrackingContext.tsx:66:15
+  - Table "92": firstCell = Diana Prince ChangeTrackingContext.tsx:66:15
+  - Table "93": firstCell = Hannah Montana ChangeTrackingContext.tsx:66:15
+  - Table "94": firstCell = Isaac Newton ChangeTrackingContext.tsx:66:15
+  - Table "95": firstCell = Bob Smith ChangeTrackingContext.tsx:66:15
+  - Table "96": firstCell = George Washington ChangeTrackingContext.tsx:66:15
+  - Table "97": firstCell = Julia Roberts ChangeTrackingContext.tsx:66:15
+  - Table "98": firstCell = Hannah Montana ChangeTrackingContext.tsx:66:15
+  - Table "99": firstCell = Charlie Brown ChangeTrackingContext.tsx:66:15
+  - Table "100": firstCell = Bob Smith ChangeTrackingContext.tsx:66:15
+  - Table "": firstCell = AAAAA ChangeTrackingContext.tsx:66:15
+  - Table "1/1": firstCell = CCCCC ChangeTrackingContext.tsx:66:15
+  - Table "1/2": firstCell = Julia Roberts ChangeTrackingContext.tsx:66:15
+  - Table "1/3": firstCell = Hannah Montana ChangeTrackingContext.tsx:66:15
+  - Table "1/4": firstCell = Alice Johnson ChangeTrackingContext.tsx:66:15
+  - Table "1/5": firstCell = Isaac Newton ChangeTrackingContext.tsx:66:15
+  - Table "1/1/1": firstCell = DDDDDD ChangeTrackingContext.tsx:66:15
+  - Table "1/1/2": firstCell = Hannah Montana ChangeTrackingContext.tsx:66:15
+  - Table "1/1/3": firstCell = Edward Norton ChangeTrackingContext.tsx:66:15
+  - Table "1/1/4": firstCell = Bob Smith ChangeTrackingContext.tsx:66:15
+  - Table "1/1/5": firstCell = Charlie Brown ChangeTrackingContext.tsx:66:15
+  - Table "1/1/1/1": firstCell = George Washington ChangeTrackingContext.tsx:66:15
+  - Table "1/1/1/2": firstCell = Alice Johnson ChangeTrackingContext.tsx:66:15
+  - Table "1/1/1/3": firstCell = Isaac Newton ChangeTrackingContext.tsx:66:15
+  - Table "1/1/1/4": firstCell = Fiona Apple ChangeTrackingContext.tsx:66:15
+  - Table "1/1/1/5": firstCell = Bob Smith ChangeTrackingContext.tsx:66:15
+[ChangeTrackingContext] Registered table "": 
+Object { currentLength: 100, savedLength: 100, firstCurrentCell: "AAAAA", firstSavedCell: "AAAAA" }
+ChangeTrackingContext.tsx:42:15
+[PopperTableCell 1/1] Mounted/Updated: 
+Object { tableId: "1/1", innerDataFirstCell: "CCCCC", initialDataFirstCell: "CCCCC", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/2] Mounted/Updated: 
+Object { tableId: "1/2", innerDataFirstCell: "Julia Roberts", initialDataFirstCell: "Julia Roberts", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/3] Mounted/Updated: 
+Object { tableId: "1/3", innerDataFirstCell: "Hannah Montana", initialDataFirstCell: "Hannah Montana", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/4] Mounted/Updated: 
+Object { tableId: "1/4", innerDataFirstCell: "Alice Johnson", initialDataFirstCell: "Alice Johnson", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/5] Mounted/Updated: 
+Object { tableId: "1/5", innerDataFirstCell: "Isaac Newton", initialDataFirstCell: "Isaac Newton", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[ChangeTrackingContext] Registered table "1/1": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "CCCCC", firstSavedCell: "CCCCC" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "1/2": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Julia Roberts", firstSavedCell: "Julia Roberts" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "1/3": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Hannah Montana", firstSavedCell: "Hannah Montana" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "1/4": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Alice Johnson", firstSavedCell: "Alice Johnson" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "1/5": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Isaac Newton", firstSavedCell: "Isaac Newton" }
+ChangeTrackingContext.tsx:42:15
+[PopperTableCell 1/1] Mounted/Updated: 
+Object { tableId: "1/1", innerDataFirstCell: "CCCCC", initialDataFirstCell: "CCCCC", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/2] Mounted/Updated: 
+Object { tableId: "1/2", innerDataFirstCell: "Julia Roberts", initialDataFirstCell: "Julia Roberts", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/3] Mounted/Updated: 
+Object { tableId: "1/3", innerDataFirstCell: "Hannah Montana", initialDataFirstCell: "Hannah Montana", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/4] Mounted/Updated: 
+Object { tableId: "1/4", innerDataFirstCell: "Alice Johnson", initialDataFirstCell: "Alice Johnson", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/5] Mounted/Updated: 
+Object { tableId: "1/5", innerDataFirstCell: "Isaac Newton", initialDataFirstCell: "Isaac Newton", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[ChangeTrackingContext] Registered table "1/1": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "CCCCC", firstSavedCell: "CCCCC" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "1/2": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Julia Roberts", firstSavedCell: "Julia Roberts" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "1/3": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Hannah Montana", firstSavedCell: "Hannah Montana" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "1/4": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Alice Johnson", firstSavedCell: "Alice Johnson" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "1/5": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Isaac Newton", firstSavedCell: "Isaac Newton" }
+ChangeTrackingContext.tsx:42:15
+[PopperTableCell 1/1] Mounted/Updated: 
+Object { tableId: "1/1", innerDataFirstCell: "CCCCC", initialDataFirstCell: "CCCCC", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/1/1] Mounted/Updated: 
+Object { tableId: "1/1/1", innerDataFirstCell: "DDDDDD", initialDataFirstCell: "DDDDDD", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/1/2] Mounted/Updated: 
+Object { tableId: "1/1/2", innerDataFirstCell: "Hannah Montana", initialDataFirstCell: "Hannah Montana", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/1/3] Mounted/Updated: 
+Object { tableId: "1/1/3", innerDataFirstCell: "Edward Norton", initialDataFirstCell: "Edward Norton", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/1/4] Mounted/Updated: 
+Object { tableId: "1/1/4", innerDataFirstCell: "Bob Smith", initialDataFirstCell: "Bob Smith", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/1/5] Mounted/Updated: 
+Object { tableId: "1/1/5", innerDataFirstCell: "Charlie Brown", initialDataFirstCell: "Charlie Brown", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[ChangeTrackingContext] Registered table "1/1/1": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "DDDDDD", firstSavedCell: "DDDDDD" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "1/1/2": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Hannah Montana", firstSavedCell: "Hannah Montana" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "1/1/3": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Edward Norton", firstSavedCell: "Edward Norton" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "1/1/4": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Bob Smith", firstSavedCell: "Bob Smith" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "1/1/5": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Charlie Brown", firstSavedCell: "Charlie Brown" }
+ChangeTrackingContext.tsx:42:15
+[PopperTableCell 1/1/1] Mounted/Updated: 
+Object { tableId: "1/1/1", innerDataFirstCell: "DDDDDD", initialDataFirstCell: "DDDDDD", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/1/2] Mounted/Updated: 
+Object { tableId: "1/1/2", innerDataFirstCell: "Hannah Montana", initialDataFirstCell: "Hannah Montana", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/1/3] Mounted/Updated: 
+Object { tableId: "1/1/3", innerDataFirstCell: "Edward Norton", initialDataFirstCell: "Edward Norton", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/1/4] Mounted/Updated: 
+Object { tableId: "1/1/4", innerDataFirstCell: "Bob Smith", initialDataFirstCell: "Bob Smith", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/1/5] Mounted/Updated: 
+Object { tableId: "1/1/5", innerDataFirstCell: "Charlie Brown", initialDataFirstCell: "Charlie Brown", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[ChangeTrackingContext] Registered table "1/1/1": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "DDDDDD", firstSavedCell: "DDDDDD" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "1/1/2": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Hannah Montana", firstSavedCell: "Hannah Montana" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "1/1/3": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Edward Norton", firstSavedCell: "Edward Norton" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "1/1/4": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Bob Smith", firstSavedCell: "Bob Smith" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "1/1/5": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Charlie Brown", firstSavedCell: "Charlie Brown" }
+ChangeTrackingContext.tsx:42:15
+[PopperTableCell 1/1/1] Mounted/Updated: 
+Object { tableId: "1/1/1", innerDataFirstCell: "DDDDDD", initialDataFirstCell: "DDDDDD", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/1/1/1] Mounted/Updated: 
+Object { tableId: "1/1/1/1", innerDataFirstCell: "George Washington", initialDataFirstCell: "George Washington", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/1/1/2] Mounted/Updated: 
+Object { tableId: "1/1/1/2", innerDataFirstCell: "Alice Johnson", initialDataFirstCell: "Alice Johnson", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/1/1/3] Mounted/Updated: 
+Object { tableId: "1/1/1/3", innerDataFirstCell: "Isaac Newton", initialDataFirstCell: "Isaac Newton", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/1/1/4] Mounted/Updated: 
+Object { tableId: "1/1/1/4", innerDataFirstCell: "Fiona Apple", initialDataFirstCell: "Fiona Apple", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/1/1/5] Mounted/Updated: 
+Object { tableId: "1/1/1/5", innerDataFirstCell: "Bob Smith", initialDataFirstCell: "Bob Smith", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[ChangeTrackingContext] Registered table "1/1/1/1": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "George Washington", firstSavedCell: "George Washington" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "1/1/1/2": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Alice Johnson", firstSavedCell: "Alice Johnson" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "1/1/1/3": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Isaac Newton", firstSavedCell: "Isaac Newton" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "1/1/1/4": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Fiona Apple", firstSavedCell: "Fiona Apple" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "1/1/1/5": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Bob Smith", firstSavedCell: "Bob Smith" }
+ChangeTrackingContext.tsx:42:15
+[PopperTableCell 1/1/1/1] Mounted/Updated: 
+Object { tableId: "1/1/1/1", innerDataFirstCell: "George Washington", initialDataFirstCell: "George Washington", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/1/1/2] Mounted/Updated: 
+Object { tableId: "1/1/1/2", innerDataFirstCell: "Alice Johnson", initialDataFirstCell: "Alice Johnson", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/1/1/3] Mounted/Updated: 
+Object { tableId: "1/1/1/3", innerDataFirstCell: "Isaac Newton", initialDataFirstCell: "Isaac Newton", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/1/1/4] Mounted/Updated: 
+Object { tableId: "1/1/1/4", innerDataFirstCell: "Fiona Apple", initialDataFirstCell: "Fiona Apple", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[PopperTableCell 1/1/1/5] Mounted/Updated: 
+Object { tableId: "1/1/1/5", innerDataFirstCell: "Bob Smith", initialDataFirstCell: "Bob Smith", isDirty: false, snapshotExists: true, innerDataLength: 5, initialRefLength: 5 }
+PopperTableCell.tsx:58:13
+[ChangeTrackingContext] Registered table "1/1/1/1": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "George Washington", firstSavedCell: "George Washington" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "1/1/1/2": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Alice Johnson", firstSavedCell: "Alice Johnson" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "1/1/1/3": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Isaac Newton", firstSavedCell: "Isaac Newton" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "1/1/1/4": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Fiona Apple", firstSavedCell: "Fiona Apple" }
+ChangeTrackingContext.tsx:42:15
+[ChangeTrackingContext] Registered table "1/1/1/5": 
+Object { currentLength: 5, savedLength: 5, firstCurrentCell: "Bob Smith", firstSavedCell: "Bob Smith" }
+ChangeTrackingContext.tsx:42:15

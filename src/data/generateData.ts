@@ -14,7 +14,7 @@ const names = [
   "Julia Roberts",
 ]
 
-const companies = [
+export const companies = [
   "Acme Corp",
   "Tech Solutions Inc",
   "Global Industries",
