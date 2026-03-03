@@ -19,7 +19,17 @@ export function useEditableCell<T, E extends HTMLElement = HTMLInputElement>({
 }: UseEditableCellOptions<T>) {
   const [editingValue, setEditingValue] = useState(value);
   const inputRef = useRef<E>(null);
-  const wasEditingRef = useRef(false);
+
+  // Track previous isEditing with state (not a ref) so we can detect the
+  // false→true transition during render without triggering react-hooks/refs.
+  // setState during render is React's supported pattern for derived state.
+  const [prevIsEditing, setPrevIsEditing] = useState(false);
+  if (isEditing && !prevIsEditing) {
+    setEditingValue(value);
+  }
+  if (isEditing !== prevIsEditing) {
+    setPrevIsEditing(isEditing);
+  }
 
   const setLocalValue = useCallback((newValue: T) => {
     setEditingValue(newValue);
@@ -28,7 +38,9 @@ export function useEditableCell<T, E extends HTMLElement = HTMLInputElement>({
   // Use a ref so exitAndCommit stays stable during typing — editingValue
   // changes on every keystroke but we only read it at commit time.
   const editingValueRef = useRef(editingValue);
-  editingValueRef.current = editingValue;
+  useEffect(() => {
+    editingValueRef.current = editingValue;
+  });
 
   const exitAndCommit = useCallback(() => {
     onChange?.(isEditing ? editingValueRef.current : value);
@@ -46,14 +58,6 @@ export function useEditableCell<T, E extends HTMLElement = HTMLInputElement>({
   });
 
   useEffect(() => {
-    // Reset to the current prop value only on the false→true transition
-    // so stale discarded edits don't reappear, without overwriting
-    // in-progress edits when the prop value changes externally.
-    if (isEditing && !wasEditingRef.current) {
-      setEditingValue(value);
-    }
-    wasEditingRef.current = isEditing;
-
     if (isEditing) {
       // preventScroll stops Chrome from scrolling the input into view
       inputRef.current?.focus({ preventScroll: true });

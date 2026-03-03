@@ -46,9 +46,12 @@ function PopperTableCellComponent({
   onNavigate,
   cellPath,
 }: PopperTableCellProps) {
-  const [open, setOpen] = useState(false);
+  const [rawOpen, setRawOpen] = useState(false);
+  // Popover can only be open when the cell is in editing mode.
+  // Deriving this avoids a cascading setState-in-effect.
+  const open = rawOpen && isEditing;
   const [loaded, setLoaded] = useState(false);
-  const seedRef = useRef<TableData[]>([]);
+  const [seedData, setSeedData] = useState<TableData[]>([]);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const pointerDownRef = useRef(false);
   const { handleKeyDown } = useCellKeyboard({ onExitEdit, onNavigate });
@@ -57,7 +60,7 @@ function PopperTableCellComponent({
   const { ref: focusRef, Wrapper } = useFocusWithin({
     onClose: () => {
       if (open) {
-        setOpen(false);
+        setRawOpen(false);
         onExitEdit?.();
       }
     },
@@ -72,22 +75,17 @@ function PopperTableCellComponent({
     }
   }, [isEditing, open]);
 
-  useEffect(() => {
-    if (!isEditing && open) {
-      setOpen(false);
-    }
-  }, [isEditing, open]);
-
 
   const handleOpenChange = (nextOpen: boolean) => {
     if (nextOpen && !loaded) {
       // Lazy init — seed the store on first open if no data exists yet.
       const stored = cellPath ? getData(cellPath) : null;
-      seedRef.current = stored ?? generateData();
-      if (!stored && cellPath) setData(cellPath, seedRef.current);
+      const seed = stored ?? generateData();
+      setSeedData(seed);
+      if (!stored && cellPath) setData(cellPath, seed);
       setLoaded(true);
     }
-    setOpen(nextOpen);
+    setRawOpen(nextOpen);
     // Closing the popover for any reason (Escape, outside click, programmatic
     // focus loss) returns the cell to selected mode.
     if (!nextOpen) {
@@ -165,7 +163,7 @@ function PopperTableCellComponent({
             ) : (
               <DataTable
                 columns={nestedColumns}
-                data={seedRef.current}
+                data={seedData}
                 basePath={cellPath}
               />
             )}

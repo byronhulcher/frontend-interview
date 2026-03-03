@@ -1,6 +1,6 @@
 import { render, act, cleanup } from "@testing-library/react";
 import { vi, beforeEach, afterEach } from "vitest";
-import { useRef, type ReactNode } from "react";
+import { type ReactNode } from "react";
 import { useFocusWithin } from "./useFocusWithin";
 
 // ---------------------------------------------------------------------------

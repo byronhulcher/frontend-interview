@@ -39,6 +39,7 @@ export function FocusCoordinatorProvider({
   );
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function useFocusCoordinator(): FocusCoordinator | null {
   return useContext(FocusCoordinatorContext);
 }

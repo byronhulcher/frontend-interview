@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useRef, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import {
   Table,
   TableBody,
@@ -63,7 +63,7 @@ function DataTableContent({
   const numCols = columns.length;
 
   // Stable store instance — created once per DataTableContent mount.
-  const store = useRef(createActiveCellStore()).current;
+  const [store] = useState(createActiveCellStore);
 
   const {
     wrapperRef,

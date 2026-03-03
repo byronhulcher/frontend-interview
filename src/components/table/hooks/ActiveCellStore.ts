@@ -1,4 +1,4 @@
-import { useCallback, useRef, useSyncExternalStore } from "react";
+import { useCallback, useSyncExternalStore } from "react";
 import type { ActiveCell } from "./types";
 
 type Listener = () => void;
