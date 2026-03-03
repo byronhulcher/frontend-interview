@@ -56,7 +56,8 @@ function PopperCellComponent({
   // can press Enter/Space to open the popover without a second click.
   useEffect(() => {
     if (isEditing && !open) {
-      buttonRef.current?.focus();
+      // preventScroll stops Chrome from scrolling the button into view
+      buttonRef.current?.focus({ preventScroll: true });
     }
   }, [isEditing, open]);
 
@@ -94,12 +95,13 @@ function PopperCellComponent({
   return (
     <TableCell
       className={cn(
+        "relative",
         // Show editing ring whenever the button is active OR popover is open.
         isSelected &&
           !isEditing &&
           !open &&
-          "ring-2 ring-blue-400 relative z-10",
-        (isEditing || open) && "ring-2 ring-orange-500 relative z-10",
+          "ring-2 ring-inset ring-blue-400 z-10",
+        (isEditing || open) && "ring-2 ring-inset ring-orange-500 z-10",
       )}
       // Capture phase: intercept clicks before they reach the button so the
       // first click selects the cell and the second enters editing mode.

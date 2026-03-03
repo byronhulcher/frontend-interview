@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef } from "react";
+import { useState, useCallback, useRef, useEffect } from "react";
 import type React from "react";
 import type { ActiveCell, NavigationDirection } from "./types";
 
@@ -59,7 +59,8 @@ export function useTableNavigation({
   const selectCell = useCallback((row: number, col: number) => {
     setActiveCell({ row, col, mode: "selected" });
     // Return keyboard focus to the wrapper so arrow keys work immediately after a click.
-    wrapperRef.current?.focus();
+    // preventScroll stops Chrome from scrolling the table into view
+    wrapperRef.current?.focus({ preventScroll: true });
   }, []);
 
   const editCell = useCallback((row: number, col: number) => {
@@ -68,14 +69,13 @@ export function useTableNavigation({
 
   const exitEdit = useCallback(() => {
     setActiveCell((prev) => (prev ? { ...prev, mode: "selected" } : null));
-    wrapperRef.current?.focus();
+    // preventScroll stops Chrome from scrolling the table into view
+    wrapperRef.current?.focus({ preventScroll: true });
   }, []);
 
   const handleFocus = useCallback(
     (e: React.FocusEvent<HTMLDivElement>) => {
-      // Only select (0,0) when focus arrives from outside the table.
-      // When the wrapper is re-focused programmatically after exiting edit mode,
-      // activeCell is still set (non-null), so we leave it untouched.
+      // Select first cell when focus arrives from outside the table
       if (activeCell === null && !e.currentTarget.contains(e.relatedTarget)) {
         setActiveCell({ row: 0, col: 0, mode: "selected" });
       }

@@ -79,7 +79,17 @@ export function DataTable({
           })}
         </TableRow>
       )),
-    [data, columns, activeCell, selectCell, editCell, exitEdit, navigate, handleCellChange, basePath]
+    [
+      data,
+      columns,
+      activeCell,
+      selectCell,
+      editCell,
+      exitEdit,
+      navigate,
+      handleCellChange,
+      basePath,
+    ],
   );
 
   // tabIndex={0} lets the wrapper receive focus so keyboard events are captured.

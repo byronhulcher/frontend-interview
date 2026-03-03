@@ -22,9 +22,9 @@ function CellShellComponent({
   return (
     <TableCell
       className={cn(
-        "cursor-pointer",
-        isSelected && !isEditing && "ring-2 ring-blue-400 relative z-10",
-        isEditing && "ring-2 ring-orange-500 relative z-10 p-0",
+        "cursor-pointer relative",
+        isSelected && !isEditing && "ring-2 ring-inset ring-blue-400 z-10",
+        isEditing && "ring-2 ring-inset ring-orange-500 z-10 p-0",
       )}
       onClick={() => (isSelected ? onEdit?.() : onSelect?.())}
       data-selected={String(isSelected)}

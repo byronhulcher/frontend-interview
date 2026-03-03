@@ -37,7 +37,8 @@ export function useEditableCell<T, E extends HTMLElement = HTMLInputElement>({
 
   useEffect(() => {
     if (isEditing) {
-      inputRef.current?.focus();
+      // preventScroll stops Chrome from scrolling the input into view
+      inputRef.current?.focus({ preventScroll: true });
       // Only select text for input elements, not select elements
       if (inputRef.current instanceof HTMLInputElement) {
         inputRef.current.select();
@@ -48,7 +49,7 @@ export function useEditableCell<T, E extends HTMLElement = HTMLInputElement>({
   // Return prop value when not editing, editing value when editing
   const localValue = useMemo(
     () => (isEditing ? editingValue : value),
-    [isEditing, editingValue, value]
+    [isEditing, editingValue, value],
   );
 
   return { localValue, setLocalValue, inputRef, handleKeyDown, exitAndCommit };
