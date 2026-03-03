@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { vi } from "vitest";
 import { CellShell } from "./CellShell";
@@ -235,6 +235,17 @@ describe("CellShell", () => {
       const { user, cell } = setup({ isSelected: true, onSelect });
       await user.click(cell);
       expect(onSelect).not.toHaveBeenCalled();
+    });
+
+    it("calls onSelect via onClick fallback when onFocus did not fire", () => {
+      const onSelect = vi.fn();
+      setup({ onSelect });
+      const cell = screen.getByRole("cell");
+      // Simulate the scenario where focus doesn't reach the cell between
+      // pointerdown and click (e.g. exitEdit's wrapper.focus() steals focus)
+      fireEvent.pointerDown(cell);
+      fireEvent.click(cell);
+      expect(onSelect).toHaveBeenCalledOnce();
     });
   });
 

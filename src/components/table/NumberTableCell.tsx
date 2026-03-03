@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { memo, useMemo } from "react";
 import type { CellProps } from "./types";
 import { CellShell } from "./CellShell";
 import { useEditableCell } from "./hooks/useEditableCell";
@@ -31,20 +31,24 @@ function NumberTableCellComponent({
       onNavigate,
     });
 
-  const formatValue = (n: number) => {
+  // Memoize the Intl.NumberFormat instance — construction parses locale data and
+  // is surprisingly expensive to repeat on every render.
+  const formatter = useMemo(() => {
     switch (format) {
       case "currency":
-        return new Intl.NumberFormat("en-US", {
-          style: "currency",
-          currency: "USD",
-        }).format(n);
+        return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" });
       case "percentage":
-        return `${n.toFixed(2)}%`;
       case "decimal":
-        return n.toFixed(2);
+        return null;
       default:
-        return n.toLocaleString();
+        return new Intl.NumberFormat();
     }
+  }, [format]);
+
+  const formatValue = (n: number) => {
+    if (formatter) return formatter.format(n);
+    if (format === "percentage") return `${n.toFixed(2)}%`;
+    return n.toFixed(2);
   };
 
   return (

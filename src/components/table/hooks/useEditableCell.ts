@@ -25,10 +25,15 @@ export function useEditableCell<T, E extends HTMLElement = HTMLInputElement>({
     setEditingValue(newValue);
   }, []);
 
+  // Use a ref so exitAndCommit stays stable during typing — editingValue
+  // changes on every keystroke but we only read it at commit time.
+  const editingValueRef = useRef(editingValue);
+  editingValueRef.current = editingValue;
+
   const exitAndCommit = useCallback(() => {
-    onChange?.(isEditing ? editingValue : value);
+    onChange?.(isEditing ? editingValueRef.current : value);
     onExitEdit?.();
-  }, [isEditing, editingValue, value, onChange, onExitEdit]);
+  }, [isEditing, value, onChange, onExitEdit]);
 
   const exitAndDiscard = useCallback(() => {
     onExitEdit?.();

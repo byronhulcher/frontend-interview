@@ -529,5 +529,112 @@ persist edits without explicit wiring in the host component.
 
 ---
 
+### ✅ Step 15 — Performance optimization
+
+**Problem**
+
+Navigation (arrow keys, Tab, click) feels sluggish in Chrome. Every navigation
+event re-renders **all** R×C cells instead of just the 2 affected cells (old
+selection + new selection). Root causes:
+
+1. `activeCell` state object in the `useMemo` dependency array for `rows`
+2. Inline arrow function closures (`() => selectCell(r, c)`) defeating `React.memo`
+3. `handleCellChange` closing over `activeCell` (new reference every nav)
+4. `handleFocus`/`handleKeyDown` closing over `activeCell` (unstable references)
+5. `exitAndCommit` in `useEditableCell` recreated on every keystroke
+6. `NestedDataStoreProvider` context value is an inline object literal
+7. `Intl.NumberFormat` re-constructed on every render of `NumberTableCell`
+
+**Solution — `useSyncExternalStore` + stable callbacks**
+
+Replaced `useState<ActiveCell>` with a lightweight pub/sub `ActiveCellStore`.
+Each cell subscribes via `useSyncExternalStore` with a primitive string selector
+(`"none"` / `"selected"` / `"editing"`). Only cells whose derived state actually
+changes re-render — O(2) per navigation instead of O(R×C).
+
+All callbacks that previously closed over `activeCell` now read from the store
+synchronously via `store.getSnapshot()`, making them stable references.
+
+**New file:** `src/components/table/hooks/ActiveCellStore.ts`
+
+- `ActiveCellStore` class — holds `ActiveCell`, pub/sub via `subscribe()`
+- `createActiveCellStore()` — factory function
+- `useCellState(store, rowIndex, colIndex)` — hook that subscribes a cell and
+  returns `{ isSelected, isEditing }` using `useSyncExternalStore`
+
+**Files changed**
+
+- `useTableNavigation.ts` — accepts `store: ActiveCellStore` parameter instead
+  of creating internal `useState`. All callbacks (`navigate`, `selectCell`,
+  `editCell`, `exitEdit`, `handleFocus`, `handleKeyDown`) read from the store at
+  call time, making them stable. `handleKeyDown` guards against bubbled events
+  from child elements (`e.target !== e.currentTarget`) to prevent double-handling
+  after the cell's own keyboard handler has already updated the store.
+- `DataTable.tsx` — creates store via `useRef(createActiveCellStore()).current`.
+  `handleCellChange` reads from store instead of closing over `activeCell`.
+  Render loop passes `store`, `colIndex`, `selectCell`, `editCell` as stable
+  props to `DataTableCell` (replacing inline closures and `isSelected`/`isEditing`).
+  `useMemo` deps are all stable across navigation events.
+- `DataTableCell.tsx` — subscribes via `useCellState(store, rowIndex, colIndex)`.
+  Derives `isSelected`/`isEditing` internally. Creates stable `onSelect`/`onEdit`
+  callbacks with `useCallback`. Child cell components (Text/Number/Bool/Popper)
+  receive the same `CellProps` interface — no changes needed.
+- `useEditableCell.ts` — `editingValueRef` stores the editing value so
+  `exitAndCommit` doesn't depend on `editingValue` in its deps. Stable during
+  typing.
+- `NestedDataStoreProvider.tsx` — wrapped context value in `useMemo` so
+  consumers don't re-render when the provider re-renders.
+- `NumberTableCell.tsx` — memoized `Intl.NumberFormat` instance with `useMemo`.
+
+**Key decision — bubbled event guard**
+
+With `useState`, `handleKeyDown` closed over the stale `activeCell` value. When
+a cell's input handled Escape (calling `exitEdit`), the event bubbled to the
+wrapper's `handleKeyDown`, which still saw `mode: "editing"` and returned early.
+With the store, `handleKeyDown` reads the live value — by the time the bubbled
+event arrives, `exitEdit` has already updated the store to `mode: "selected"`,
+so the wrapper would handle Escape again and clear the selection. The guard
+`if (e.target !== e.currentTarget) return;` ensures the wrapper only processes
+events that target it directly.
+
+**Tests**
+
+- `ActiveCellStore.test.ts` — 11 new tests (store class + `useCellState` hook)
+- `useTableNavigation.test.ts` — 35 tests updated to use `store.getSnapshot()`
+- `DataTable.test.tsx` — 26 tests pass unchanged (mocks still receive
+  `isSelected`/`isEditing` from `DataTableCell`)
+- `DataTableCell.test.tsx` — 18 tests updated to provide store + `selectCell`/`editCell`
+- `useEditableCell.test.tsx` — 11 tests pass unchanged
+- Integration tests — 2 tests pass (deep-chain persistence, programmatic focus)
+- All 229 tests pass
+
+---
+
+## Test Summary
+
+All files under `src/components/table/` unless otherwise noted.
+
+| File                                            | Tests   | Status        |
+| ----------------------------------------------- | ------- | ------------- |
+| `DataTable.test.tsx`                            | 26      | ✅ Passing    |
+| `DataTable.integration.test.tsx`                | 2       | ✅ Passing    |
+| `DataTableCell.test.tsx`                        | 18      | ✅ Passing    |
+| `TextTableCell.test.tsx`                        | 14      | ✅ Passing    |
+| `NumberTableCell.test.tsx`                      | 15      | ✅ Passing    |
+| `BoolTableCell.test.tsx`                        | 14      | ✅ Passing    |
+| `PopperTableCell.test.tsx`                      | 23      | ✅ Passing    |
+| `CellShell.test.tsx`                            | 25      | ✅ Passing    |
+| `hooks/useCellKeyboard.test.tsx`                | 10      | ✅ Passing    |
+| `hooks/useEditableCell.test.tsx`                | 11      | ✅ Passing    |
+| `hooks/useTableNavigation.test.ts`              | 35      | ✅ Passing    |
+| `hooks/useTableNavigation.integration.test.tsx` | 4       | ✅ Passing    |
+| `hooks/ActiveCellStore.test.ts`                 | 11      | ✅ Passing    |
+| `data/nestedDataStore/NestedDataStore.test.tsx`  | 8       | ✅ Passing    |
+| `data/generateData.test.ts`                     | 11      | ✅ Passing    |
+| `test-setup.test.ts`                            | 2       | ✅ Passing    |
+| **Total**                                       | **229** | **All green** |
+
+---
+
 ## Known Issues / Flagged Items
 

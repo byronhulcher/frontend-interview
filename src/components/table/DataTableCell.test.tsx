@@ -2,7 +2,9 @@ import { render, screen } from "@testing-library/react";
 import { vi } from "vitest";
 import { DataTableCell } from "./DataTableCell";
 import { BoolTableCell } from "./BoolTableCell";
-import type { CellProps, ColumnDefinition, TableData } from "./types";
+import { createActiveCellStore } from "./hooks/ActiveCellStore";
+import type { ActiveCellStore } from "./hooks/ActiveCellStore";
+import type { ColumnDefinition, TableData } from "./types";
 
 // ---------------------------------------------------------------------------
 // Mock child cells so we test dispatch logic in isolation, not implementations
@@ -102,35 +104,44 @@ vi.mock("./PopperTableCell", () => ({
 // Helpers
 // ---------------------------------------------------------------------------
 
-const defaultCellProps: CellProps = {
-  isSelected: false,
-  isEditing: false,
-  onSelect: vi.fn(),
-  onEdit: vi.fn(),
-  onExitEdit: vi.fn(),
-  onNavigate: vi.fn(),
-};
-
 const row: TableData = { id: "r1", name: "Alice", active: true, score: 42 };
 
 function renderCell(
   column: ColumnDefinition,
-  overrides: Partial<CellProps> = {},
-  rowOverride: TableData = row,
-  rowIndex = 0,
-  basePath = "",
+  {
+    store: storeOverride,
+    rowOverride = row,
+    rowIndex = 0,
+    colIndex = 0,
+    basePath = "",
+  }: {
+    store?: ActiveCellStore;
+    rowOverride?: TableData;
+    rowIndex?: number;
+    colIndex?: number;
+    basePath?: string;
+  } = {},
 ) {
+  const store = storeOverride ?? createActiveCellStore();
   const onChange = vi.fn();
+  const selectCell = vi.fn();
+  const editCell = vi.fn();
+  const onExitEdit = vi.fn();
+  const onNavigate = vi.fn();
   render(
     <table>
       <tbody>
         <tr>
           <DataTableCell
-            {...defaultCellProps}
-            {...overrides}
             column={column}
             row={rowOverride}
             rowIndex={rowIndex}
+            colIndex={colIndex}
+            store={store}
+            selectCell={selectCell}
+            editCell={editCell}
+            onExitEdit={onExitEdit}
+            onNavigate={onNavigate}
             onChange={onChange}
             basePath={basePath}
           />
@@ -138,7 +149,7 @@ function renderCell(
       </tbody>
     </table>,
   );
-  return { onChange };
+  return { onChange, selectCell, editCell, store };
 }
 
 // ---------------------------------------------------------------------------
@@ -212,30 +223,36 @@ describe("DataTableCell value extraction", () => {
 });
 
 // ---------------------------------------------------------------------------
-// CellProps forwarding
+// Cell state derivation from store
 // ---------------------------------------------------------------------------
 
-describe("DataTableCell cellProps forwarding", () => {
-  it("forwards isSelected=true", () => {
+describe("DataTableCell cellProps from store", () => {
+  it("derives isSelected=true when store matches this cell", () => {
+    const store = createActiveCellStore();
+    store.setActiveCell({ row: 0, col: 0, mode: "selected" });
     renderCell(
       { key: "name", header: "Name", type: "text" },
-      { isSelected: true },
+      { store, rowIndex: 0, colIndex: 0 },
     );
     expect(screen.getByTestId("text-cell").dataset.selected).toBe("true");
   });
 
-  it("forwards isSelected=false", () => {
+  it("derives isSelected=false when store does not match this cell", () => {
+    const store = createActiveCellStore();
+    store.setActiveCell({ row: 1, col: 1, mode: "selected" });
     renderCell(
       { key: "name", header: "Name", type: "text" },
-      { isSelected: false },
+      { store, rowIndex: 0, colIndex: 0 },
     );
     expect(screen.getByTestId("text-cell").dataset.selected).toBe("false");
   });
 
-  it("forwards isEditing=true", () => {
+  it("derives isEditing=true when store has editing mode for this cell", () => {
+    const store = createActiveCellStore();
+    store.setActiveCell({ row: 0, col: 0, mode: "editing" });
     renderCell(
       { key: "name", header: "Name", type: "text" },
-      { isSelected: true, isEditing: true },
+      { store, rowIndex: 0, colIndex: 0 },
     );
     expect(screen.getByTestId("text-cell").dataset.editing).toBe("true");
   });
@@ -262,10 +279,7 @@ describe("DataTableCell popper cellPath", () => {
   it("builds cellPath as '{rowId}:{key}' when basePath is empty", () => {
     renderCell(
       { key: "more", header: "More", type: "popper" },
-      {},
-      { id: "r1" },
-      0,
-      "",
+      { rowOverride: { id: "r1" }, rowIndex: 0, basePath: "" },
     );
     expect(screen.getByTestId("popper-cell").dataset.cellPath).toBe("r1:more");
   });
@@ -273,10 +287,7 @@ describe("DataTableCell popper cellPath", () => {
   it("builds cellPath as '{basePath}/{rowId}:{key}' when basePath is provided", () => {
     renderCell(
       { key: "more", header: "More", type: "popper" },
-      {},
-      { id: "r1" },
-      0,
-      "root/nested",
+      { rowOverride: { id: "r1" }, rowIndex: 0, basePath: "root/nested" },
     );
     expect(screen.getByTestId("popper-cell").dataset.cellPath).toBe(
       "root/nested/r1:more",
@@ -286,10 +297,7 @@ describe("DataTableCell popper cellPath", () => {
   it("uses rowIndex as rowId when row.id is absent", () => {
     renderCell(
       { key: "more", header: "More", type: "popper" },
-      {},
-      { name: "No ID" },
-      7,
-      "",
+      { rowOverride: { name: "No ID" }, rowIndex: 7, basePath: "" },
     );
     expect(screen.getByTestId("popper-cell").dataset.cellPath).toBe("7:more");
   });

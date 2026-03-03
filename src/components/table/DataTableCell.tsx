@@ -1,14 +1,23 @@
-import { memo } from "react";
+import { memo, useCallback } from "react";
 import { BoolTableCell } from "./BoolTableCell";
 import { TextTableCell } from "./TextTableCell";
 import { NumberTableCell } from "./NumberTableCell";
 import { PopperTableCell } from "./PopperTableCell";
-import type { CellProps, ColumnDefinition, TableData } from "./types";
+import { useCellState } from "./hooks/ActiveCellStore";
+import type { ActiveCellStore } from "./hooks/ActiveCellStore";
+import type { ColumnDefinition, TableData } from "./types";
+import type { NavigationDirection } from "./hooks/types";
 
-interface DataTableCellProps extends CellProps {
+interface DataTableCellProps {
   column: ColumnDefinition;
   row: TableData;
   rowIndex: number;
+  colIndex: number;
+  store: ActiveCellStore;
+  selectCell: (row: number, col: number) => void;
+  editCell: (row: number, col: number) => void;
+  onExitEdit: () => void;
+  onNavigate: (direction: NavigationDirection) => void;
   onChange: (value: unknown) => void;
   basePath?: string;
 }
@@ -19,11 +28,31 @@ function DataTableCellComponent({
   column,
   row,
   rowIndex,
+  colIndex,
+  store,
+  selectCell,
+  editCell: editCellFn,
+  onExitEdit,
+  onNavigate,
   onChange,
   basePath = "",
-  ...cellProps
 }: DataTableCellProps) {
+  // Subscribe to the store — only re-renders when THIS cell's state changes.
+  const { isSelected, isEditing } = useCellState(store, rowIndex, colIndex);
+
+  // Stable callbacks: selectCell/editCellFn are stable, rowIndex/colIndex are primitives.
+  const onSelect = useCallback(
+    () => selectCell(rowIndex, colIndex),
+    [selectCell, rowIndex, colIndex],
+  );
+  const onEdit = useCallback(
+    () => editCellFn(rowIndex, colIndex),
+    [editCellFn, rowIndex, colIndex],
+  );
+
   const value = column.accessor ? column.accessor(row) : row[column.key];
+
+  const cellProps = { isSelected, isEditing, onSelect, onEdit, onExitEdit, onNavigate };
 
   switch (column.type) {
     case "boolean":

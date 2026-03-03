@@ -88,6 +88,14 @@ describe("useEditableCell local value", () => {
 // ---------------------------------------------------------------------------
 
 describe("useEditableCell exitAndCommit", () => {
+  it("calls onChange with the prop value when not editing", async () => {
+    const onChange = vi.fn();
+    const user = userEvent.setup();
+    render(<Harness initialValue="hello" onChange={onChange} isEditing={false} />);
+    await user.click(screen.getByTestId("commit"));
+    expect(onChange).toHaveBeenCalledWith("hello");
+  });
+
   it("calls onChange with the current localValue", async () => {
     const onChange = vi.fn();
     const user = userEvent.setup();

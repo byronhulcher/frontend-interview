@@ -1,4 +1,4 @@
-import { useCallback, useRef } from "react";
+import { useCallback, useMemo, useRef } from "react";
 import type React from "react";
 import { NestedDataStoreContext } from "./NestedDataStoreContext";
 import type { TableData } from "../../components/table/types";
@@ -19,8 +19,11 @@ export function NestedDataStoreProvider({
     store.current.set(path, rows);
   }, []);
 
+  // Memoize the context value so consumers don't re-render when the provider re-renders.
+  const value = useMemo(() => ({ getData, setData }), [getData, setData]);
+
   return (
-    <NestedDataStoreContext.Provider value={{ getData, setData }}>
+    <NestedDataStoreContext.Provider value={value}>
       {children}
     </NestedDataStoreContext.Provider>
   );

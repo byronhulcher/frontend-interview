@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useMemo, useRef, useState } from "react";
 import {
   Table,
   TableBody,
@@ -11,6 +11,7 @@ import {
   FocusCoordinatorProvider,
   useFocusCoordinator,
 } from "./hooks/FocusCoordinator";
+import { createActiveCellStore } from "./hooks/ActiveCellStore";
 import { useNestedDataStore } from "../../data/nestedDataStore/useNestedDataStore";
 import type { ColumnDefinition, TableData } from "./types";
 import { DataTableCell } from "./DataTableCell";
@@ -61,8 +62,10 @@ function DataTableContent({
   const numRows = data.length;
   const numCols = columns.length;
 
+  // Stable store instance — created once per DataTableContent mount.
+  const store = useRef(createActiveCellStore()).current;
+
   const {
-    activeCell,
     wrapperRef,
     navigate,
     selectCell,
@@ -70,12 +73,14 @@ function DataTableContent({
     exitEdit,
     handleFocus,
     handleKeyDown,
-  } = useTableNavigation({ numRows, numCols });
+  } = useTableNavigation({ numRows, numCols, store });
 
   // Update local state + store on every cell edit. onCellChange is an optional
   // notification callback for parents that need to know about edits.
+  // Reads activeCell from the store synchronously — no closure dependency.
   const handleCellChange = useCallback(
     (v: unknown) => {
+      const activeCell = store.getSnapshot();
       if (!activeCell) return;
       const { row, col } = activeCell;
       const key = columns[col].key;
@@ -88,43 +93,38 @@ function DataTableContent({
       });
       onCellChange?.(row, key, v);
     },
-    [activeCell, columns, onCellChange, basePath, storeSet],
+    [store, columns, onCellChange, basePath, storeSet],
   );
 
-  // Memoize row rendering to avoid re-rendering unchanged rows
+  // Memoize row rendering. All dependencies are now stable across navigation
+  // events — activeCell is no longer in the dep array, and inline closures have
+  // been replaced with stable callbacks + primitive row/col indices.
   const rows = useMemo(
     () =>
       data.map((row, rowIndex) => (
         <TableRow key={String(row.id ?? rowIndex)}>
-          {columns.map((column, colIndex) => {
-            const isSelected =
-              activeCell?.row === rowIndex && activeCell?.col === colIndex;
-            const isEditing = isSelected
-              ? activeCell?.mode === "editing"
-              : false;
-            return (
-              <DataTableCell
-                key={column.key}
-                column={column}
-                row={row}
-                rowIndex={rowIndex}
-                isSelected={isSelected ?? false}
-                isEditing={isEditing ?? false}
-                onSelect={() => selectCell(rowIndex, colIndex)}
-                onEdit={() => editCell(rowIndex, colIndex)}
-                onExitEdit={exitEdit}
-                onNavigate={navigate}
-                onChange={handleCellChange}
-                basePath={basePath}
-              />
-            );
-          })}
+          {columns.map((column, colIndex) => (
+            <DataTableCell
+              key={column.key}
+              column={column}
+              row={row}
+              rowIndex={rowIndex}
+              colIndex={colIndex}
+              store={store}
+              selectCell={selectCell}
+              editCell={editCell}
+              onExitEdit={exitEdit}
+              onNavigate={navigate}
+              onChange={handleCellChange}
+              basePath={basePath}
+            />
+          ))}
         </TableRow>
       )),
     [
       data,
       columns,
-      activeCell,
+      store,
       selectCell,
       editCell,
       exitEdit,

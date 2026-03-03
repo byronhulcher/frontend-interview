@@ -1,4 +1,4 @@
-import { render, act } from "@testing-library/react";
+import { render, act, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { vi } from "vitest";
 import { DataTable } from "./DataTable";
@@ -96,6 +96,16 @@ describe("DataTable", () => {
         expect(cell).toHaveAttribute("data-selected", "false");
         expect(cell).toHaveAttribute("data-editing", "false");
       }
+    });
+
+    it("renders with empty data without errors", () => {
+      render(<DataTable columns={columns} data={[]} />);
+      expect(screen.queryAllByRole("cell")).toHaveLength(0);
+    });
+
+    it("renders with no data prop without errors", () => {
+      render(<DataTable columns={columns} />);
+      expect(screen.queryAllByRole("cell")).toHaveLength(0);
     });
   });
 
@@ -297,6 +307,20 @@ describe("DataTable", () => {
 
       expect(cells[0]).toHaveAttribute("data-editing", "false");
       expect(cells[0]).toHaveAttribute("data-selected", "true");
+    });
+
+    it("handleCellChange is a no-op when no cell is active", async () => {
+      const onCellChange = vi.fn();
+      const user = userEvent.setup();
+      const { getAllByRole } = render(
+        <DataTable columns={columns} data={data} onCellChange={onCellChange} />,
+      );
+      // Select a cell to capture onChange, then deselect
+      await user.click(getAllByRole("cell")[0]);
+      await user.keyboard("{Escape}");
+      // Now activeCell is null — handleCellChange should return early
+      act(() => captured.onChange?.("should-not-change"));
+      expect(onCellChange).not.toHaveBeenCalled();
     });
 
     it("calls onCellChange with row index, column key, and new value when a cell reports a change", async () => {

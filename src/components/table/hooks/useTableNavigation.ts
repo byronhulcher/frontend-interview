@@ -1,29 +1,35 @@
-import { useState, useCallback, useRef } from "react";
+import { useCallback, useRef } from "react";
 import type React from "react";
-import type { ActiveCell, NavigationDirection } from "./types";
+import type { NavigationDirection } from "./types";
 import { useFocusCoordinator } from "./FocusCoordinator";
+import type { ActiveCellStore } from "./ActiveCellStore";
 
 interface UseTableNavigationOptions {
   numRows: number;
   numCols: number;
+  store: ActiveCellStore;
 }
 
 /**
  * Encapsulates all keyboard navigation, focus management, and active-cell state
  * for a DataTable. Keeping this logic in a dedicated hook lets DataTable stay
  * focused on rendering, and makes the navigation behaviour independently testable.
+ *
+ * State is held in the provided `ActiveCellStore` rather than `useState` so that
+ * individual cells can subscribe via `useSyncExternalStore` and only re-render
+ * when their own selection state changes (O(2) per navigation instead of O(R×C)).
  */
 export function useTableNavigation({
   numRows,
   numCols,
+  store,
 }: UseTableNavigationOptions) {
-  const [activeCell, setActiveCell] = useState<ActiveCell>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const coordinator = useFocusCoordinator();
 
   const navigate = useCallback(
     (direction: NavigationDirection) => {
-      setActiveCell((prev) => {
+      store.setActiveCell((prev) => {
         if (!prev) return null;
         const { row, col } = prev;
         switch (direction) {
@@ -53,46 +59,57 @@ export function useTableNavigation({
         }
       });
     },
-    [numRows, numCols],
+    [numRows, numCols, store],
   );
 
   // Stable cell-state mutators exposed to DataTable's renderCell.
-  // setActiveCell and wrapperRef are both stable references so these never change.
-  const selectCell = useCallback((row: number, col: number) => {
-    setActiveCell({ row, col, mode: "selected" });
-    // Claim focus so that cascading exitEdit calls from nested DataTables
-    // (triggered by Radix popover unmount) won't compete for focus.
-    const wrapper = wrapperRef.current;
-    if (wrapper) {
-      coordinator?.claimFocus(wrapper);
-      wrapper.focus({ preventScroll: true });
-      coordinator?.releaseClaim();
-    }
-  }, [coordinator]);
+  // store and wrapperRef are both stable references so these never change.
+  const selectCell = useCallback(
+    (row: number, col: number) => {
+      store.setActiveCell({ row, col, mode: "selected" });
+      // Claim focus so that cascading exitEdit calls from nested DataTables
+      // (triggered by Radix popover unmount) won't compete for focus.
+      const wrapper = wrapperRef.current;
+      if (wrapper) {
+        coordinator?.claimFocus(wrapper);
+        wrapper.focus({ preventScroll: true });
+        coordinator?.releaseClaim();
+      }
+    },
+    [coordinator, store],
+  );
 
-  const editCell = useCallback((row: number, col: number) => {
-    setActiveCell({ row, col, mode: "editing" });
-  }, []);
+  const editCell = useCallback(
+    (row: number, col: number) => {
+      store.setActiveCell({ row, col, mode: "editing" });
+    },
+    [store],
+  );
 
   const exitEdit = useCallback(() => {
-    setActiveCell((prev) => (prev ? { ...prev, mode: "selected" } : null));
+    store.setActiveCell((prev) =>
+      prev ? { ...prev, mode: "selected" } : null,
+    );
     // Only focus if no other DataTable has claimed focus (e.g. during a
     // cascading popover close triggered by a different table's selectCell).
     const wrapper = wrapperRef.current;
     if (wrapper && (!coordinator || coordinator.canFocus(wrapper))) {
       wrapper.focus({ preventScroll: true });
     }
-  }, [coordinator]);
+  }, [coordinator, store]);
 
   const handleFocus = useCallback(
     (e: React.FocusEvent<HTMLDivElement>) => {
       if (e.target !== e.currentTarget) return;
       // Select first cell when focus arrives from outside the table
-      if (activeCell === null && !e.currentTarget.contains(e.relatedTarget)) {
-        setActiveCell({ row: 0, col: 0, mode: "selected" });
+      if (
+        store.getSnapshot() === null &&
+        !e.currentTarget.contains(e.relatedTarget)
+      ) {
+        store.setActiveCell({ row: 0, col: 0, mode: "selected" });
       }
     },
-    [activeCell],
+    [store],
   );
 
   const handleKeyDown = useCallback(
@@ -102,6 +119,14 @@ export function useTableNavigation({
       // this, an Escape in a nested DataTable would also fire handleKeyDown on every
       // ancestor DataTable, nulling out their activeCells before onExitEdit can restore them.
       e.stopPropagation();
+
+      // Only handle keyboard events that target the wrapper directly. Events from
+      // child elements (e.g. editing inputs) bubble here after the cell's own
+      // keyboard handler has already processed them and updated the store. Reading
+      // the store here would see the already-updated state and double-handle the key.
+      if (e.target !== e.currentTarget) return;
+
+      const activeCell = store.getSnapshot();
       // In editing mode the focused input handles keyboard events; let them through.
       if (!activeCell || activeCell.mode === "editing") return;
 
@@ -128,18 +153,18 @@ export function useTableNavigation({
           break;
         case "Enter":
           e.preventDefault();
-          setActiveCell((prev) => (prev ? { ...prev, mode: "editing" } : null));
+          store.setActiveCell({ ...activeCell, mode: "editing" });
           break;
         case "Escape":
-          setActiveCell(null);
+          store.setActiveCell(null);
           break;
       }
     },
-    [activeCell, navigate],
+    [store, navigate],
   );
 
   return {
-    activeCell,
+    store,
     wrapperRef,
     navigate,
     selectCell,
