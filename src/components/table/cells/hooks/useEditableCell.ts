@@ -19,6 +19,7 @@ export function useEditableCell<T, E extends HTMLElement = HTMLInputElement>({
 }: UseEditableCellOptions<T>) {
   const [editingValue, setEditingValue] = useState(value);
   const inputRef = useRef<E>(null);
+  const wasEditingRef = useRef(false);
 
   const setLocalValue = useCallback((newValue: T) => {
     setEditingValue(newValue);
@@ -29,6 +30,10 @@ export function useEditableCell<T, E extends HTMLElement = HTMLInputElement>({
     onExitEdit?.();
   }, [isEditing, editingValue, value, onChange, onExitEdit]);
 
+  const exitAndDiscard = useCallback(() => {
+    onExitEdit?.();
+  }, [onExitEdit]);
+
   const { handleKeyDown } = useCellKeyboard({
     onExitEdit: exitAndCommit,
     onNavigate,
@@ -36,6 +41,14 @@ export function useEditableCell<T, E extends HTMLElement = HTMLInputElement>({
   });
 
   useEffect(() => {
+    // Reset to the current prop value only on the false→true transition
+    // so stale discarded edits don't reappear, without overwriting
+    // in-progress edits when the prop value changes externally.
+    if (isEditing && !wasEditingRef.current) {
+      setEditingValue(value);
+    }
+    wasEditingRef.current = isEditing;
+
     if (isEditing) {
       // preventScroll stops Chrome from scrolling the input into view
       inputRef.current?.focus({ preventScroll: true });
@@ -44,7 +57,7 @@ export function useEditableCell<T, E extends HTMLElement = HTMLInputElement>({
         inputRef.current.select();
       }
     }
-  }, [isEditing]);
+  }, [isEditing, value]);
 
   // Return prop value when not editing, editing value when editing
   const localValue = useMemo(
@@ -52,5 +65,5 @@ export function useEditableCell<T, E extends HTMLElement = HTMLInputElement>({
     [isEditing, editingValue, value],
   );
 
-  return { localValue, setLocalValue, inputRef, handleKeyDown, exitAndCommit };
+  return { localValue, setLocalValue, inputRef, handleKeyDown, exitAndCommit, exitAndDiscard };
 }

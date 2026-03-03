@@ -359,16 +359,121 @@ shared logic from `TextCell` and `NumberCell`: `localValue` state, `inputRef` au
 | `cells/BoolTableCell.test.tsx`                  | 14      | ✅ Passing    |
 | `cells/BoolCell.test.tsx`                       | 14      | ✅ Passing    |
 | `cells/PopperTableCell.test.tsx`                | 17      | ✅ Passing    |
-| `cells/PopperCell.test.tsx`                     | 17      | ✅ Passing    |
-| `cells/CellShell.test.tsx`                      | 20      | ✅ Passing    |
+| `cells/PopperCell.test.tsx`                     | 22      | ✅ Passing    |
+| `cells/CellShell.test.tsx`                      | 24      | ✅ Passing    |
 | `cells/hooks/useCellKeyboard.test.tsx`          | 10      | ✅ Passing    |
 | `cells/hooks/useEditableCell.test.tsx`          | 10      | ✅ Passing    |
-| `hooks/useTableNavigation.test.ts`              | 34      | ✅ Passing    |
+| `hooks/useTableNavigation.test.ts`              | 35      | ✅ Passing    |
+| `hooks/useTableNavigation.integration.test.tsx` | 3       | ✅ Passing    |
 | `data/nestedDataStore/NestedDataStore.test.tsx` | 8       | ✅ Passing    |
 | `test-setup.test.ts`                            | 2       | ✅ Passing    |
-| **Total**                                       | **240** | **All green** |
+| **Total**                                       | **210** | **All green** |
 
 Run tests: `pnpm test` (watch) or `pnpm test:run` (single pass)
+
+---
+
+### ✅ Step 13 — Programmatic focus support for cells
+
+**Problem**
+
+External tools — Chrome DevTools "Focus" button, screen readers, accessibility
+testing tools, or `element.focus()` from external scripts — cannot meaningfully
+target individual cells. The `<td>` elements have no `tabIndex`, so they aren't
+focusable. Even when focus does land on a cell, the table has no listener to
+detect it and update `activeCell`. The result: programmatic focus produces no
+visual feedback, no navigation state change, and no popper cleanup.
+
+Additionally, when programmatic focus lands on a root-level cell while nested
+poppers are open, the resulting state cascade (popper closes → nested DataTable
+unmounts → `exitEdit` fires → `wrapperRef.focus()`) causes each nested
+DataTable to compete for focus. The last `exitEdit` focuses a wrapper that is
+about to be unmounted, so focus falls to `document.body`.
+
+**Solution**
+
+Four changes address cell focusability, and a fifth addresses the nested focus
+cascade:
+
+1. **Make cells focusable**: `tabIndex={-1}` on the `<td>` in `CellShell` and
+   `PopperCell`. Cells become targetable by programmatic focus without entering
+   the Tab order (keyboard navigation stays on the wrapper div).
+
+2. **Bridge DOM focus into logical state**: `onFocus` handlers on `CellShell`
+   and `PopperCell` call `onSelect()` when the cell receives direct DOM focus
+   (guarded by `e.target === e.currentTarget` and `!isSelected`). `PopperCell`
+   additionally uses a `pointerDownRef` flag to distinguish click-triggered
+   focus from programmatic focus (see Key decisions below).
+
+3. **Close stale poppers on focus change**: A `useEffect` in `PopperCell` sets
+   `open` to `false` when `isEditing` becomes false. When programmatic focus
+   moves to a different cell, `activeCell` updates, the old popper cell's
+   `isEditing` prop flips to false, and the popover closes. The cascade is
+   automatic: closing the popover unmounts `PopoverContent`, which unmounts
+   any nested DataTable and any deeper poppers.
+
+4. **Guard the wrapper's `handleFocus`**: Added `e.target !== e.currentTarget`
+   check so focus events bubbling from child cells don't trigger the wrapper's
+   auto-select-first-cell logic.
+
+5. **FocusCoordinator**: A React context (`FocusCoordinator.tsx`) that
+   coordinates focus across nested DataTable instances. It exposes three
+   methods: `claimFocus(wrapper)`, `canFocus(wrapper)`, and `releaseClaim()`.
+   `selectCell` claims focus before calling `wrapper.focus()`, so that when
+   the cascading `exitEdit` calls check `canFocus()`, they yield instead of
+   competing. The root DataTable provides the context; nested DataTables
+   (inside Radix portals) share it because React context follows the
+   component tree, not the DOM tree.
+
+**Files changed**
+
+- `CellShell.tsx` — `tabIndex={-1}`, `onFocus` handler, `data-selected` and
+  `data-editing` attributes. `onClick` only handles the edit transition.
+- `PopperCell.tsx` — `tabIndex={-1}`, `onFocus` with `pointerDownRef` guard,
+  `useEffect` for `isEditing`→`open` sync, `onCloseAutoFocus` prevention on
+  `PopoverContent`, `onEscapeKeyDown` guard for nested editing cells.
+- `useTableNavigation.ts` — `handleFocus` target guard. `selectCell` uses
+  coordinator claim/release and synchronous `wrapper.focus()`. `exitEdit`
+  checks `coordinator.canFocus()` before focusing.
+- `FocusCoordinator.tsx` — New file. React context with `claimFocus`,
+  `canFocus`, `releaseClaim`.
+- `DataTable.tsx` — Split into `DataTable` (thin wrapper that provides
+  `FocusCoordinatorProvider` when no parent coordinator exists) and
+  `DataTableContent` (all rendering/hook logic). Nested DataTables detect
+  the existing coordinator via `useFocusCoordinator()` and skip the wrapper.
+
+**Key decisions**
+
+- **CellShell selection via `onFocus`**: Clicking a cell triggers mousedown →
+  browser focus → `onFocus` → `onSelect`. `onClick` only handles the edit
+  transition (already-selected cell → editing mode). This single path handles
+  both click and programmatic focus.
+
+- **PopperCell `pointerDownRef` guard**: PopperCell uses `onClickCapture`
+  (not `onClick`), and React 18 flushes state between `mousedown` (where
+  `onFocus` fires) and `click` (where `onClickCapture` fires). Without a
+  guard, a single click both selects AND enters editing mode. The
+  `pointerDownRef` distinguishes click-triggered focus from programmatic
+  focus: `onPointerDown` sets the flag, `onFocus` skips `onSelect` when the
+  flag is set, and `onClickCapture` handles both selection and edit in a
+  single React batch.
+
+- **Context-based coordination (not module-level)**: Multiple independent
+  DataTables on a page need separate focus coordination. Each root DataTable
+  provides its own `FocusCoordinatorProvider`; nested tables within each root
+  share it via context. React context traverses the component tree (not the
+  DOM), so it works correctly across Radix portal boundaries.
+
+- **Synchronous focus (no `requestAnimationFrame`)**: The coordinator
+  prevents nested `exitEdit` from competing, and the root wrapper is outside
+  the Radix portal being unmounted, so async deferral is unnecessary.
+
+- **happy-dom limitation**: `toHaveFocus()` is unreliable in happy-dom for
+  scenarios involving programmatic focus during popover close cascades
+  (Radix unmount timing differs from real browsers). Tests use `data-selected`
+  assertions; focus behavior verified manually in Chrome.
+
+- 13 tests added across 5 files; all 213 tests pass.
 
 ---
 

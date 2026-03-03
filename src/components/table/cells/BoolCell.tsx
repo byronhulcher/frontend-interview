@@ -26,7 +26,7 @@ function BoolCellComponent({
     setLocalValue,
     inputRef: selectRef,
     handleKeyDown,
-    exitAndCommit,
+    exitAndDiscard,
   } = useEditableCell<boolean, HTMLSelectElement>({
     value,
     isEditing,
@@ -54,7 +54,7 @@ function BoolCellComponent({
           ref={selectRef}
           value={String(localValue)}
           onChange={handleChange}
-          onBlur={exitAndCommit}
+          onBlur={exitAndDiscard}
           onKeyDown={handleKeyDown}
           className="w-full px-2 py-1 bg-transparent outline-none cursor-pointer"
         >

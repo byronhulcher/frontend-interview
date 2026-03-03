@@ -7,6 +7,10 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { useTableNavigation } from "./hooks/useTableNavigation";
+import {
+  FocusCoordinatorProvider,
+  useFocusCoordinator,
+} from "./hooks/FocusCoordinator";
 import type { ColumnDefinition, TableData } from "./types";
 import { DataTableCell } from "./cells/DataTableCell";
 
@@ -17,7 +21,26 @@ interface DataTableProps {
   onCellChange?: (rowIndex: number, key: string, value: unknown) => void;
 }
 
-export function DataTable({
+/**
+ * Thin wrapper that ensures a FocusCoordinatorProvider exists.
+ * The root DataTable creates the provider; nested DataTables (inside
+ * popover portals) reuse the parent's coordinator via React context.
+ */
+export function DataTable(props: DataTableProps) {
+  const coordinator = useFocusCoordinator();
+  if (coordinator) {
+    // Already inside a provider (nested DataTable) — render directly.
+    return <DataTableContent {...props} />;
+  }
+  // Root DataTable — provide the coordinator for the whole tree.
+  return (
+    <FocusCoordinatorProvider>
+      <DataTableContent {...props} />
+    </FocusCoordinatorProvider>
+  );
+}
+
+function DataTableContent({
   columns,
   data,
   basePath = "",

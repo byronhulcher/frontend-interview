@@ -195,7 +195,8 @@ describe("PopperCell", () => {
       expect(screen.getByRole("textbox")).toBeInTheDocument();
       await user.clear(screen.getByRole("textbox"));
       await user.type(screen.getByRole("textbox"), "persisted");
-      await user.keyboard("{Escape}"); // closes popover; edit flows up via onCellChange → stored in state
+      await user.keyboard("{Escape}"); // exits edit mode; popover stays open
+      await user.keyboard("{Escape}"); // deselects cell; popover closes
       await user.keyboard("{Enter}"); // reopen — DataTable remounts with the persisted data
       // Re-query after remount; edited value is in PopperCell state
       expect(
@@ -203,7 +204,7 @@ describe("PopperCell", () => {
       ).toHaveTextContent("persisted");
     });
 
-    it("closes the popover on Escape when focus is inside the nested table", async () => {
+    it("keeps the popover open when Escape exits editing in a nested cell", async () => {
       const onExitEdit = vi.fn();
       const { user } = setup({
         ...baseProps,
@@ -212,9 +213,28 @@ describe("PopperCell", () => {
         onExitEdit,
       });
       await user.keyboard("{Enter}"); // open → focus moves into nested DataTable wrapper
-      await user.click(within(getNestedTable()).getAllByRole("cell")[0]); // focus inside a cell
+      await user.click(within(getNestedTable()).getAllByRole("cell")[0]); // enters editing
       onExitEdit.mockClear();
-      await user.keyboard("{Escape}");
+      await user.keyboard("{Escape}"); // exits editing; popover stays open
+      expect(onExitEdit).not.toHaveBeenCalled();
+      expect(
+        screen.getByRole("columnheader", { name: "Company" }),
+      ).toBeInTheDocument();
+    });
+
+    it("closes the popover on second Escape after exiting nested cell editing", async () => {
+      const onExitEdit = vi.fn();
+      const { user } = setup({
+        ...baseProps,
+        isSelected: true,
+        isEditing: true,
+        onExitEdit,
+      });
+      await user.keyboard("{Enter}"); // open → focus moves into nested DataTable wrapper
+      await user.click(within(getNestedTable()).getAllByRole("cell")[0]); // enters editing
+      onExitEdit.mockClear();
+      await user.keyboard("{Escape}"); // exits editing; popover stays open
+      await user.keyboard("{Escape}"); // deselects cell; popover closes
       expect(onExitEdit).toHaveBeenCalled();
     });
 
@@ -247,6 +267,27 @@ describe("PopperCell", () => {
     });
   });
 
+  describe("programmatic focus", () => {
+    it("renders the cell with tabIndex -1", () => {
+      const { cell } = setup();
+      expect(cell).toHaveAttribute("tabindex", "-1");
+    });
+
+    it("calls onSelect when the cell receives direct programmatic focus", () => {
+      const onSelect = vi.fn();
+      const { cell } = setup({ ...baseProps, onSelect });
+      cell.focus();
+      expect(onSelect).toHaveBeenCalledOnce();
+    });
+
+    it("does not call onSelect when already selected", () => {
+      const onSelect = vi.fn();
+      const { cell } = setup({ ...baseProps, isSelected: true, onSelect });
+      cell.focus();
+      expect(onSelect).not.toHaveBeenCalled();
+    });
+  });
+
   describe("popover", () => {
     it("calls onExitEdit when the popover closes", async () => {
       const onExitEdit = vi.fn();
@@ -259,6 +300,47 @@ describe("PopperCell", () => {
       await user.keyboard("{Enter}"); // open popover
       await user.keyboard("{Escape}"); // close popover
       expect(onExitEdit).toHaveBeenCalled();
+    });
+
+    it("closes the popover when isEditing transitions to false", async () => {
+      const onExitEdit = vi.fn();
+      const user = userEvent.setup();
+      const { rerender } = render(
+        <table>
+          <tbody>
+            <tr>
+              <PopperCell
+                {...baseProps}
+                isSelected={true}
+                isEditing={true}
+                onExitEdit={onExitEdit}
+              />
+            </tr>
+          </tbody>
+        </table>,
+      );
+      await user.keyboard("{Enter}"); // open popover
+      expect(
+        screen.getByRole("columnheader", { name: "Company" }),
+      ).toBeInTheDocument();
+      onExitEdit.mockClear();
+      rerender(
+        <table>
+          <tbody>
+            <tr>
+              <PopperCell
+                {...baseProps}
+                isSelected={false}
+                isEditing={false}
+                onExitEdit={onExitEdit}
+              />
+            </tr>
+          </tbody>
+        </table>,
+      );
+      expect(
+        screen.queryByRole("columnheader", { name: "Company" }),
+      ).not.toBeInTheDocument();
     });
 
     it("keeps an orange-500 ring on the cell while the popover is open", async () => {

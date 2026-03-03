@@ -20,7 +20,7 @@ function TextCellComponent({
   onNavigate,
   onChange,
 }: TextCellProps) {
-  const { localValue, setLocalValue, inputRef, handleKeyDown, exitAndCommit } =
+  const { localValue, setLocalValue, inputRef, handleKeyDown, exitAndDiscard } =
     useEditableCell({
       value,
       isEditing,
@@ -42,7 +42,7 @@ function TextCellComponent({
           type="text"
           value={localValue}
           onChange={(e) => setLocalValue(e.target.value)}
-          onBlur={exitAndCommit}
+          onBlur={exitAndDiscard}
           onKeyDown={handleKeyDown}
           className="w-full px-2 py-1 bg-transparent outline-none"
         />

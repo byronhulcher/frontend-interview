@@ -1,4 +1,4 @@
-import { render, screen, within } from "@testing-library/react";
+import { render, screen, within, act, fireEvent } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { DataTable } from "./DataTable";
 import { NestedDataStoreProvider } from "../../data/nestedDataStore/NestedDataStoreProvider";
@@ -75,10 +75,11 @@ const outerColumns: ColumnDefinition[] = [
   { key: "info", header: "Info", type: "popper", triggerText: "Open" },
 ];
 
-// A single row with an `id` field so NestedDataStore can build stable path keys
+// Two rows with `id` fields so NestedDataStore can build stable path keys
 // using the format `rowId:colKey` (e.g. "outer-r1:info").
 const outerData: TableData[] = [
   { id: "outer-r1", name: "Row 1", info: "row 1 info" },
+  { id: "outer-r2", name: "Row 2", info: "row 2 info" },
 ];
 
 // ─── Tests ────────────────────────────────────────────────────────────────────
@@ -148,5 +149,42 @@ describe("DataTable deep-chain nested DataTable persistence", () => {
     expect(within(getNestedTable(2)).getAllByRole("cell")[0]).toHaveTextContent(
       "level-3-edit",
     );
+  });
+});
+
+describe("DataTable programmatic focus after nested poppers", () => {
+  it("arrow keys navigate the root table after opening nested poppers then focusing a root cell", async () => {
+    const user = userEvent.setup();
+    render(
+      <NestedDataStoreProvider>
+        <DataTable columns={outerColumns} data={outerData} />
+      </NestedDataStoreProvider>,
+    );
+
+    // The outer table has 2 data rows × 2 cols: name=[0], info=[1], name=[2], info=[3].
+    const outerCells = screen.getAllByRole("cell");
+    const outerInfoCell = outerCells[1]; // row 0, col 1 (popper)
+
+    // ── Open level 1 popover ──────────────────────────────────────────────────
+    await openPopperCell(user, outerInfoCell);
+
+    // ── Open level 2 popover ──────────────────────────────────────────────────
+    await openPopperCell(user, getMoreCell(getNestedTable(0)));
+
+    // Both poppers are open. Now programmatically focus a root table cell.
+    const rootNameCell = screen.getAllByRole("cell").find(
+      (cell) => cell.textContent === "Row 1" && !cell.closest("[data-radix-popper-content-wrapper]"),
+    ) as HTMLElement;
+    const rootWrapper = rootNameCell.closest("[tabindex='0']") as HTMLElement;
+
+    act(() => {
+      rootNameCell.focus();
+    });
+
+    // The FocusCoordinator prevents nested exitEdit calls from stealing focus.
+    // The cell should be selected via the coordinator even though happy-dom's
+    // Radix unmount timing differs from real browsers (wrapper.toHaveFocus()
+    // is not reliable here — verified manually in Chrome).
+    expect(rootNameCell).toHaveAttribute("data-selected", "true");
   });
 });

@@ -1,6 +1,7 @@
-import { useState, useCallback, useRef, useEffect } from "react";
+import { useState, useCallback, useRef } from "react";
 import type React from "react";
 import type { ActiveCell, NavigationDirection } from "./types";
+import { useFocusCoordinator } from "./FocusCoordinator";
 
 interface UseTableNavigationOptions {
   numRows: number;
@@ -18,6 +19,7 @@ export function useTableNavigation({
 }: UseTableNavigationOptions) {
   const [activeCell, setActiveCell] = useState<ActiveCell>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
+  const coordinator = useFocusCoordinator();
 
   const navigate = useCallback(
     (direction: NavigationDirection) => {
@@ -58,10 +60,15 @@ export function useTableNavigation({
   // setActiveCell and wrapperRef are both stable references so these never change.
   const selectCell = useCallback((row: number, col: number) => {
     setActiveCell({ row, col, mode: "selected" });
-    // Return keyboard focus to the wrapper so arrow keys work immediately after a click.
-    // preventScroll stops Chrome from scrolling the table into view
-    wrapperRef.current?.focus({ preventScroll: true });
-  }, []);
+    // Claim focus so that cascading exitEdit calls from nested DataTables
+    // (triggered by Radix popover unmount) won't compete for focus.
+    const wrapper = wrapperRef.current;
+    if (wrapper) {
+      coordinator?.claimFocus(wrapper);
+      wrapper.focus({ preventScroll: true });
+      coordinator?.releaseClaim();
+    }
+  }, [coordinator]);
 
   const editCell = useCallback((row: number, col: number) => {
     setActiveCell({ row, col, mode: "editing" });
@@ -69,12 +76,17 @@ export function useTableNavigation({
 
   const exitEdit = useCallback(() => {
     setActiveCell((prev) => (prev ? { ...prev, mode: "selected" } : null));
-    // preventScroll stops Chrome from scrolling the table into view
-    wrapperRef.current?.focus({ preventScroll: true });
-  }, []);
+    // Only focus if no other DataTable has claimed focus (e.g. during a
+    // cascading popover close triggered by a different table's selectCell).
+    const wrapper = wrapperRef.current;
+    if (wrapper && (!coordinator || coordinator.canFocus(wrapper))) {
+      wrapper.focus({ preventScroll: true });
+    }
+  }, [coordinator]);
 
   const handleFocus = useCallback(
     (e: React.FocusEvent<HTMLDivElement>) => {
+      if (e.target !== e.currentTarget) return;
       // Select first cell when focus arrives from outside the table
       if (activeCell === null && !e.currentTarget.contains(e.relatedTarget)) {
         setActiveCell({ row: 0, col: 0, mode: "selected" });

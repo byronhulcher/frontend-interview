@@ -238,6 +238,34 @@ describe("CellShell", () => {
     });
   });
 
+  describe("focus handling", () => {
+    it("renders the cell with tabIndex -1", () => {
+      const { cell } = setup();
+      expect(cell).toHaveAttribute("tabindex", "-1");
+    });
+
+    it("calls onSelect when the cell receives direct programmatic focus", () => {
+      const onSelect = vi.fn();
+      const { cell } = setup({ onSelect });
+      cell.focus();
+      expect(onSelect).toHaveBeenCalledOnce();
+    });
+
+    it("does not call onSelect when the cell is already selected", () => {
+      const onSelect = vi.fn();
+      const { cell } = setup({ isSelected: true, onSelect });
+      cell.focus();
+      expect(onSelect).not.toHaveBeenCalled();
+    });
+
+    it("does not call onSelect when focus bubbles from a child element", () => {
+      const onSelect = vi.fn();
+      setup({ onSelect, children: <input data-testid="child" /> });
+      screen.getByTestId("child").focus();
+      expect(onSelect).not.toHaveBeenCalled();
+    });
+  });
+
   describe("children", () => {
     it("renders children inside the cell", () => {
       setup({ children: <span>hello</span> });

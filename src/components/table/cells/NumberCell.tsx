@@ -22,7 +22,7 @@ function NumberCellComponent({
   onNavigate,
   onChange,
 }: NumberCellProps) {
-  const { localValue, setLocalValue, inputRef, handleKeyDown, exitAndCommit } =
+  const { localValue, setLocalValue, inputRef, handleKeyDown, exitAndDiscard } =
     useEditableCell({
       value,
       isEditing,
@@ -60,7 +60,7 @@ function NumberCellComponent({
           type="number"
           value={localValue}
           onChange={(e) => setLocalValue(Number(e.target.value))}
-          onBlur={exitAndCommit}
+          onBlur={exitAndDiscard}
           onKeyDown={handleKeyDown}
           className="w-full px-2 py-1 bg-transparent outline-none text-right font-mono"
         />

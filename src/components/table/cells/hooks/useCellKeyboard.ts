@@ -17,6 +17,7 @@ export function useCellKeyboard({
     (e: React.KeyboardEvent) => {
       switch (e.key) {
         case "Escape":
+          e.preventDefault();
           onExitEdit?.();
           break;
         case "Enter":

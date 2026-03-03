@@ -6,9 +6,11 @@ function setup(numRows = 3, numCols = 4) {
   return renderHook(() => useTableNavigation({ numRows, numCols }))
 }
 
-function makeFocusEvent(containsRelatedTarget: boolean) {
+function makeFocusEvent(containsRelatedTarget: boolean, { bubbled = false } = {}) {
+  const currentTarget = { contains: () => containsRelatedTarget }
   return {
-    currentTarget: { contains: () => containsRelatedTarget },
+    target: bubbled ? {} : currentTarget,
+    currentTarget,
     relatedTarget: {},
   } as unknown as React.FocusEvent<HTMLDivElement>
 }
@@ -202,6 +204,12 @@ describe("useTableNavigation handleFocus", () => {
   it("does not select (0,0) when focus moves within the table", () => {
     const { result } = setup()
     act(() => result.current.handleFocus(makeFocusEvent(true)))
+    expect(result.current.activeCell).toBeNull()
+  })
+
+  it("ignores focus events that bubble from child elements", () => {
+    const { result } = setup()
+    act(() => result.current.handleFocus(makeFocusEvent(false, { bubbled: true })))
     expect(result.current.activeCell).toBeNull()
   })
 })
