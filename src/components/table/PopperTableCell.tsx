@@ -67,7 +67,7 @@ export const PopperTableCell = memo(function PopperTableCell({
   const baselineData = snapshot?.savedData ?? generatedData
 
   const [innerData, setInnerData] = useState<TableData[]>(() =>
-    structuredClone(baselineData),
+    structuredClone(snapshot?.currentData ?? baselineData),
   )
 
   const innerDataMap = useMemo(
@@ -124,6 +124,9 @@ export const PopperTableCell = memo(function PopperTableCell({
       e.stopPropagation()
     } else if (e.key === "Escape") {
       e.preventDefault()
+      // Move focus to the trigger button (inside the outer table container)
+      // before closing so useTableFocus's focusIsRelevant check passes.
+      buttonRef.current?.focus()
       closePopper()
     }
   }
@@ -157,7 +160,10 @@ export const PopperTableCell = memo(function PopperTableCell({
           <h4 className="font-medium leading-none">
             {label ? `Details for ${label}` : "Details"}
           </h4>
-          <Button variant="ghost" size="sm" onClick={closePopper}>
+          <Button variant="ghost" size="sm" onClick={() => {
+            buttonRef.current?.focus()
+            closePopper()
+          }}>
             Close
           </Button>
         </div>
