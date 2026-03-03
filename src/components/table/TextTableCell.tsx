@@ -3,14 +3,14 @@ import type { CellProps } from "./types";
 import { CellShell } from "./CellShell";
 import { useEditableCell } from "./hooks/useEditableCell";
 
-interface TextCellProps extends Partial<CellProps> {
+interface TextTableCellProps extends Partial<CellProps> {
   value: string;
   onChange?: (value: string) => void;
 }
 
-export const TextCell = memo(TextCellComponent);
+export const TextTableCell = memo(TextTableCellComponent);
 
-function TextCellComponent({
+function TextTableCellComponent({
   value,
   isSelected = false,
   isEditing = false,
@@ -19,7 +19,7 @@ function TextCellComponent({
   onExitEdit,
   onNavigate,
   onChange,
-}: TextCellProps) {
+}: TextTableCellProps) {
   const { localValue, setLocalValue, inputRef, handleKeyDown, exitAndDiscard } =
     useEditableCell({
       value,

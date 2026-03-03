@@ -3,15 +3,15 @@ import type { CellProps } from "./types";
 import { CellShell } from "./CellShell";
 import { useEditableCell } from "./hooks/useEditableCell";
 
-interface NumberCellProps extends Partial<CellProps> {
+interface NumberTableCellProps extends Partial<CellProps> {
   value: number;
   format?: "currency" | "percentage" | "decimal";
   onChange?: (value: number) => void;
 }
 
-export const NumberCell = memo(NumberCellComponent);
+export const NumberTableCell = memo(NumberTableCellComponent);
 
-function NumberCellComponent({
+function NumberTableCellComponent({
   value,
   format,
   isSelected = false,
@@ -21,7 +21,7 @@ function NumberCellComponent({
   onExitEdit,
   onNavigate,
   onChange,
-}: NumberCellProps) {
+}: NumberTableCellProps) {
   const { localValue, setLocalValue, inputRef, handleKeyDown, exitAndDiscard } =
     useEditableCell({
       value,

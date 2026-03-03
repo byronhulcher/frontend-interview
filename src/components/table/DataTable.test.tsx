@@ -3,9 +3,9 @@ import userEvent from "@testing-library/user-event";
 import { vi } from "vitest";
 import { DataTable } from "./DataTable";
 import type { ColumnDefinition } from "./types";
-import type { CellProps } from "./cells/types";
+import type { CellProps } from "./types";
 
-// Capture callbacks from the last render of TextCell so tests can
+// Capture callbacks from the last render of TextTableCell so tests can
 // simulate a cell calling back into DataTable.
 const captured: {
   onExitEdit?: () => void;
@@ -17,8 +17,8 @@ type MockCellProps = CellProps & Record<string, unknown>;
 // Mock cell components to expose navigation props as data attributes.
 // Each renders a plain <td> that calls the relevant CellProps callbacks on
 // click / double-click, making it easy to drive state from tests.
-vi.mock("./cells/TextCell", () => ({
-  TextCell: (props: MockCellProps) => {
+vi.mock("./TextTableCell", () => ({
+  TextTableCell: (props: MockCellProps) => {
     captured.onExitEdit = props.onExitEdit as () => void;
     captured.onChange = props.onChange as (value: unknown) => void;
     return (
@@ -33,8 +33,8 @@ vi.mock("./cells/TextCell", () => ({
   },
 }));
 
-vi.mock("./cells/NumberCell", () => ({
-  NumberCell: (props: MockCellProps) => (
+vi.mock("./NumberTableCell", () => ({
+  NumberTableCell: (props: MockCellProps) => (
     <td
       data-testid="number-cell"
       data-selected={String(props.isSelected ?? false)}
@@ -45,8 +45,8 @@ vi.mock("./cells/NumberCell", () => ({
   ),
 }));
 
-vi.mock("./cells/BoolCell", () => ({
-  BoolCell: (props: MockCellProps) => (
+vi.mock("./BoolTableCell", () => ({
+  BoolTableCell: (props: MockCellProps) => (
     <td
       data-testid="bool-cell"
       data-selected={String(props.isSelected ?? false)}
@@ -57,8 +57,8 @@ vi.mock("./cells/BoolCell", () => ({
   ),
 }));
 
-vi.mock("./cells/PopperCell", () => ({
-  PopperCell: (props: MockCellProps) => (
+vi.mock("./PopperTableCell", () => ({
+  PopperTableCell: (props: MockCellProps) => (
     <td
       data-testid="popper-cell"
       data-selected={String(props.isSelected ?? false)}

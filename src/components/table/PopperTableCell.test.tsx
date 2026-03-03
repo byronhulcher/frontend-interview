@@ -1,7 +1,7 @@
 import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { vi } from "vitest";
-import { PopperCell } from "./PopperCell";
+import { PopperTableCell } from "./PopperTableCell";
 import type { CellProps } from "./types";
 
 const baseProps: CellProps & { triggerText?: string } = {
@@ -20,7 +20,7 @@ function setup(props = baseProps) {
     <table>
       <tbody>
         <tr>
-          <PopperCell {...props} />
+          <PopperTableCell {...props} />
         </tr>
       </tbody>
     </table>,
@@ -28,7 +28,7 @@ function setup(props = baseProps) {
   return { user, cell: screen.getByRole("cell") };
 }
 
-describe("PopperCell", () => {
+describe("PopperTableCell", () => {
   describe("display", () => {
     it("shows the trigger button", () => {
       setup();
@@ -176,7 +176,7 @@ describe("PopperCell", () => {
         .map((c) => c.textContent);
       await user.keyboard("{Escape}"); // close — portal unmounts
       await user.keyboard("{Enter}"); // reopen — portal remounts from persisted state
-      // Re-query after remount; data comes from PopperCell's state, not regenerated
+      // Re-query after remount; data comes from PopperTableCell's state, not regenerated
       const secondTexts = within(getNestedTable())
         .getAllByRole("cell")
         .map((c) => c.textContent);
@@ -198,7 +198,7 @@ describe("PopperCell", () => {
       await user.keyboard("{Escape}"); // exits edit mode; popover stays open
       await user.keyboard("{Escape}"); // deselects cell; popover closes
       await user.keyboard("{Enter}"); // reopen — DataTable remounts with the persisted data
-      // Re-query after remount; edited value is in PopperCell state
+      // Re-query after remount; edited value is in PopperTableCell state
       expect(
         within(getNestedTable()).getAllByRole("cell")[0],
       ).toHaveTextContent("persisted");
@@ -309,7 +309,7 @@ describe("PopperCell", () => {
         <table>
           <tbody>
             <tr>
-              <PopperCell
+              <PopperTableCell
                 {...baseProps}
                 isSelected={true}
                 isEditing={true}
@@ -328,7 +328,7 @@ describe("PopperCell", () => {
         <table>
           <tbody>
             <tr>
-              <PopperCell
+              <PopperTableCell
                 {...baseProps}
                 isSelected={false}
                 isEditing={false}

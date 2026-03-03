@@ -12,7 +12,7 @@ import {
   useFocusCoordinator,
 } from "./hooks/FocusCoordinator";
 import type { ColumnDefinition, TableData } from "./types";
-import { DataTableCell } from "./cells/DataTableCell";
+import { DataTableCell } from "./DataTableCell";
 
 interface DataTableProps {
   columns: ColumnDefinition[];

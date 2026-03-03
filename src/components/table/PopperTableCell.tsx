@@ -7,11 +7,10 @@ import {
 } from "@/components/ui/popover";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import type { CellProps } from "./types";
-import type { ColumnDefinition, TableData } from "../types";
+import type { CellProps, ColumnDefinition, TableData } from "./types";
 import { useCellKeyboard } from "./hooks/useCellKeyboard";
-import { DataTable } from "../DataTable";
-import { useNestedDataStore } from "../../../data/nestedDataStore/useNestedDataStore";
+import { DataTable } from "./DataTable";
+import { useNestedDataStore } from "../../data/nestedDataStore/useNestedDataStore";
 import { companies } from "@/data/generateData";
 
 // Columns for every nested DataTable — fixed schema that supports arbitrary depth.
@@ -29,14 +28,14 @@ function generateData(): TableData[] {
   }));
 }
 
-interface PopperCellProps extends Partial<CellProps> {
+interface PopperTableCellProps extends Partial<CellProps> {
   triggerText?: string;
   cellPath?: string;
 }
 
-export const PopperCell = memo(PopperCellComponent);
+export const PopperTableCell = memo(PopperTableCellComponent);
 
-function PopperCellComponent({
+function PopperTableCellComponent({
   triggerText = "View",
   isSelected = false,
   isEditing = false,
@@ -45,7 +44,7 @@ function PopperCellComponent({
   onExitEdit,
   onNavigate,
   cellPath,
-}: PopperCellProps) {
+}: PopperTableCellProps) {
   const [open, setOpen] = useState(false);
   const [nestedData, setNestedData] = useState<TableData[] | null>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);

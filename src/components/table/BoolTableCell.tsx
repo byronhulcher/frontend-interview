@@ -4,14 +4,14 @@ import type { CellProps } from "./types";
 import { CellShell } from "./CellShell";
 import { useEditableCell } from "./hooks/useEditableCell";
 
-interface BoolCellProps extends Partial<CellProps> {
+interface BoolTableCellProps extends Partial<CellProps> {
   value: boolean;
   onChange?: (value: boolean) => void;
 }
 
-export const BoolCell = memo(BoolCellComponent);
+export const BoolTableCell = memo(BoolTableCellComponent);
 
-function BoolCellComponent({
+function BoolTableCellComponent({
   value,
   isSelected = false,
   isEditing = false,
@@ -20,7 +20,7 @@ function BoolCellComponent({
   onExitEdit,
   onNavigate,
   onChange,
-}: BoolCellProps) {
+}: BoolTableCellProps) {
   const {
     localValue,
     setLocalValue,

@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { vi } from "vitest";
 import { useCellKeyboard } from "./useCellKeyboard";
-import type { NavigationDirection } from "../../hooks/types";
+import type { NavigationDirection } from "./types";
 
 // ---------------------------------------------------------------------------
 // Test harness

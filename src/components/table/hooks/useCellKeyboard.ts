@@ -1,6 +1,6 @@
 import type React from "react";
 import { useCallback } from "react";
-import type { NavigationDirection } from "../../hooks/types";
+import type { NavigationDirection } from "./types";
 
 interface UseCellKeyboardOptions {
   onExitEdit?: () => void;

@@ -1,11 +1,11 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { vi } from "vitest";
-import { BoolCell } from "./BoolCell";
+import { TextTableCell } from "./TextTableCell";
 import type { CellProps } from "./types";
 
-const baseProps: CellProps & { value: boolean } = {
-  value: true,
+const baseProps: CellProps & { value: string } = {
+  value: "Hello world",
   isSelected: false,
   isEditing: false,
   onSelect: vi.fn(),
@@ -20,7 +20,7 @@ function setup(props = baseProps) {
     <table>
       <tbody>
         <tr>
-          <BoolCell {...props} />
+          <TextTableCell {...props} />
         </tr>
       </tbody>
     </table>,
@@ -28,16 +28,16 @@ function setup(props = baseProps) {
   return { user, cell: screen.getByRole("cell") };
 }
 
-describe("BoolCell", () => {
+describe("TextTableCell", () => {
   describe("display", () => {
-    it("shows the true badge when value is true", () => {
-      setup({ ...baseProps, value: true });
-      expect(screen.getByText("✓ True")).toBeInTheDocument();
+    it("shows the value", () => {
+      setup();
+      expect(screen.getByText("Hello world")).toBeInTheDocument();
     });
 
-    it("shows the false badge when value is false", () => {
-      setup({ ...baseProps, value: false });
-      expect(screen.getByText("✗ False")).toBeInTheDocument();
+    it("has no ring when not selected", () => {
+      const { cell } = setup();
+      expect(cell.className).not.toMatch(/ring/);
     });
 
     it("applies a blue-400 ring when selected", () => {
@@ -55,19 +55,14 @@ describe("BoolCell", () => {
       expect(cell.className).not.toMatch(/ring-blue-600/);
     });
 
-    it("shows a dropdown select in editing mode", () => {
+    it("shows a text input in editing mode", () => {
       setup({ ...baseProps, isSelected: true, isEditing: true });
-      expect(screen.getByRole("combobox")).toBeInTheDocument();
+      expect(screen.getByRole("textbox")).toBeInTheDocument();
     });
 
-    it("dropdown is focused when editing starts", () => {
+    it("input is focused when editing starts", () => {
       setup({ ...baseProps, isSelected: true, isEditing: true });
-      expect(screen.getByRole("combobox")).toHaveFocus();
-    });
-
-    it("dropdown reflects the current value", () => {
-      setup({ ...baseProps, value: false, isSelected: true, isEditing: true });
-      expect(screen.getByRole("combobox")).toHaveValue("false");
+      expect(screen.getByRole("textbox")).toHaveFocus();
     });
   });
 
@@ -87,20 +82,7 @@ describe("BoolCell", () => {
     });
   });
 
-  describe("dropdown interaction", () => {
-    it("calls onExitEdit when a new value is selected", async () => {
-      const onExitEdit = vi.fn();
-      const { user } = setup({
-        ...baseProps,
-        value: true,
-        isSelected: true,
-        isEditing: true,
-        onExitEdit,
-      });
-      await user.selectOptions(screen.getByRole("combobox"), "false");
-      expect(onExitEdit).toHaveBeenCalledOnce();
-    });
-
+  describe("keyboard handling in editing mode", () => {
     it("calls onExitEdit on Escape", async () => {
       const onExitEdit = vi.fn();
       const { user } = setup({
@@ -111,6 +93,21 @@ describe("BoolCell", () => {
       });
       await user.keyboard("{Escape}");
       expect(onExitEdit).toHaveBeenCalledOnce();
+    });
+
+    it("calls onExitEdit and navigates down on Enter", async () => {
+      const onExitEdit = vi.fn();
+      const onNavigate = vi.fn();
+      const { user } = setup({
+        ...baseProps,
+        isSelected: true,
+        isEditing: true,
+        onExitEdit,
+        onNavigate,
+      });
+      await user.keyboard("{Enter}");
+      expect(onExitEdit).toHaveBeenCalledOnce();
+      expect(onNavigate).toHaveBeenCalledWith("down");
     });
 
     it("calls onExitEdit and navigates next on Tab", async () => {
@@ -128,31 +125,42 @@ describe("BoolCell", () => {
       expect(onNavigate).toHaveBeenCalledWith("next");
     });
 
-    it("updates the displayed badge after selecting a new value", async () => {
+    it("calls onExitEdit and navigates prev on Shift+Tab", async () => {
+      const onExitEdit = vi.fn();
+      const onNavigate = vi.fn();
       const { user } = setup({
         ...baseProps,
-        value: true,
         isSelected: true,
         isEditing: true,
-        onExitEdit: vi.fn(),
+        onExitEdit,
+        onNavigate,
       });
-      await user.selectOptions(screen.getByRole("combobox"), "false");
-      // After onExitEdit is called the parent would re-render with isEditing=false,
-      // but since we control props here the badge isn't re-rendered in this test.
-      // We verify the select reflected the new value before closing.
-      expect(screen.getByRole("combobox")).toHaveValue("false");
+      await user.keyboard("{Shift>}{Tab}{/Shift}");
+      expect(onExitEdit).toHaveBeenCalledOnce();
+      expect(onNavigate).toHaveBeenCalledWith("prev");
     });
 
-    it("calls onChange with the new boolean value when a selection is made", async () => {
+    it("calls onExitEdit when the input loses focus", async () => {
+      const onExitEdit = vi.fn();
+      const { user } = setup({
+        ...baseProps,
+        isSelected: true,
+        isEditing: true,
+        onExitEdit,
+      });
+      await user.tab();
+      expect(onExitEdit).toHaveBeenCalled();
+    });
+
+    it("calls onChange with the current value when editing exits", async () => {
       const onChange = vi.fn();
       const user = userEvent.setup();
       render(
         <table>
           <tbody>
             <tr>
-              <BoolCell
+              <TextTableCell
                 {...baseProps}
-                value={true}
                 isSelected={true}
                 isEditing={true}
                 onChange={onChange}
@@ -161,8 +169,10 @@ describe("BoolCell", () => {
           </tbody>
         </table>,
       );
-      await user.selectOptions(screen.getByRole("combobox"), "false");
-      expect(onChange).toHaveBeenCalledWith(false);
+      await user.clear(screen.getByRole("textbox"));
+      await user.type(screen.getByRole("textbox"), "new value");
+      await user.keyboard("{Enter}");
+      expect(onChange).toHaveBeenCalledWith("new value");
     });
   });
 });

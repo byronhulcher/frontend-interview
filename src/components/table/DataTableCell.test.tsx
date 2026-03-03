@@ -1,16 +1,15 @@
 import { render, screen } from "@testing-library/react";
 import { vi } from "vitest";
 import { DataTableCell } from "./DataTableCell";
-import { BoolCell } from "./BoolCell";
-import type { CellProps } from "./types";
-import type { ColumnDefinition, TableData } from "../types";
+import { BoolTableCell } from "./BoolTableCell";
+import type { CellProps, ColumnDefinition, TableData } from "./types";
 
 // ---------------------------------------------------------------------------
 // Mock child cells so we test dispatch logic in isolation, not implementations
 // ---------------------------------------------------------------------------
 
-vi.mock("./BoolCell", () => ({
-  BoolCell: vi.fn(
+vi.mock("./BoolTableCell", () => ({
+  BoolTableCell: vi.fn(
     ({
       value,
       isSelected,
@@ -30,8 +29,8 @@ vi.mock("./BoolCell", () => ({
   ),
 }));
 
-vi.mock("./TextCell", () => ({
-  TextCell: vi.fn(
+vi.mock("./TextTableCell", () => ({
+  TextTableCell: vi.fn(
     ({
       value,
       isSelected,
@@ -51,8 +50,8 @@ vi.mock("./TextCell", () => ({
   ),
 }));
 
-vi.mock("./NumberCell", () => ({
-  NumberCell: vi.fn(
+vi.mock("./NumberTableCell", () => ({
+  NumberTableCell: vi.fn(
     ({
       value,
       format,
@@ -75,8 +74,8 @@ vi.mock("./NumberCell", () => ({
   ),
 }));
 
-vi.mock("./PopperCell", () => ({
-  PopperCell: vi.fn(
+vi.mock("./PopperTableCell", () => ({
+  PopperTableCell: vi.fn(
     ({
       cellPath,
       triggerText,
@@ -147,22 +146,22 @@ function renderCell(
 // ---------------------------------------------------------------------------
 
 describe("DataTableCell dispatch", () => {
-  it("renders BoolCell for a boolean column", () => {
+  it("renders BoolTableCell for a boolean column", () => {
     renderCell({ key: "active", header: "Active", type: "boolean" });
     expect(screen.getByTestId("bool-cell")).toBeInTheDocument();
   });
 
-  it("renders TextCell for a text column", () => {
+  it("renders TextTableCell for a text column", () => {
     renderCell({ key: "name", header: "Name", type: "text" });
     expect(screen.getByTestId("text-cell")).toBeInTheDocument();
   });
 
-  it("renders NumberCell for a number column", () => {
+  it("renders NumberTableCell for a number column", () => {
     renderCell({ key: "score", header: "Score", type: "number" });
     expect(screen.getByTestId("number-cell")).toBeInTheDocument();
   });
 
-  it("renders PopperCell for a popper column", () => {
+  it("renders PopperTableCell for a popper column", () => {
     renderCell({ key: "more", header: "More", type: "popper" });
     expect(screen.getByTestId("popper-cell")).toBeInTheDocument();
   });
@@ -191,12 +190,12 @@ describe("DataTableCell value extraction", () => {
     );
   });
 
-  it("passes boolean value to BoolCell", () => {
+  it("passes boolean value to BoolTableCell", () => {
     renderCell({ key: "active", header: "Active", type: "boolean" });
     expect(screen.getByTestId("bool-cell").dataset.value).toBe("true");
   });
 
-  it("passes number value to NumberCell", () => {
+  it("passes number value to NumberTableCell", () => {
     renderCell({ key: "score", header: "Score", type: "number" });
     expect(screen.getByTestId("number-cell").dataset.value).toBe("42");
   });
@@ -247,7 +246,7 @@ describe("DataTableCell cellProps forwarding", () => {
       header: "Active",
       type: "boolean",
     });
-    const lastCall = vi.mocked(BoolCell).mock.calls.at(-1)![0];
+    const lastCall = vi.mocked(BoolTableCell).mock.calls.at(-1)![0];
     if (lastCall.onChange) {
       lastCall.onChange(false);
     }

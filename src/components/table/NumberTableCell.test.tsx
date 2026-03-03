@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { vi } from "vitest";
-import { NumberCell } from "./NumberCell";
+import { NumberTableCell } from "./NumberTableCell";
 import type { CellProps } from "./types";
 
 const baseProps: CellProps & {
@@ -23,7 +23,7 @@ function setup(props = baseProps) {
     <table>
       <tbody>
         <tr>
-          <NumberCell {...props} />
+          <NumberTableCell {...props} />
         </tr>
       </tbody>
     </table>,
@@ -31,7 +31,7 @@ function setup(props = baseProps) {
   return { user, cell: screen.getByRole("cell") };
 }
 
-describe("NumberCell", () => {
+describe("NumberTableCell", () => {
   describe("display", () => {
     it("shows the formatted value when not editing", () => {
       setup({ ...baseProps, value: 1234.5, format: "currency" });
@@ -157,7 +157,7 @@ describe("NumberCell", () => {
         <table>
           <tbody>
             <tr>
-              <NumberCell
+              <NumberTableCell
                 {...baseProps}
                 isSelected={true}
                 isEditing={true}
