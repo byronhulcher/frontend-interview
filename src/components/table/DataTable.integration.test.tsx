@@ -175,7 +175,6 @@ describe("DataTable programmatic focus after nested poppers", () => {
     const rootNameCell = screen.getAllByRole("cell").find(
       (cell) => cell.textContent === "Row 1" && !cell.closest("[data-radix-popper-content-wrapper]"),
     ) as HTMLElement;
-    const rootWrapper = rootNameCell.closest("[tabindex='0']") as HTMLElement;
 
     act(() => {
       rootNameCell.focus();
@@ -186,5 +185,103 @@ describe("DataTable programmatic focus after nested poppers", () => {
     // Radix unmount timing differs from real browsers (wrapper.toHaveFocus()
     // is not reliable here — verified manually in Chrome).
     expect(rootNameCell).toHaveAttribute("data-selected", "true");
+  });
+});
+
+describe("useFocusWithin + FocusCoordinator interaction", () => {
+  it("programmatic focus on a root cell closes nested poppers via useFocusWithin and coordinates via FocusCoordinator", async () => {
+    const user = userEvent.setup();
+    render(
+      <NestedDataStoreProvider>
+        <DataTable columns={outerColumns} data={outerData} />
+      </NestedDataStoreProvider>,
+    );
+
+    const outerInfoCell = screen.getAllByRole("cell")[1];
+    await openPopperCell(user, outerInfoCell);
+    await openPopperCell(user, getMoreCell(getNestedTable(0)));
+
+    // Both level 1 and level 2 poppers are open.
+    expect(screen.getAllByRole("columnheader", { name: "Company" })).toHaveLength(2);
+
+    // Programmatically focus a root cell — triggers FocusCoordinator.claimFocus
+    // AND useFocusWithin's onClose on the popper cells.
+    const rootNameCell = screen.getAllByRole("cell").find(
+      (cell) =>
+        cell.textContent === "Row 2" &&
+        !cell.closest("[data-radix-popper-content-wrapper]"),
+    ) as HTMLElement;
+
+    act(() => {
+      rootNameCell.focus();
+      document.dispatchEvent(new FocusEvent("focusin", { bubbles: true }));
+    });
+
+    // Both poppers should be closed — no nested "Company" headers remain.
+    expect(
+      screen.queryByRole("columnheader", { name: "Company" }),
+    ).not.toBeInTheDocument();
+
+    // Root cell should be selected (FocusCoordinator prevented nested exitEdit
+    // from stealing focus).
+    expect(rootNameCell).toHaveAttribute("data-selected", "true");
+  });
+});
+
+describe("useFocusWithin across multiple nesting levels", () => {
+  it("focus within a nested table keeps all ancestor poppers open", async () => {
+    const user = userEvent.setup();
+    render(
+      <NestedDataStoreProvider>
+        <DataTable columns={outerColumns} data={outerData} />
+      </NestedDataStoreProvider>,
+    );
+
+    const outerInfoCell = screen.getAllByRole("cell")[1];
+    await openPopperCell(user, outerInfoCell);
+    await openPopperCell(user, getMoreCell(getNestedTable(0)));
+
+    // Both level 1 and level 2 poppers are open.
+    expect(screen.getAllByRole("columnheader", { name: "Company" })).toHaveLength(2);
+
+    // Click a text cell inside the level 2 nested table — focus stays within
+    // level 1's logical subtree (via useFocusWithin's Wrapper chain across portals).
+    const level2Table = getNestedTable(1);
+    const level2Cell = within(level2Table).getAllByRole("cell")[0];
+    await user.click(level2Cell);
+
+    // Both poppers should remain open — the Wrapper chain keeps all ancestors
+    // in the focus path.
+    expect(screen.getAllByRole("columnheader", { name: "Company" })).toHaveLength(2);
+  });
+
+  it("clicking a root cell after 3 levels of nesting closes all poppers", async () => {
+    const user = userEvent.setup();
+    render(
+      <NestedDataStoreProvider>
+        <DataTable columns={outerColumns} data={outerData} />
+      </NestedDataStoreProvider>,
+    );
+
+    const outerInfoCell = screen.getAllByRole("cell")[1];
+    await openPopperCell(user, outerInfoCell);
+    await openPopperCell(user, getMoreCell(getNestedTable(0)));
+    await openPopperCell(user, getMoreCell(getNestedTable(1)));
+
+    // All 3 levels open.
+    expect(screen.getAllByRole("columnheader", { name: "Company" })).toHaveLength(3);
+
+    // Click the root "Row 2" name cell — focus leaves all popper subtrees.
+    const rootRow2NameCell = screen.getAllByRole("cell").find(
+      (cell) =>
+        cell.textContent === "Row 2" &&
+        !cell.closest("[data-radix-popper-content-wrapper]"),
+    ) as HTMLElement;
+    await user.click(rootRow2NameCell);
+
+    // All poppers should be closed.
+    expect(
+      screen.queryByRole("columnheader", { name: "Company" }),
+    ).not.toBeInTheDocument();
   });
 });

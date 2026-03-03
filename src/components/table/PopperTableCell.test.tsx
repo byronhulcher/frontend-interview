@@ -1,8 +1,9 @@
-import { render, screen, within } from "@testing-library/react";
+import { render, screen, within, act } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { vi } from "vitest";
 import { PopperTableCell } from "./PopperTableCell";
 import { NestedDataStoreProvider } from "../../data/nestedDataStore/NestedDataStoreProvider";
+import { useFocusWithin } from "./hooks/useFocusWithin";
 import type { CellProps } from "./types";
 
 const baseProps: CellProps & { triggerText?: string } = {
@@ -353,6 +354,87 @@ describe("PopperTableCell", () => {
     });
   });
 
-  // TODO: Add focus-loss close behavior tests once happy-dom's fake timer
-  // interaction with Radix popover focus management is resolved.
+  describe("focus-loss close behavior", () => {
+    function ExternalTrackedCell() {
+      const { ref } = useFocusWithin();
+      return <td ref={ref} tabIndex={-1} data-testid="external-cell" />;
+    }
+
+    it("closes the popover when DOM focus moves to another registered element", async () => {
+      const onExitEdit = vi.fn();
+      const user = userEvent.setup();
+      render(
+        <table>
+          <tbody>
+            <tr>
+              <PopperTableCell
+                {...baseProps}
+                isSelected={true}
+                isEditing={true}
+                onExitEdit={onExitEdit}
+                cellPath="test-focus-loss"
+              />
+              <ExternalTrackedCell />
+            </tr>
+          </tbody>
+        </table>,
+      );
+
+      await user.keyboard("{Enter}");
+      expect(
+        screen.getByRole("columnheader", { name: "Company" }),
+      ).toBeInTheDocument();
+      onExitEdit.mockClear();
+
+      act(() => {
+        screen.getByTestId("external-cell").focus();
+        document.dispatchEvent(
+          new FocusEvent("focusin", { bubbles: true }),
+        );
+      });
+
+      expect(onExitEdit).toHaveBeenCalled();
+    });
+
+    it("does NOT close when focus moves within the popover content", async () => {
+      const onExitEdit = vi.fn();
+      const user = userEvent.setup();
+      render(
+        <NestedDataStoreProvider>
+          <table>
+            <tbody>
+              <tr>
+                <PopperTableCell
+                  {...baseProps}
+                  isSelected={true}
+                  isEditing={true}
+                  onExitEdit={onExitEdit}
+                  cellPath="test-focus-within"
+                />
+              </tr>
+            </tbody>
+          </table>
+        </NestedDataStoreProvider>,
+      );
+
+      await user.keyboard("{Enter}");
+      onExitEdit.mockClear();
+
+      const nestedTable = screen
+        .getByRole("columnheader", { name: "Company" })
+        .closest("table")!;
+      await user.click(within(nestedTable).getAllByRole("cell")[0]);
+
+      expect(onExitEdit).not.toHaveBeenCalled();
+      expect(
+        screen.getByRole("columnheader", { name: "Company" }),
+      ).toBeInTheDocument();
+    });
+
+    // The focusMovedToKnownElement guard (preventing onClose for unregistered
+    // elements) is covered in useFocusWithin.test.tsx. At the PopperTableCell
+    // level, Radix's own onFocusOutside fires independently, so onExitEdit is
+    // always called when focus leaves the popover — regardless of whether the
+    // target is registered.
+  });
 });

@@ -672,6 +672,17 @@ All existing close mechanisms remain unchanged (Radix `onOpenChange`,
 - `src/components/table/hooks/useFocusWithin.test.tsx` — NEW
 - `src/components/table/PopperTableCell.tsx` — MODIFIED
 - `src/components/table/PopperTableCell.test.tsx` — MODIFIED
+- `src/components/table/DataTable.integration.test.tsx` — MODIFIED
+
+**Key implementation detail — child-before-parent registration**
+
+`useLayoutEffect` runs children before parents. When a child registers in
+the focus registry before its parent exists, the parent-child link is missed.
+Fixed by having `register()` scan for existing entries that claim the new
+entry as their parent and adopt them into `childIds`.
+
+- 17 new tests: 12 useFocusWithin unit, 2 PopperTableCell focus-loss,
+  3 integration (coordinator interaction, multi-level subtree, 3-level close)
 
 ---
 
@@ -682,22 +693,23 @@ All files under `src/components/table/` unless otherwise noted.
 | File                                            | Tests   | Status        |
 | ----------------------------------------------- | ------- | ------------- |
 | `DataTable.test.tsx`                            | 26      | ✅ Passing    |
-| `DataTable.integration.test.tsx`                | 2       | ✅ Passing    |
+| `DataTable.integration.test.tsx`                | 5       | ✅ Passing    |
 | `DataTableCell.test.tsx`                        | 18      | ✅ Passing    |
 | `TextTableCell.test.tsx`                        | 14      | ✅ Passing    |
 | `NumberTableCell.test.tsx`                      | 15      | ✅ Passing    |
 | `BoolTableCell.test.tsx`                        | 14      | ✅ Passing    |
-| `PopperTableCell.test.tsx`                      | 23      | ✅ Passing    |
+| `PopperTableCell.test.tsx`                      | 25      | ✅ Passing    |
 | `CellShell.test.tsx`                            | 25      | ✅ Passing    |
 | `hooks/useCellKeyboard.test.tsx`                | 10      | ✅ Passing    |
 | `hooks/useEditableCell.test.tsx`                | 11      | ✅ Passing    |
-| `hooks/useTableNavigation.test.ts`              | 35      | ✅ Passing    |
+| `hooks/useFocusWithin.test.tsx`                 | 12      | ✅ Passing    |
+| `hooks/useTableNavigation.test.ts`              | 38      | ✅ Passing    |
 | `hooks/useTableNavigation.integration.test.tsx` | 4       | ✅ Passing    |
 | `hooks/ActiveCellStore.test.ts`                 | 11      | ✅ Passing    |
 | `data/nestedDataStore/NestedDataStore.test.tsx`  | 8       | ✅ Passing    |
 | `data/generateData.test.ts`                     | 11      | ✅ Passing    |
 | `test-setup.test.ts`                            | 2       | ✅ Passing    |
-| **Total**                                       | **229** | **All green** |
+| **Total**                                       | **249** | **All green** |
 
 ---
 
