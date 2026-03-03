@@ -1,16 +1,37 @@
-import { TableCell } from "@/components/ui/table"
+import { memo } from "react"
+import { useEditableCell } from "./hooks/useEditableCell"
+import type { EditableCellProps } from "./types"
 
-interface TextTableCellProps {
-  value: string
-}
+export const TextTableCell = memo(function TextTableCell({
+  value,
+  isEditing = false,
+  onCellChange,
+  onExitEdit,
+}: EditableCellProps<string>) {
+  const { inputRef, handleKeyDown, handleBlur } = useEditableCell<string>({
+    isEditing,
+    onCellChange,
+    onExitEdit,
+    parseValue: (raw) => raw,
+  })
 
-export function TextTableCell({ value }: TextTableCellProps) {
+  if (isEditing) {
+    return (
+      <input
+        ref={inputRef as React.RefObject<HTMLInputElement>}
+        type="text"
+        size={1}
+        defaultValue={value}
+        onKeyDown={handleKeyDown}
+        onBlur={handleBlur}
+        className="w-full min-w-0 px-2 py-1 border border-current focus-visible:outline-none"
+      />
+    )
+  }
+
   return (
-    <TableCell>
-      <div className="max-w-[200px] truncate" title={value}>
-        {value}
-      </div>
-    </TableCell>
+    <div className="max-w-[200px] truncate" title={value}>
+      {value}
+    </div>
   )
-}
-
+})

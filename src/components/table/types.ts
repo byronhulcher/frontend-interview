@@ -1,15 +1,28 @@
 export type ColumnType = "text" | "number" | "boolean" | "popper"
 
-export interface ColumnDefinition<T = any> {
+export interface ColumnDefinition<T = unknown> {
   key: string
   header: string
   type: ColumnType
+  editable?: boolean
   format?: "currency" | "percentage" | "decimal"
   triggerText?: string
-  accessor?: (row: T) => any
+  accessor?: (row: T) => unknown
+  sortable?: boolean
+}
+
+export interface EditableCellProps<T> {
+  value: T
+  isEditing?: boolean
+  onCellChange: (value: T) => void
+  onExitEdit: () => void
 }
 
 export interface TableData {
-  [key: string]: any
+  [key: string]: unknown
 }
 
+export interface CellCoordinate {
+  row: number
+  col: number
+}

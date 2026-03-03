@@ -76,6 +76,7 @@ export const columns: ColumnDefinition[] = [
     key: "id",
     header: "ID",
     type: "number",
+    editable: false,
   },
   {
     key: "name",
@@ -114,6 +115,6 @@ export const columns: ColumnDefinition[] = [
     header: "Description",
     type: "popper",
     triggerText: "View Details",
+    sortable: false,
   },
 ]
-
