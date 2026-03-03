@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import type { CellProps, ColumnDefinition, TableData } from "./types";
 import { useCellKeyboard } from "./hooks/useCellKeyboard";
+import { useFocusWithin } from "./hooks/useFocusWithin";
 import { DataTable } from "./DataTable";
 import { useNestedDataStore } from "../../data/nestedDataStore/useNestedDataStore";
 import { companies } from "@/data/generateData";
@@ -53,6 +54,15 @@ function PopperTableCellComponent({
   const { handleKeyDown } = useCellKeyboard({ onExitEdit, onNavigate });
   const { getData, setData } = useNestedDataStore();
 
+  const { ref: focusRef, Wrapper } = useFocusWithin({
+    onClose: () => {
+      if (open) {
+        setOpen(false);
+        onExitEdit?.();
+      }
+    },
+  });
+
   // Move focus to the trigger button when entering editing mode so the user
   // can press Enter/Space to open the popover without a second click.
   useEffect(() => {
@@ -87,6 +97,7 @@ function PopperTableCellComponent({
 
   return (
     <TableCell
+      ref={focusRef}
       tabIndex={-1}
       className={cn(
         "relative select-none",
@@ -148,15 +159,17 @@ function PopperTableCellComponent({
             }
           }}
         >
-          {!loaded ? (
-            <p className="p-4 text-sm text-muted-foreground">Loading…</p>
-          ) : (
-            <DataTable
-              columns={nestedColumns}
-              data={seedRef.current}
-              basePath={cellPath}
-            />
-          )}
+          <Wrapper>
+            {!loaded ? (
+              <p className="p-4 text-sm text-muted-foreground">Loading…</p>
+            ) : (
+              <DataTable
+                columns={nestedColumns}
+                data={seedRef.current}
+                basePath={cellPath}
+              />
+            )}
+          </Wrapper>
         </PopoverContent>
       </Popover>
     </TableCell>

@@ -352,4 +352,7 @@ describe("PopperTableCell", () => {
       expect(cell.className).not.toMatch(/ring-blue-600/);
     });
   });
+
+  // TODO: Add focus-loss close behavior tests once happy-dom's fake timer
+  // interaction with Radix popover focus management is resolved.
 });

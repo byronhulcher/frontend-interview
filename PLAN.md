@@ -610,6 +610,71 @@ events that target it directly.
 
 ---
 
+### Step 16 — Reactive DOM focus tracking via `useFocusWithin`
+
+**Problem**
+
+The store-driven focus model (ActiveCellStore + FocusCoordinator) handles all
+focus transitions that go through known code paths — cell clicks, keyboard
+navigation, Radix popover events. But it is blind to external focus changes:
+browser Find in Page, assistive technology, third-party libraries calling
+`.focus()`, or DevTools interaction. When DOM focus moves through an
+unexpected path, the store remains stale and poppers don't close.
+
+The 2026-02-23 branch had `useFocusWithin`, a reactive DOM focus tracker that
+listens to global `focusin`/`focusout`, builds a logical tree via React
+context (works across portals), and fires `onClose` when focus leaves a
+subtree. That resilience was lost when we adopted the slimmer
+ActiveCellStore + FocusCoordinator architecture.
+
+**Solution — add `useFocusWithin` alongside FocusCoordinator**
+
+FocusCoordinator stays — it solves a proactive, synchronous problem (mutex
+during cascading teardown). `useFocusWithin` solves a reactive problem
+(observe DOM focus changes after they happen). They complement each other.
+
+`useFocusWithin` is scoped to **PopperTableCell** only — regular cells
+already have `onFocus` handlers that update the store, and visual rings are
+store-driven. Popper cells need reactive tracking because their close
+behavior must respond to focus leaving a logical subtree that spans a portal.
+
+**`useFocusWithin` design** (`src/components/table/hooks/useFocusWithin.tsx`)
+
+Adapted from 2026-02-23 with one improvement: **listener cleanup** — when
+the registry empties, global `focusin`/`focusout` listeners are removed and
+the blur timeout is cleared (2026-02-23 version never cleaned up).
+
+- Module-level `Map<string, Entry>` registry
+- `isInLogicalSubtree(id, element)` — recursive DOM `.contains()` through
+  logical children
+- `notifyFocusChange()` — builds focus path set, updates `setFocused`, fires
+  `onClose` with `focusMovedToKnownElement` guard (only fires when focus
+  moves to another registered element, not to arbitrary external elements)
+- `useLayoutEffect` for registration (synchronous, before Radix auto-focus)
+- `FocusWithinContext` for parent-child linking across portals
+- Returns `{ isFocusedWithin, ref, Wrapper }`
+
+**PopperTableCell integration** (`src/components/table/PopperTableCell.tsx`)
+
+Three changes:
+1. `useFocusWithin({ onClose })` — closes popover and calls `onExitEdit` when
+   focus leaves the cell's logical subtree (guarded by `if (open)`)
+2. `ref={focusRef}` on `<TableCell>` — registers the cell in the focus registry
+3. `<Wrapper>` around PopoverContent children — establishes the logical
+   parent-child link across the Radix portal boundary
+
+All existing close mechanisms remain unchanged (Radix `onOpenChange`,
+`isEditing` effect, `onEscapeKeyDown` guard).
+
+**Files changed**
+
+- `src/components/table/hooks/useFocusWithin.tsx` — NEW
+- `src/components/table/hooks/useFocusWithin.test.tsx` — NEW
+- `src/components/table/PopperTableCell.tsx` — MODIFIED
+- `src/components/table/PopperTableCell.test.tsx` — MODIFIED
+
+---
+
 ## Test Summary
 
 All files under `src/components/table/` unless otherwise noted.
