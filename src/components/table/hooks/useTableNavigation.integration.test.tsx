@@ -61,36 +61,45 @@ describe("useTableNavigation - programmatic focus then arrow key navigation", ()
 });
 
 describe("useTableNavigation - Browser Compatibility", () => {
-  it("should focus first cell when Tab is pressed on page load", () => {
+  it("sentinel focus redirects to wrapper and selects first cell", () => {
     render(<DataTable columns={mockColumns} data={mockData} />);
 
-    const tableWrapper = screen.getByRole("table").closest("[tabindex]");
+    // The sentinel span sits before the wrapper and catches Tab from the browser.
+    const sentinel = document.querySelector("[aria-hidden='true']") as HTMLElement;
+    expect(sentinel).toBeTruthy();
 
-    // Simulate the table wrapper receiving focus (as would happen when Tab reaches it)
     act(() => {
-      tableWrapper?.focus();
+      sentinel.focus();
     });
 
-    // The table wrapper should now have focus
-    expect(tableWrapper).toHaveFocus();
+    // Focus should have been redirected to the wrapper (tabIndex=-1)
+    const wrapper = screen.getByRole("table").closest("[tabindex='-1']");
+    expect(wrapper).toHaveFocus();
+
+    // First cell should be selected
+    const firstCell = screen.getAllByRole("cell")[0];
+    expect(firstCell).toHaveAttribute("data-selected", "true");
   });
 
-  it("should handle Tab navigation within table after initial focus", async () => {
+  it("should handle Tab navigation within table after sentinel focus", async () => {
     render(<DataTable columns={mockColumns} data={mockData} />);
 
-    // Focus the table first
-    const tableWrapper = screen.getByRole("table").closest("[tabindex]");
-
+    // Focus via sentinel (simulates real Tab from page)
+    const sentinel = document.querySelector("[aria-hidden='true']") as HTMLElement;
     act(() => {
-      tableWrapper?.focus();
+      sentinel.focus();
     });
+
+    const wrapper = screen.getByRole("table").closest("[tabindex='-1']") as HTMLElement;
 
     // Now Tab should navigate between cells
     act(() => {
-      fireEvent.keyDown(tableWrapper!, { key: "Tab" });
+      fireEvent.keyDown(wrapper, { key: "Tab" });
     });
 
-    // Should move to next cell (but exact behavior depends on cell implementation)
-    // This test ensures Tab is handled without causing page scroll
+    // Should move to next cell — first cell deselected, second selected
+    const cells = screen.getAllByRole("cell");
+    expect(cells[0]).toHaveAttribute("data-selected", "false");
+    expect(cells[1]).toHaveAttribute("data-selected", "true");
   });
 });

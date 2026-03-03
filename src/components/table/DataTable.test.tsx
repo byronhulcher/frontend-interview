@@ -260,8 +260,8 @@ describe("DataTable", () => {
 
   describe("focus behavior", () => {
     it("focusing the wrapper with no cell selected selects cell (0, 0)", async () => {
-      const { getCells, container } = setup();
-      const wrapper = container.firstChild as HTMLElement;
+      const { getCells } = setup();
+      const wrapper = screen.getByRole("table").closest("[tabindex='-1']") as HTMLElement;
       await act(async () => {
         wrapper.focus();
       });

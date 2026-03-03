@@ -98,6 +98,22 @@ export function useTableNavigation({
     }
   }, [coordinator, store]);
 
+  // Sentinel spans (sr-only, tabIndex=0) sit before the wrapper so that the
+  // browser's native Tab lands on a tiny invisible element instead of the tall
+  // wrapper div — preventing Chrome from scrolling the wrapper into view.
+  const handleSentinelFocus = useCallback(
+    (e: React.FocusEvent<HTMLSpanElement>) => {
+      // Ignore if focus came from inside the table (e.g. Shift+Tab from first cell)
+      if (
+        e.relatedTarget &&
+        wrapperRef.current?.contains(e.relatedTarget as Node)
+      )
+        return;
+      wrapperRef.current?.focus({ preventScroll: true });
+    },
+    [],
+  );
+
   const handleFocus = useCallback(
     (e: React.FocusEvent<HTMLDivElement>) => {
       if (e.target !== e.currentTarget) return;
@@ -170,6 +186,7 @@ export function useTableNavigation({
     selectCell,
     editCell,
     exitEdit,
+    handleSentinelFocus,
     handleFocus,
     handleKeyDown,
   };

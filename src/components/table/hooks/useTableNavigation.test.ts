@@ -196,6 +196,61 @@ describe("useTableNavigation navigate boundaries", () => {
 })
 
 // ---------------------------------------------------------------------------
+// handleSentinelFocus
+// ---------------------------------------------------------------------------
+
+describe("useTableNavigation handleSentinelFocus", () => {
+  it("calls focus({ preventScroll: true }) on the wrapper when focus comes from outside", () => {
+    const { result } = setup()
+    const focusMock = vi.fn()
+    // Attach a mock wrapper element to the wrapperRef
+    Object.defineProperty(result.current.wrapperRef, "current", {
+      value: { focus: focusMock, contains: () => false },
+      writable: true,
+    })
+
+    const event = {
+      relatedTarget: document.createElement("div"),
+    } as unknown as React.FocusEvent<HTMLSpanElement>
+
+    act(() => result.current.handleSentinelFocus(event))
+    expect(focusMock).toHaveBeenCalledWith({ preventScroll: true })
+  })
+
+  it("does not redirect focus when relatedTarget is inside the table", () => {
+    const { result } = setup()
+    const focusMock = vi.fn()
+    Object.defineProperty(result.current.wrapperRef, "current", {
+      value: { focus: focusMock, contains: () => true },
+      writable: true,
+    })
+
+    const event = {
+      relatedTarget: document.createElement("div"),
+    } as unknown as React.FocusEvent<HTMLSpanElement>
+
+    act(() => result.current.handleSentinelFocus(event))
+    expect(focusMock).not.toHaveBeenCalled()
+  })
+
+  it("redirects focus when relatedTarget is null (e.g. page load Tab)", () => {
+    const { result } = setup()
+    const focusMock = vi.fn()
+    Object.defineProperty(result.current.wrapperRef, "current", {
+      value: { focus: focusMock, contains: () => false },
+      writable: true,
+    })
+
+    const event = {
+      relatedTarget: null,
+    } as unknown as React.FocusEvent<HTMLSpanElement>
+
+    act(() => result.current.handleSentinelFocus(event))
+    expect(focusMock).toHaveBeenCalledWith({ preventScroll: true })
+  })
+})
+
+// ---------------------------------------------------------------------------
 // handleFocus
 // ---------------------------------------------------------------------------
 

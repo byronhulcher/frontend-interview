@@ -71,6 +71,7 @@ function DataTableContent({
     selectCell,
     editCell,
     exitEdit,
+    handleSentinelFocus,
     handleFocus,
     handleKeyDown,
   } = useTableNavigation({ numRows, numCols, store });
@@ -137,13 +138,20 @@ function DataTableContent({
   // tabIndex={0} lets the wrapper receive focus so keyboard events are captured.
   // outline-none removes the browser's default focus ring (cells show their own rings).
   return (
-    <div
-      ref={wrapperRef}
-      tabIndex={0}
-      onFocus={handleFocus}
-      onKeyDown={handleKeyDown}
-      className="outline-none"
-    >
+    <>
+      <span
+        tabIndex={0}
+        onFocus={handleSentinelFocus}
+        aria-hidden="true"
+        className="sr-only"
+      />
+      <div
+        ref={wrapperRef}
+        tabIndex={-1}
+        onFocus={handleFocus}
+        onKeyDown={handleKeyDown}
+        className="outline-none"
+      >
       <Table>
         <TableHeader>
           <TableRow>
@@ -155,5 +163,6 @@ function DataTableContent({
         <TableBody>{rows}</TableBody>
       </Table>
     </div>
+    </>
   );
 }
