@@ -26,7 +26,7 @@ export const TableCellWrapper = memo(function TableCellWrapper({
   isFocused,
   isEditing,
 }: TableCellWrapperProps) {
-  const { tableId, dispatch, registerCellRef, dataMap } = useTableStableContext()
+  const { dispatch, registerCellRef, dataMap } = useTableStableContext()
   const { isShaking, triggerShake, onAnimationEnd } = useShake()
   const isEditable = column.editable !== false
 
@@ -65,7 +65,6 @@ export const TableCellWrapper = memo(function TableCellWrapper({
   const handleFocus = useCallback((e: React.FocusEvent) => {
     if (e.target !== e.currentTarget) return
     if (!isFocused) {
-      console.log(`[TableCellWrapper:${tableId}] FOCUS_CELL dispatch`, { rowIndex, colIndex, activeElement: document.activeElement })
       dispatch({ type: "FOCUS_CELL", coord: { row: rowIndex, col: colIndex } })
     }
   }, [isFocused, dispatch, rowIndex, colIndex])

@@ -55,14 +55,12 @@ function notifyFocusChange() {
   // else is focused) would immediately close the popper on open.
   const focusMovedToKnownElement = focusPath.size > 0
 
-  console.log('[useFocusWithin] notifyFocusChange', { activeElement: active, focusPathSize: focusPath.size, focusMovedToKnownElement })
   for (const [id, entry] of registry) {
     const inPath = focusPath.has(id)
     const wasFocused = entry.wasFocused
     entry.wasFocused = inPath
     entry.setFocused(inPath)
     if (!inPath && wasFocused && focusMovedToKnownElement) {
-      console.log('[useFocusWithin] calling onClose for', id)
       entry.onClose()
     }
   }

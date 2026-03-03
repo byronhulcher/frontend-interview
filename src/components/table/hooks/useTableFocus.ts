@@ -8,6 +8,7 @@ function focusElement(el: HTMLElement) {
 }
 
 interface UseTableFocusOptions {
+  containerRef: RefObject<HTMLDivElement | null>
   sentinelFocusing: RefObject<boolean>
 }
 
@@ -15,7 +16,7 @@ interface UseTableFocusOptions {
  * Imperatively moves DOM focus to match the reducer's focusedCell state,
  * and restores focus to the cell wrapper when exiting edit mode.
  */
-export function useTableFocus({ sentinelFocusing }: UseTableFocusOptions) {
+export function useTableFocus({ containerRef, sentinelFocusing }: UseTableFocusOptions) {
   const { state } = useTableReactiveContext()
   const { tableId, dispatch, cellRefs } = useTableStableContext()
   const { focusedCell, editingCell } = state
@@ -28,12 +29,13 @@ export function useTableFocus({ sentinelFocusing }: UseTableFocusOptions) {
   useLayoutEffect(() => {
     if (focusedCell && !editingCell) {
       const el = cellRefs.current[focusedCell.row]?.[focusedCell.col]
-      if (el && document.activeElement !== el) {
-        console.log(`[useTableFocus:${tableId}] navigate: focusing cell`, { focusedCell, activeElement: document.activeElement })
+      const active = document.activeElement
+      const focusIsRelevant = !active || active === document.body || containerRef.current?.contains(active)
+      if (el && active !== el && focusIsRelevant) {
         focusElement(el)
       }
     }
-  }, [tableId, focusedCell, editingCell, cellRefs])
+  }, [tableId, focusedCell, editingCell, cellRefs, containerRef])
 
   // Restore focus to the cell wrapper when exiting edit mode.
   useLayoutEffect(() => {
@@ -42,20 +44,10 @@ export function useTableFocus({ sentinelFocusing }: UseTableFocusOptions) {
 
     if (prevEditing && !editingCell && focusedCell) {
       const el = cellRefs.current[focusedCell.row]?.[focusedCell.col]
-      if (el && document.activeElement !== el) {
-        console.log(`[useTableFocus:${tableId}] restore-edit: focusing cell`, {
-          prevEditing,
-          focusedCell,
-          activeElement: document.activeElement,
-        })
+      const active = document.activeElement
+      const focusIsRelevant = !active || active === document.body || containerRef.current?.contains(active)
+      if (el && active !== el && focusIsRelevant) {
         focusElement(el)
-      } else {
-        console.log(`[useTableFocus:${tableId}] restore-edit: skipped`, {
-          hasEl: !!el,
-          alreadyFocused: document.activeElement === el,
-          focusedCell,
-          activeElement: document.activeElement,
-        })
       }
     }
   }, [tableId, editingCell, focusedCell, cellRefs])

@@ -78,21 +78,8 @@ export const PopperTableCell = memo(function PopperTableCell({
   // Register table so the change-tracking context can compute dirty counts.
   useRegisterTable(tableId, innerData, baselineData)
 
-  const prevOpenRef = useRef(open)
-  const prevIsEditingRef = useRef(isEditing)
-  if (prevOpenRef.current !== open || prevIsEditingRef.current !== isEditing) {
-    console.log(`[PopperTableCell:${rowId}] render`, {
-      prevOpen: prevOpenRef.current, open,
-      prevIsEditing: prevIsEditingRef.current, isEditing,
-      dangerousState: isEditing && !open,
-    })
-    prevOpenRef.current = open
-    prevIsEditingRef.current = isEditing
-  }
-
   useLayoutEffect(() => {
     if (isEditing && !open) {
-      console.log('[PopperTableCell] focusing button', { rowId, isEditing, open })
       buttonRef.current?.focus({ focusVisible: true } as FocusOptions & {
         focusVisible: boolean
       })
@@ -106,7 +93,6 @@ export const PopperTableCell = memo(function PopperTableCell({
 
   const { Wrapper, ref: focusRef } = useFocusWithin({
     onClose: () => {
-      console.log(`[PopperTableCell:${rowId}] onClose fired`, { open, activeElement: document.activeElement })
       if (open) closePopper()
     },
   })

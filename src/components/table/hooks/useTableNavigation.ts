@@ -18,7 +18,7 @@ export function useTableNavigation() {
     sentinelFocusing,
   } = useTableSentinels({ containerRef })
 
-  const { handleFocus } = useTableFocus({ sentinelFocusing })
+  const { handleFocus } = useTableFocus({ containerRef, sentinelFocusing })
 
   const { handleKeyDown } = useTableKeyboard({
     containerRef,
