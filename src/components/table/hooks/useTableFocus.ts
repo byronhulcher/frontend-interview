@@ -17,7 +17,7 @@ interface UseTableFocusOptions {
  */
 export function useTableFocus({ sentinelFocusing }: UseTableFocusOptions) {
   const { state } = useTableReactiveContext()
-  const { dispatch, cellRefs } = useTableStableContext()
+  const { tableId, dispatch, cellRefs } = useTableStableContext()
   const { focusedCell, editingCell } = state
 
   const prevEditingRef = useRef(editingCell)
@@ -28,9 +28,12 @@ export function useTableFocus({ sentinelFocusing }: UseTableFocusOptions) {
   useLayoutEffect(() => {
     if (focusedCell && !editingCell) {
       const el = cellRefs.current[focusedCell.row]?.[focusedCell.col]
-      if (el && document.activeElement !== el) focusElement(el)
+      if (el && document.activeElement !== el) {
+        console.log(`[useTableFocus:${tableId}] navigate: focusing cell`, { focusedCell, activeElement: document.activeElement })
+        focusElement(el)
+      }
     }
-  }, [focusedCell, editingCell, cellRefs])
+  }, [tableId, focusedCell, editingCell, cellRefs])
 
   // Restore focus to the cell wrapper when exiting edit mode.
   useLayoutEffect(() => {
@@ -39,9 +42,23 @@ export function useTableFocus({ sentinelFocusing }: UseTableFocusOptions) {
 
     if (prevEditing && !editingCell && focusedCell) {
       const el = cellRefs.current[focusedCell.row]?.[focusedCell.col]
-      if (el) focusElement(el)
+      if (el && document.activeElement !== el) {
+        console.log(`[useTableFocus:${tableId}] restore-edit: focusing cell`, {
+          prevEditing,
+          focusedCell,
+          activeElement: document.activeElement,
+        })
+        focusElement(el)
+      } else {
+        console.log(`[useTableFocus:${tableId}] restore-edit: skipped`, {
+          hasEl: !!el,
+          alreadyFocused: document.activeElement === el,
+          focusedCell,
+          activeElement: document.activeElement,
+        })
+      }
     }
-  }, [editingCell, focusedCell, cellRefs])
+  }, [tableId, editingCell, focusedCell, cellRefs])
 
   // On initial container focus, select the first header cell.
   const handleFocus = useCallback(() => {

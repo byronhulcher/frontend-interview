@@ -40,7 +40,11 @@ export function useTableKeyboard({
         return
       }
 
-      e.stopPropagation()
+      // Escape when not editing should bubble so parent poppers can close.
+      // All other handled keys (arrows, Tab, Enter, Escape+editing) stop here.
+      if (!(e.key === "Escape" && !editingCell)) {
+        e.stopPropagation()
+      }
 
       const { row, col } = focusedCell
 

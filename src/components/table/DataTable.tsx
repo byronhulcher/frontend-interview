@@ -14,6 +14,7 @@ import { useTableNavigation } from "./hooks/useTableNavigation"
 import { sortData } from "./utils/sortData"
 
 interface DataTableProps {
+  tableId?: string
   columns: ColumnDefinition[]
   data: TableData[]
   dataMap: Map<unknown, TableData>
@@ -21,6 +22,7 @@ interface DataTableProps {
 }
 
 export function DataTable({
+  tableId = "root",
   columns,
   data,
   dataMap,
@@ -64,8 +66,8 @@ export function DataTable({
   )
 
   const stableContextValue = useMemo(
-    () => ({ dispatch, registerCellRef, cellRefs, dataMap }),
-    [dispatch, registerCellRef, cellRefs, dataMap],
+    () => ({ tableId, dispatch, registerCellRef, cellRefs, dataMap }),
+    [tableId, dispatch, registerCellRef, cellRefs, dataMap],
   )
 
   return (

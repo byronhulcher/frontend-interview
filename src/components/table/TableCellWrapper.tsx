@@ -5,6 +5,7 @@ import { CellRenderer } from "./CellRenderer"
 import { useShake } from "./hooks/useShake"
 import { cn } from "@/lib/utils"
 import type { ColumnDefinition, TableData } from "./types"
+import { useFocusWithin } from "@/hooks/useFocusWithin"
 
 interface TableCellWrapperProps {
   rowIndex: number
@@ -25,7 +26,7 @@ export const TableCellWrapper = memo(function TableCellWrapper({
   isFocused,
   isEditing,
 }: TableCellWrapperProps) {
-  const { dispatch, registerCellRef, dataMap } = useTableStableContext()
+  const { tableId, dispatch, registerCellRef, dataMap } = useTableStableContext()
   const { isShaking, triggerShake, onAnimationEnd } = useShake()
   const isEditable = column.editable !== false
 
@@ -51,12 +52,23 @@ export const TableCellWrapper = memo(function TableCellWrapper({
     [isFocused, isEditing, isEditable, triggerShake],
   )
 
+  const { isFocusedWithin, ref: focusRef, Wrapper } = useFocusWithin()
+
   const cellRef = useCallback(
     (el: HTMLElement | null) => {
       registerCellRef(rowIndex, colIndex, el)
+      focusRef(el)
     },
-    [registerCellRef, rowIndex, colIndex],
+    [registerCellRef, rowIndex, colIndex, focusRef],
   )
+
+  const handleFocus = useCallback((e: React.FocusEvent) => {
+    if (e.target !== e.currentTarget) return
+    if (!isFocused) {
+      console.log(`[TableCellWrapper:${tableId}] FOCUS_CELL dispatch`, { rowIndex, colIndex, activeElement: document.activeElement })
+      dispatch({ type: "FOCUS_CELL", coord: { row: rowIndex, col: colIndex } })
+    }
+  }, [isFocused, dispatch, rowIndex, colIndex])
 
   const handleClick = useCallback(() => {
     const coord = { row: rowIndex, col: colIndex }
@@ -70,26 +82,29 @@ export const TableCellWrapper = memo(function TableCellWrapper({
   }, [rowIndex, colIndex, isFocused, isEditable, dispatch, triggerShake])
 
   return (
-    <TableCell
-      ref={cellRef}
-      tabIndex={isFocused ? 0 : -1}
-      className={cn(
-        "cursor-default select-none focus-visible:outline-none",
-        isShaking && "animate-shake",
-        isDirty && !isEditing && "bg-yellow-50 dark:bg-yellow-950/20",
-        isFocused && !isEditing && "ring-2 ring-inset ring-blue-400",
-        isEditing && "ring-2 ring-inset ring-orange-400",
-      )}
-      onAnimationEnd={onAnimationEnd}
-      onKeyDown={handleKeyDown}
-      onClick={handleClick}
-    >
-      <CellRenderer
-        column={column}
-        row={row}
-        internalRowIndex={internalRowIndex}
-        isEditing={isEditing}
-      />
-    </TableCell>
+    <Wrapper>
+      <TableCell
+        ref={cellRef}
+        tabIndex={isFocused ? 0 : -1}
+        className={cn(
+          "cursor-default select-none focus-visible:outline-none",
+          isShaking && "animate-shake",
+          isDirty && !isEditing && "bg-yellow-50 dark:bg-yellow-950/20",
+          isFocusedWithin && !isEditing && "ring-2 ring-inset ring-blue-400",
+          isEditing && "ring-2 ring-inset ring-orange-400",
+        )}
+        onAnimationEnd={onAnimationEnd}
+        onFocus={handleFocus}
+        onKeyDown={handleKeyDown}
+        onClick={handleClick}
+      >
+        <CellRenderer
+          column={column}
+          row={row}
+          internalRowIndex={internalRowIndex}
+          isEditing={isEditing}
+        />
+      </TableCell>
+    </Wrapper>
   )
 })

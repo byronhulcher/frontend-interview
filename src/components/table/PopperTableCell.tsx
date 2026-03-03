@@ -24,6 +24,7 @@ import {
   NestingPathProvider,
   useNestingPath,
 } from "@/context/ChangeTrackingContext"
+import { useFocusWithin } from "@/hooks/useFocusWithin"
 
 interface PopperTableCellProps extends Omit<
   EditableCellProps<string>,
@@ -77,18 +78,38 @@ export const PopperTableCell = memo(function PopperTableCell({
   // Register table so the change-tracking context can compute dirty counts.
   useRegisterTable(tableId, innerData, baselineData)
 
+  const prevOpenRef = useRef(open)
+  const prevIsEditingRef = useRef(isEditing)
+  if (prevOpenRef.current !== open || prevIsEditingRef.current !== isEditing) {
+    console.log(`[PopperTableCell:${rowId}] render`, {
+      prevOpen: prevOpenRef.current, open,
+      prevIsEditing: prevIsEditingRef.current, isEditing,
+      dangerousState: isEditing && !open,
+    })
+    prevOpenRef.current = open
+    prevIsEditingRef.current = isEditing
+  }
+
   useLayoutEffect(() => {
     if (isEditing && !open) {
+      console.log('[PopperTableCell] focusing button', { rowId, isEditing, open })
       buttonRef.current?.focus({ focusVisible: true } as FocusOptions & {
         focusVisible: boolean
       })
     }
-  }, [isEditing, open])
+  }, [isEditing, open, rowId])
 
   const closePopper = useCallback(() => {
     setOpen(false)
     onExitEdit()
   }, [onExitEdit])
+
+  const { Wrapper, ref: focusRef } = useFocusWithin({
+    onClose: () => {
+      console.log(`[PopperTableCell:${rowId}] onClose fired`, { open, activeElement: document.activeElement })
+      if (open) closePopper()
+    },
+  })
 
   function handleButtonKeyDown(e: React.KeyboardEvent<HTMLButtonElement>) {
     if (e.key === "Enter") {
@@ -122,6 +143,8 @@ export const PopperTableCell = memo(function PopperTableCell({
   }
 
   return (
+    <Wrapper>
+    <div ref={focusRef}>
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
         <Button
@@ -156,6 +179,7 @@ export const PopperTableCell = memo(function PopperTableCell({
           {innerData.length > 0 ? (
             <NestingPathProvider segment={rowId}>
               <DataTable
+                tableId={tableId}
                 columns={columns}
                 data={innerData}
                 dataMap={innerDataMap}
@@ -183,5 +207,7 @@ export const PopperTableCell = memo(function PopperTableCell({
         </div>
       </PopoverContent>
     </Popover>
+    </div>
+    </Wrapper>
   )
 })

@@ -12,6 +12,7 @@ import type { TableAction } from "./TableReactiveContext"
 // Subscribing to this context will never trigger a re-render, making it safe
 // to read from memoized per-cell components without defeating memo.
 export interface TableStableContextValue {
+  tableId: string
   dispatch: Dispatch<TableAction>
   registerCellRef: (row: number, col: number, el: HTMLElement | null) => void
   cellRefs: RefObject<(HTMLElement | null)[][]>
