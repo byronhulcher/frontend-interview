@@ -46,7 +46,8 @@ function PopperTableCellComponent({
   cellPath,
 }: PopperTableCellProps) {
   const [open, setOpen] = useState(false);
-  const [nestedData, setNestedData] = useState<TableData[] | null>(null);
+  const [loaded, setLoaded] = useState(false);
+  const seedRef = useRef<TableData[]>([]);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const pointerDownRef = useRef(false);
   const { handleKeyDown } = useCellKeyboard({ onExitEdit, onNavigate });
@@ -69,12 +70,12 @@ function PopperTableCellComponent({
 
 
   const handleOpenChange = (nextOpen: boolean) => {
-    if (nextOpen && nestedData === null) {
-      // Lazy init — simulates an async AJAX call made on first open.
+    if (nextOpen && !loaded) {
+      // Lazy init — seed the store on first open if no data exists yet.
       const stored = cellPath ? getData(cellPath) : null;
-      const rows = stored ?? generateData();
-      if (!stored && cellPath) setData(cellPath, rows);
-      setNestedData(rows);
+      seedRef.current = stored ?? generateData();
+      if (!stored && cellPath) setData(cellPath, seedRef.current);
+      setLoaded(true);
     }
     setOpen(nextOpen);
     // Closing the popover for any reason (Escape, outside click, programmatic
@@ -82,21 +83,6 @@ function PopperTableCellComponent({
     if (!nextOpen) {
       onExitEdit?.();
     }
-  };
-
-  const handleNestedCellChange = (
-    rowIndex: number,
-    key: string,
-    val: unknown,
-  ) => {
-    setNestedData((prev) => {
-      if (!prev) return prev;
-      const updated = prev.map((row, i) =>
-        i === rowIndex ? { ...row, [key]: val } : row,
-      );
-      if (cellPath) setData(cellPath, updated);
-      return updated;
-    });
   };
 
   return (
@@ -162,14 +148,13 @@ function PopperTableCellComponent({
             }
           }}
         >
-          {nestedData === null ? (
+          {!loaded ? (
             <p className="p-4 text-sm text-muted-foreground">Loading…</p>
           ) : (
             <DataTable
               columns={nestedColumns}
-              data={nestedData}
+              data={seedRef.current}
               basePath={cellPath}
-              onCellChange={handleNestedCellChange}
             />
           )}
         </PopoverContent>

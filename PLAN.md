@@ -347,27 +347,26 @@ shared logic from `TextCell` and `NumberCell`: `localValue` state, `inputRef` au
 
 ## Test Summary
 
+All files under `src/components/table/` unless otherwise noted.
+
 | File                                            | Tests   | Status        |
 | ----------------------------------------------- | ------- | ------------- |
 | `DataTable.test.tsx`                            | 23      | ✅ Passing    |
-| `DataTable.integration.test.tsx`                | 1       | ✅ Passing    |
-| `cells/DataTableCell.test.tsx`                  | 18      | ✅ Passing    |
-| `cells/TextTableCell.test.tsx`                  | 14      | ✅ Passing    |
-| `cells/TextCell.test.tsx`                       | 14      | ✅ Passing    |
-| `cells/NumberTableCell.test.tsx`                | 12      | ✅ Passing    |
-| `cells/NumberCell.test.tsx`                     | 12      | ✅ Passing    |
-| `cells/BoolTableCell.test.tsx`                  | 14      | ✅ Passing    |
-| `cells/BoolCell.test.tsx`                       | 14      | ✅ Passing    |
-| `cells/PopperTableCell.test.tsx`                | 17      | ✅ Passing    |
-| `cells/PopperCell.test.tsx`                     | 22      | ✅ Passing    |
-| `cells/CellShell.test.tsx`                      | 24      | ✅ Passing    |
-| `cells/hooks/useCellKeyboard.test.tsx`          | 10      | ✅ Passing    |
-| `cells/hooks/useEditableCell.test.tsx`          | 10      | ✅ Passing    |
+| `DataTable.integration.test.tsx`                | 2       | ✅ Passing    |
+| `DataTableCell.test.tsx`                        | 18      | ✅ Passing    |
+| `TextTableCell.test.tsx`                        | 14      | ✅ Passing    |
+| `NumberTableCell.test.tsx`                      | 15      | ✅ Passing    |
+| `BoolTableCell.test.tsx`                        | 14      | ✅ Passing    |
+| `PopperTableCell.test.tsx`                      | 23      | ✅ Passing    |
+| `CellShell.test.tsx`                            | 24      | ✅ Passing    |
+| `hooks/useCellKeyboard.test.tsx`                | 10      | ✅ Passing    |
+| `hooks/useEditableCell.test.tsx`                | 10      | ✅ Passing    |
 | `hooks/useTableNavigation.test.ts`              | 35      | ✅ Passing    |
-| `hooks/useTableNavigation.integration.test.tsx` | 3       | ✅ Passing    |
+| `hooks/useTableNavigation.integration.test.tsx` | 4       | ✅ Passing    |
 | `data/nestedDataStore/NestedDataStore.test.tsx` | 8       | ✅ Passing    |
+| `data/generateData.test.ts`                     | 11      | ✅ Passing    |
 | `test-setup.test.ts`                            | 2       | ✅ Passing    |
-| **Total**                                       | **210** | **All green** |
+| **Total**                                       | **213** | **All green** |
 
 Run tests: `pnpm test` (watch) or `pnpm test:run` (single pass)
 
@@ -474,6 +473,59 @@ cascade:
   assertions; focus behavior verified manually in Chrome.
 
 - 13 tests added across 5 files; all 213 tests pass.
+
+---
+
+### ✅ Step 14 — Unified data layer via NestedDataStore
+
+**Problem**
+
+Data management was split across two mechanisms: the root table required its
+parent (`App.tsx`) to hold `useState` + `onCellChange`, while nested tables
+used `NestedDataStore` for persistence across mount/unmount cycles. This meant
+two separate code paths for the same concern, and the root table couldn't
+persist edits without explicit wiring in the host component.
+
+**Solution — root table is the N+1th store entry**
+
+`DataTable` now self-manages its data via `NestedDataStore`. Every table
+(root or nested) is just another entry in the store, keyed by `basePath`.
+
+**DataTable changes** (`DataTable.tsx`)
+
+- Imports `useNestedDataStore` and adds internal `useState<TableData[]>`
+- State initialiser: `getData(basePath) ?? seedData` — prefers stored data,
+  falls back to the `data` prop as initial seed
+- On cell edit: updates local state + calls `storeSet(basePath, updated)`
+- `data` prop is now optional (defaults to `[]`); `onCellChange` remains as
+  an optional notification callback for parents that want to observe edits
+- Tests without `NestedDataStoreProvider` get `noopStore` (getData → null,
+  setData → no-op), so DataTable falls back to the `data` prop — existing
+  tests pass unmodified
+
+**PopperTableCell changes** (`PopperTableCell.tsx`)
+
+- Removed `nestedData` state and `handleNestedCellChange` callback
+- Uses a `seedRef` to hold generated data and passes it as the `data` prop
+  to the nested `DataTable` (fallback for tests without a store provider)
+- Uses a `loaded` boolean instead of `nestedData !== null` for the
+  loading/ready toggle
+- No longer passes `onCellChange` — DataTable handles edits internally
+
+**App.tsx changes**
+
+- Removed `useState` and `handleCellChange`
+- Passes `data={initialData}` as seed; DataTable persists edits via the store
+
+**Test changes** (`PopperTableCell.test.tsx`)
+
+- Added `NestedDataStoreProvider` import and `withStore` option to `setup()`
+- Tests that verify data persistence across popover close/reopen now use
+  `{ withStore: true }` and pass unique `cellPath` values
+- Replaced "handles nested data change when nestedData is null" test
+  (tested removed functionality) with "allows editing cells in the nested
+  table" test
+- All 213 tests pass
 
 ---
 

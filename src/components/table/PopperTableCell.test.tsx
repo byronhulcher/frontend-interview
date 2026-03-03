@@ -2,6 +2,7 @@ import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { vi } from "vitest";
 import { PopperTableCell } from "./PopperTableCell";
+import { NestedDataStoreProvider } from "../../data/nestedDataStore/NestedDataStoreProvider";
 import type { CellProps } from "./types";
 
 const baseProps: CellProps & { triggerText?: string } = {
@@ -14,17 +15,18 @@ const baseProps: CellProps & { triggerText?: string } = {
   onNavigate: vi.fn(),
 };
 
-function setup(props = baseProps) {
+function setup(props = baseProps, { withStore = false } = {}) {
   const user = userEvent.setup();
-  render(
+  const table = (
     <table>
       <tbody>
         <tr>
           <PopperTableCell {...props} />
         </tr>
       </tbody>
-    </table>,
+    </table>
   );
+  render(withStore ? <NestedDataStoreProvider>{table}</NestedDataStoreProvider> : table);
   return { user, cell: screen.getByRole("cell") };
 }
 
@@ -169,14 +171,15 @@ describe("PopperTableCell", () => {
         ...baseProps,
         isSelected: true,
         isEditing: true,
-      });
+        cellPath: "test-stable",
+      }, { withStore: true });
       await user.keyboard("{Enter}");
       const firstTexts = within(getNestedTable())
         .getAllByRole("cell")
         .map((c) => c.textContent);
       await user.keyboard("{Escape}"); // close — portal unmounts
       await user.keyboard("{Enter}"); // reopen — portal remounts from persisted state
-      // Re-query after remount; data comes from PopperTableCell's state, not regenerated
+      // Re-query after remount; data comes from the store, not regenerated
       const secondTexts = within(getNestedTable())
         .getAllByRole("cell")
         .map((c) => c.textContent);
@@ -188,7 +191,8 @@ describe("PopperTableCell", () => {
         ...baseProps,
         isSelected: true,
         isEditing: true,
-      });
+        cellPath: "test-persist",
+      }, { withStore: true });
       await user.keyboard("{Enter}"); // open → Radix auto-focuses DataTable wrapper → cell (0,0) auto-selected
       // (0,0) is already selected via handleFocus; one click enters editing
       await user.click(within(getNestedTable()).getAllByRole("cell")[0]);
@@ -198,7 +202,7 @@ describe("PopperTableCell", () => {
       await user.keyboard("{Escape}"); // exits edit mode; popover stays open
       await user.keyboard("{Escape}"); // deselects cell; popover closes
       await user.keyboard("{Enter}"); // reopen — DataTable remounts with the persisted data
-      // Re-query after remount; edited value is in PopperTableCell state
+      // Re-query after remount; edited value persisted via the store
       expect(
         within(getNestedTable()).getAllByRole("cell")[0],
       ).toHaveTextContent("persisted");
@@ -211,7 +215,8 @@ describe("PopperTableCell", () => {
         isSelected: true,
         isEditing: true,
         onExitEdit,
-      });
+        cellPath: "test-esc-keep",
+      }, { withStore: true });
       await user.keyboard("{Enter}"); // open → focus moves into nested DataTable wrapper
       await user.click(within(getNestedTable()).getAllByRole("cell")[0]); // enters editing
       onExitEdit.mockClear();
@@ -229,7 +234,8 @@ describe("PopperTableCell", () => {
         isSelected: true,
         isEditing: true,
         onExitEdit,
-      });
+        cellPath: "test-esc-close",
+      }, { withStore: true });
       await user.keyboard("{Enter}"); // open → focus moves into nested DataTable wrapper
       await user.click(within(getNestedTable()).getAllByRole("cell")[0]); // enters editing
       onExitEdit.mockClear();
@@ -238,32 +244,24 @@ describe("PopperTableCell", () => {
       expect(onExitEdit).toHaveBeenCalled();
     });
 
-    it("handles nested data change when nestedData is null", async () => {
+    it("allows editing cells in the nested table", async () => {
       const { user } = setup({
         ...baseProps,
         isSelected: true,
         isEditing: true,
-      });
+        cellPath: "test-edit",
+      }, { withStore: true });
       await user.keyboard("{Enter}"); // open popover
 
-      // Force nestedData to be null and trigger a change
       const nestedTable = getNestedTable();
       const cells = within(nestedTable).getAllByRole("cell");
-      const nameCell = cells.find((cell) =>
-        cell.textContent?.includes("Alice"),
-      );
-
-      if (nameCell) {
-        await user.click(nameCell);
-        await user.click(nameCell); // Enter edit mode
-        const input = within(nameCell).getByRole("textbox");
-        await user.clear(input);
-        await user.type(input, "Test");
-        await user.keyboard("{Enter}");
-      }
-
-      // Test should not throw error even if data is null
-      expect(true).toBe(true); // Just ensure no errors thrown
+      // Click the first cell (company name) to select, then click again to edit
+      await user.click(cells[0]);
+      expect(screen.getByRole("textbox")).toBeInTheDocument();
+      await user.clear(screen.getByRole("textbox"));
+      await user.type(screen.getByRole("textbox"), "Edited");
+      await user.keyboard("{Escape}"); // exit editing
+      expect(cells[0]).toHaveTextContent("Edited");
     });
   });
 

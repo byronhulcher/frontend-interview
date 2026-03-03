@@ -1,4 +1,4 @@
-import { useCallback, useMemo } from "react";
+import { useCallback, useMemo, useState } from "react";
 import {
   Table,
   TableBody,
@@ -11,12 +11,13 @@ import {
   FocusCoordinatorProvider,
   useFocusCoordinator,
 } from "./hooks/FocusCoordinator";
+import { useNestedDataStore } from "../../data/nestedDataStore/useNestedDataStore";
 import type { ColumnDefinition, TableData } from "./types";
 import { DataTableCell } from "./DataTableCell";
 
 interface DataTableProps {
   columns: ColumnDefinition[];
-  data: TableData[];
+  data?: TableData[];
   basePath?: string;
   onCellChange?: (rowIndex: number, key: string, value: unknown) => void;
 }
@@ -42,10 +43,21 @@ export function DataTable(props: DataTableProps) {
 
 function DataTableContent({
   columns,
-  data,
+  data: seedData = [],
   basePath = "",
   onCellChange,
 }: DataTableProps) {
+  const { getData: storeGet, setData: storeSet } = useNestedDataStore();
+
+  // Initialise from the store if data already exists (e.g. nested table that
+  // was previously open), otherwise fall back to the seed prop and persist it.
+  const [data, setData] = useState<TableData[]>(() => {
+    const stored = storeGet(basePath);
+    if (stored) return stored;
+    if (seedData.length > 0) storeSet(basePath, seedData);
+    return seedData;
+  });
+
   const numRows = data.length;
   const numCols = columns.length;
 
@@ -60,16 +72,23 @@ function DataTableContent({
     handleKeyDown,
   } = useTableNavigation({ numRows, numCols });
 
-  // Shared by all cells in this DataTable. Reads activeCell at call-time so it
-  // always reports the currently active row/col, regardless of which cell's
-  // render captured it last (avoids stale-closure row-index issues in tests).
+  // Update local state + store on every cell edit. onCellChange is an optional
+  // notification callback for parents that need to know about edits.
   const handleCellChange = useCallback(
     (v: unknown) => {
-      if (activeCell) {
-        onCellChange?.(activeCell.row, columns[activeCell.col].key, v);
-      }
+      if (!activeCell) return;
+      const { row, col } = activeCell;
+      const key = columns[col].key;
+      setData((prev) => {
+        const updated = prev.map((r, i) =>
+          i === row ? { ...r, [key]: v } : r,
+        );
+        storeSet(basePath, updated);
+        return updated;
+      });
+      onCellChange?.(row, key, v);
     },
-    [activeCell, columns, onCellChange],
+    [activeCell, columns, onCellChange, basePath, storeSet],
   );
 
   // Memoize row rendering to avoid re-rendering unchanged rows
