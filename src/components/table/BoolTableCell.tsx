@@ -1,24 +1,80 @@
-import { TableCell } from "@/components/ui/table"
+import { cn } from "@/lib/utils";
+import { memo } from "react";
+import type { CellProps } from "./types";
+import { CellShell } from "./CellShell";
+import { useEditableCell } from "./hooks/useEditableCell";
 
-interface BoolTableCellProps {
-  value: boolean
+interface BoolTableCellProps extends Partial<CellProps> {
+  value: boolean;
+  onChange?: (value: boolean) => void;
 }
 
-export function BoolTableCell({ value }: BoolTableCellProps) {
+export const BoolTableCell = memo(BoolTableCellComponent);
+
+function BoolTableCellComponent({
+  value,
+  isSelected = false,
+  isEditing = false,
+  onSelect,
+  onEdit,
+  onExitEdit,
+  onNavigate,
+  onChange,
+}: BoolTableCellProps) {
+  const {
+    localValue,
+    setLocalValue,
+    inputRef: selectRef,
+    handleKeyDown,
+    exitAndDiscard,
+  } = useEditableCell<boolean, HTMLSelectElement>({
+    value,
+    isEditing,
+    onChange,
+    onExitEdit,
+    onNavigate,
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const newValue = e.target.value === "true";
+    setLocalValue(newValue);
+    onChange?.(newValue);
+    onExitEdit?.();
+  };
+
   return (
-    <TableCell>
-      <div className="flex items-center justify-center">
-        <span
-          className={`inline-flex items-center rounded-full px-2 py-1 text-xs font-medium ${
-            value
-              ? "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400"
-              : "bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400"
-          }`}
+    <CellShell
+      isSelected={isSelected}
+      isEditing={isEditing}
+      onSelect={onSelect}
+      onEdit={onEdit}
+    >
+      {isEditing ? (
+        <select
+          ref={selectRef}
+          value={String(localValue)}
+          onChange={handleChange}
+          onBlur={exitAndDiscard}
+          onKeyDown={handleKeyDown}
+          className="w-full px-2 py-1 bg-transparent outline-none cursor-pointer"
         >
-          {value ? "✓ True" : "✗ False"}
-        </span>
-      </div>
-    </TableCell>
-  )
+          <option value="true">✓ True</option>
+          <option value="false">✗ False</option>
+        </select>
+      ) : (
+        <div className="flex items-center justify-center">
+          <span
+            className={cn(
+              "inline-flex items-center rounded-full px-2 py-1 text-xs font-medium",
+              localValue
+                ? "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400"
+                : "bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400",
+            )}
+          >
+            {localValue ? "✓ True" : "✗ False"}
+          </span>
+        </div>
+      )}
+    </CellShell>
+  );
 }
-

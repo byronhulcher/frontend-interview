@@ -1,15 +1,33 @@
-export type ColumnType = "text" | "number" | "boolean" | "popper"
+import type { NavigationDirection } from "./hooks/types";
 
-export interface ColumnDefinition<T = any> {
-  key: string
-  header: string
-  type: ColumnType
-  format?: "currency" | "percentage" | "decimal"
-  triggerText?: string
-  accessor?: (row: T) => any
-}
+export type ColumnType = "text" | "number" | "boolean" | "popper";
 
 export interface TableData {
-  [key: string]: any
+  [key: string]: unknown;
 }
 
+type BaseColumn = {
+  key: string;
+  header: string;
+  accessor?: (row: TableData) => unknown;
+};
+
+// Discriminated union so each type only exposes the fields that apply to it.
+// TypeScript narrows automatically in switch(column.type) blocks.
+export type ColumnDefinition =
+  | (BaseColumn & { type: "text" })
+  | (BaseColumn & {
+      type: "number";
+      format?: "currency" | "percentage" | "decimal";
+    })
+  | (BaseColumn & { type: "boolean" })
+  | (BaseColumn & { type: "popper"; triggerText?: string });
+
+export type CellProps = {
+  isSelected: boolean;
+  isEditing: boolean;
+  onSelect: () => void;
+  onEdit: () => void;
+  onExitEdit: () => void;
+  onNavigate: (direction: NavigationDirection) => void;
+};

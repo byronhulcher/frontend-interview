@@ -1,16 +1,56 @@
-import { TableCell } from "@/components/ui/table"
+import { memo } from "react";
+import type { CellProps } from "./types";
+import { CellShell } from "./CellShell";
+import { useEditableCell } from "./hooks/useEditableCell";
 
-interface TextTableCellProps {
-  value: string
+interface TextTableCellProps extends Partial<CellProps> {
+  value: string;
+  onChange?: (value: string) => void;
 }
 
-export function TextTableCell({ value }: TextTableCellProps) {
+export const TextTableCell = memo(TextTableCellComponent);
+
+function TextTableCellComponent({
+  value,
+  isSelected = false,
+  isEditing = false,
+  onSelect,
+  onEdit,
+  onExitEdit,
+  onNavigate,
+  onChange,
+}: TextTableCellProps) {
+  const { localValue, setLocalValue, inputRef, handleKeyDown, exitAndDiscard } =
+    useEditableCell({
+      value,
+      isEditing,
+      onChange,
+      onExitEdit,
+      onNavigate,
+    });
+
   return (
-    <TableCell>
-      <div className="max-w-[200px] truncate" title={value}>
-        {value}
-      </div>
-    </TableCell>
-  )
+    <CellShell
+      isSelected={isSelected}
+      isEditing={isEditing}
+      onSelect={onSelect}
+      onEdit={onEdit}
+    >
+      {isEditing ? (
+        <input
+          ref={inputRef}
+          type="text"
+          value={localValue}
+          onChange={(e) => setLocalValue(e.target.value)}
+          onBlur={exitAndDiscard}
+          onKeyDown={handleKeyDown}
+          className="w-full px-2 py-1 bg-transparent outline-none"
+        />
+      ) : (
+        <div className="max-w-[200px] truncate" title={localValue}>
+          {localValue}
+        </div>
+      )}
+    </CellShell>
+  );
 }
-
